@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace E_commerce_ASP.Models
@@ -79,6 +80,58 @@ namespace E_commerce_ASP.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        [Required]
+        [Display(Name ="Registration type")]
+        public string Nature { get; set; }
+        
+    }
+
+    public class ParticularViewModel
+    {
+        [Required]
+        [Display(Name = "First name")]
+        public string FirstName { get; set; }
+
+        [Required]
+        [Display(Name = "Last name")]
+        public string LastName { get; set; }
+
+        [Required]
+        [Display(Name = "Date of birth")]
+        [DisplayFormat(DataFormatString = "{0:dd--MM-yyyy}")]
+        public DateTime DateOfBirth { get; set; }
+
+        [Required]
+        [Display(Name = "Phone number")]
+        public string PhoneNumber { get; set; }
+
+        [Required]
+        [Display(Name = "Address")]
+        public string Address { get; set; }
+    }
+
+    public class CompanyViewModel
+    {
+        [Required]
+        [Display(Name = "Company name")]
+        public string CompanyName { get; set; }
+
+        [Required]
+        [Display(Name = "Web site")]
+        public string WebSite { get; set; }
+
+        [Required]
+        [Display(Name = "Patent number")]
+        public string NumPatente { get; set; }
+
+        [Required]
+        [Display(Name = "Phone number")]
+        public string PhoneNumber { get; set; }
+
+        [Required]
+        [Display(Name = "Address")]
+        public string Address { get; set; }
     }
 
     public class ResetPasswordViewModel

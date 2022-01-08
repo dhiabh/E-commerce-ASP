@@ -106,3 +106,10 @@ C:\Users\lenovo\Desktop\Info2\S1\ASP\Exam_project\E-commerce-ASP\E-commerce-ASP\
 C:\Users\lenovo\Desktop\Info2\S1\ASP\Exam_project\E-commerce-ASP\E-commerce-ASP\obj\Debug\E-commerce-ASP.dll
 C:\Users\lenovo\Desktop\Info2\S1\ASP\Exam_project\E-commerce-ASP\E-commerce-ASP\obj\Debug\E-commerce-ASP.pdb
 C:\Users\lenovo\Desktop\Info2\S1\ASP\Exam_project\E-commerce-ASP\E-commerce-ASP\obj\Debug\E-commerce-ASP.csproj.AssemblyReference.cache
+C:\Users\lenovo\Desktop\Info2\S1\ASP\Exam_project\E-commerce-ASP\E-commerce-ASP\obj\Debug\E_commerce_ASP.Migrations.InitialCreate.resources
+C:\Users\lenovo\Desktop\Info2\S1\ASP\Exam_project\E-commerce-ASP\E-commerce-ASP\obj\Debug\E-commerce-ASP.csproj.GenerateResource.cache
+C:\Users\lenovo\Desktop\Info2\S1\ASP\Exam_project\E-commerce-ASP\E-commerce-ASP\obj\Debug\E_commerce_ASP.Migrations.Adding_user_attributes.resources
+C:\Users\lenovo\Desktop\Info2\S1\ASP\Exam_project\E-commerce-ASP\E-commerce-ASP\obj\Debug\E_commerce_ASP.Migrations.adding_other_tables.resources
+C:\Users\lenovo\Desktop\Info2\S1\ASP\Exam_project\E-commerce-ASP\E-commerce-ASP\obj\Debug\E_commerce_ASP.Migrations.eee.resources
+C:\Users\lenovo\Desktop\Info2\S1\ASP\Exam_project\E-commerce-ASP\E-commerce-ASP\obj\Debug\E_commerce_ASP.Migrations.aaa.resources
+C:\Users\lenovo\Desktop\Info2\S1\ASP\Exam_project\E-commerce-ASP\E-commerce-ASP\obj\Debug\E_commerce_ASP.Migrations.rrr.resources

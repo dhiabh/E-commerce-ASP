@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using E_commerce_ASP.Models;
+using System.Collections.Generic;
 
 namespace E_commerce_ASP.Controllers
 {
@@ -76,6 +77,13 @@ namespace E_commerce_ASP.Controllers
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
             var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
+
+            var user = await UserManager.FindAsync(model.Email, model.Password);
+            if (UserManager.IsInRole(user.Id, "Admin"))
+            {
+                return RedirectToAction("Index", "Admin");
+            }
+
             switch (result)
             {
                 case SignInStatus.Success:
@@ -139,6 +147,7 @@ namespace E_commerce_ASP.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
+
             return View();
         }
 
@@ -151,7 +160,7 @@ namespace E_commerce_ASP.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, Nature = model.Nature };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -162,14 +171,81 @@ namespace E_commerce_ASP.Controllers
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
-
-                    return RedirectToAction("Index", "Home");
+                    if(model.Nature == "Particular")
+                    {
+                        return RedirectToAction("ParticularParameters", "Account");
+                    }
+                    else
+                    {
+                        return RedirectToAction("CompanyParameters", "Account");
+                    }
+                    
                 }
                 AddErrors(result);
             }
 
             // If we got this far, something failed, redisplay form
             return View(model);
+        }
+
+        public ActionResult ParticularParameters()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> ParticularParameters(ParticularViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
+                user.PhoneNumber = model.PhoneNumber; ;
+                user.FirstName = model.FirstName;
+                user.LastName = model.LastName;
+                user.DateOfBirth = model.DateOfBirth;
+                user.Address = model.Address;
+                //user.UserName = model.FirstName + " " + model.LastName;
+
+                var updateResult = await UserManager.UpdateAsync(user);
+                if(updateResult.Succeeded)
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+                AddErrors(updateResult);
+            }
+
+            return View();
+        }
+
+        public ActionResult CompanyParameters()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> CompanyParameters(CompanyViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
+                user.PhoneNumber = model.PhoneNumber; ;
+                user.CompanyName = model.CompanyName;
+                user.WebSite = model.WebSite;
+                user.Address = model.Address;
+                user.NumPatente = model.NumPatente;
+                //user.UserName = model.CompanyName;
+
+                var updateResult = await UserManager.UpdateAsync(user);
+                if (updateResult.Succeeded)
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+                AddErrors(updateResult);
+            }
+
+            return View();
         }
 
         //

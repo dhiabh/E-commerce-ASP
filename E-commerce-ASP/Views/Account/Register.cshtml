@@ -17,6 +17,21 @@
             @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
         </div>
     </div>
+
+    <div class="form-check">
+        @Html.LabelFor(m => m.Nature, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            <div>
+                @Html.RadioButtonFor(model => model.Nature, "Particular", new {@class = "form-check-input" })
+                @Html.Label("Particular", new { @class = "form-check-label" })
+            </div>
+            <div>
+                @Html.RadioButtonFor(model => model.Nature, "Company", new { @class = "form-check-input" })
+                @Html.Label("Company", new { @class = "form-check-label" })
+            </div>
+        </div>
+    </div>
+
     <div class="form-group">
         @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">

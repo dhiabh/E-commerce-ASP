@@ -38,9 +38,9 @@ namespace E_commerce_ASP.Controllers
                 //upload.SaveAs(path);
                 //p.Image = upload.FileName;
                 p.UserId = "0be37235-0ce3-4a18-8831-bb28c8ff0469";
-                p.Price = product.Price;
+                p.Price = (decimal)product.Price;
                 p.Name = product.Name;
-                p.CategoryId = product.CategoryId;
+                p.CategoryId = (int)product.CategoryId;
                 
                 db.Products.Add(product);
                 db.SaveChanges();

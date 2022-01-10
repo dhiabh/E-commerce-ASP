@@ -1,8 +1,73 @@
-﻿
+﻿@model IEnumerable<E_commerce_ASP.Models.AspNetUsers>
 @{
     ViewBag.Title = "DetailUtilisateur";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>DetailUtilisateur</h2>
+<main>
+    <div class="container-fluid px-4">
+        <h1 class="mt-4">Tous Les Utilisateurs</h1>
+
+        <div class="card mb-4">
+
+        </div>
+        <div class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-table me-1"></i>
+                Détails de tous le utilisateurs
+            </div>
+            <div class="card-body">
+                <table id="datatablesSimple">
+                    <thead>
+                        <tr>
+                            <th>Nom</th>
+                            <th>Prenom</th>
+                            <th>Email</th>
+                            <th>Téléphone</th>
+                            <th>Date de Naissance</th>
+                            <th>Nature</th>
+                            <th>Adresse</th>
+                            <th>Liste Noir</th>
+                            <th>Liste Favoris</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Nom</th>
+                            <th>Prenom</th>
+                            <th>Email</th>
+                            <th>Téléphone</th>
+                            <th>Date de Naissance</th>
+                            <th>Nature</th>
+                            <th>Adresse</th>
+                            <th>Liste Noir</th>
+                            <th>Liste Favoris</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+
+                        @foreach (var item in Model)
+                        {
+
+                            <tr>
+                                <td>@item.LastName</td>
+                                <td>@item.FirstName</td>
+                                <td>@item.Email</td>
+                                <td>@item.PhoneNumber</td>
+                                <td>@item.DateOfBirth.ToString()</td>
+                                <td>@item.Nature</td>
+                                <td>@item.Address</td>
+                                <td>@item.IsInBlackList</td>
+                                <td>@item.IsInFavList</td>
+                            </tr>
+                        }
+
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</main>
+
 

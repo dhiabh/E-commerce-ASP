@@ -15,8 +15,8 @@ namespace E_commerce_ASP.Controllers
         [RequireHttps]
         public ActionResult Index()
         {
-            ViewBag.Products = db.Products.ToList();
-            ViewBag.Categories = new SelectList(db.Categories, "Id", "Name");
+            //ViewBag.Products = db.Products.ToList();
+           // ViewBag.Categories = new SelectList(db.Categories, "Id", "Name");
             return View(db.Products.ToList());
         }
 

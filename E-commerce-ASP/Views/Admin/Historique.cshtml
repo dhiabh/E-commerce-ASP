@@ -1,8 +1,60 @@
-﻿
+﻿@model IEnumerable<E_commerce_ASP.Models.Historique>
 @{
-    ViewBag.Title = "Historique";
+
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Historique</h2>
+<main>
+    <div class="container-fluid px-4">
+        <h1 class="mt-4">Historiques des Produits</h1>
+
+        <div class="card mb-4">
+
+        </div>
+        <div class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-table me-1"></i>
+                Historique
+            </div>
+            <div class="card-body">
+                <table id="datatablesSimple">
+                    <thead>
+                        <tr>
+                            <th>Nom Produit</th>
+                            <th>id Produit</th>
+                            <th>Propretaire</th>
+                            <th>Date</th>
+                            <th>Modification</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Nom Produit</th>
+                            <th>id Produit</th>
+                            <th>Propretaire</th>
+                            <th>Date</th>
+                            <th>Modification</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+
+                        @foreach (var item in Model)
+                        {
+
+                            <tr>
+                                <td>@item.NameProduct</td>
+                                <td>@item.IdProduct</td>
+                                <td>@item.Name</td>
+                                <td>@item.Date.ToString()</td>
+                                <td>@item.Transaction</td>
+                            </tr>
+                        }
+
+
+                        </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</main>
 

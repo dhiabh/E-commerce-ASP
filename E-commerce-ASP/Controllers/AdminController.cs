@@ -31,23 +31,23 @@ namespace E_commerce_ASP.Controllers
 
         public ActionResult Historique()
         {
-            return View();
+            return View(db.Historique.ToList());
         }
 
         public ActionResult DetailUtilisateur()
         {
-            return View();
+            return View(db.AspNetUsers.ToList());
         }
 
 
         public ActionResult ListeNoire()
         {
-            return View();
+            return View(db.AspNetUsers.Where(x => x.IsInBlackList==true).ToList());
         }
 
         public ActionResult ListeFavoris()
         {
-            return View();
+            return View(db.AspNetUsers.Where(x => x.IsInFavList == true).ToList());
         }
     }
 }

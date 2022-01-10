@@ -16,10 +16,10 @@ namespace E_commerce_ASP.Models
     {
         public string Id { get; set; }
         public string Name { get; set; }
-        public decimal Price { get; set; }
+        public Nullable<decimal> Price { get; set; }
         public Nullable<bool> IsInFavList { get; set; }
         public Nullable<bool> IsInBlackList { get; set; }
-        public int CategoryId { get; set; }
+        public Nullable<int> CategoryId { get; set; }
         public string UserId { get; set; }
         public string Image { get; set; }
     

@@ -193,16 +193,24 @@
                                         <div class="nav-inner">
                                             <ul class="nav main-menu menu navbar-nav">
                                                 <li class="active"><a href="#">Home</a></li>
-                                                @if (Request.IsAuthenticated)
-                                                {
-                                                    <li>@Html.ActionLink("My Products", "MyProducts", "Proprietaire")</li>
-                                                    <li>@Html.ActionLink("Add Product", "AddProduct", "Proprietaire")</li>
-                                                    <li>@Html.ActionLink("Historique", "Historique", "Proprietaire")</li>
-                                                    <li>@Html.ActionLink("Declare A Problem", "DeclareProblem", "Proprietaire")</li>
-                                                }
-                                                <li>@Html.ActionLink("Statistique", "Statistique", "Home")</li>
-                                                <li>@Html.ActionLink("Contact Us", "Contact", "Home")</li>
-                                            </ul>
+                                                    @if (Request.IsAuthenticated)
+                                                    {
+                                                        <li>@Html.ActionLink("Add Product", "AddProduct", "Proprietaire")</li>
+                                                    }
+                                                    @if (Request.IsAuthenticated && !User.IsInRole("Admin"))
+                                                    {
+                                                        <li>@Html.ActionLink("My Products", "MyProducts", "Proprietaire")</li>
+
+                                                        <li>@Html.ActionLink("Historique", "Historique", "Proprietaire")</li>
+                                                        <li>@Html.ActionLink("Declare A Problem", "DeclareProblem", "Proprietaire")</li>
+                                                    }
+                                                    @if (User.IsInRole("Admin"))
+                                                    {
+                                                        <li>@Html.ActionLink("Admin DashBoard", "DashBoard", "Admin")</li>
+                                                    }
+                                                    <li>@Html.ActionLink("Statistique", "Statistique", "Home")</li>
+                                                    <li>@Html.ActionLink("About Us", "About", "Home")</li>
+                                                </ul>
                                         </div>
                                     </div>
                                 </nav>

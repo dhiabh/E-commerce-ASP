@@ -435,7 +435,6 @@
     <Content Include="Views\Shared\_NewLayout.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Admin\Tables.cshtml" />
-    <Content Include="Views\Admin\Charts.cshtml" />
     <Content Include="Views\Account\ParticularParameters.cshtml" />
     <Content Include="Views\Account\CompanyParameters.cshtml" />
     <Content Include="Views\Shared\_ManageLayout.cshtml" />
@@ -448,6 +447,12 @@
     <Content Include="Views\Product\Index.cshtml" />
     <Content Include="Views\Product\DeleteProduct.cshtml" />
     <Content Include="Views\Product\EditProduct.cshtml" />
+    <Content Include="Views\Admin\DashBoard.cshtml" />
+    <Content Include="Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Views\Admin\Historique.cshtml" />
+    <Content Include="Views\Admin\DetailUtilisateur.cshtml" />
+    <Content Include="Views\Admin\ListeNoire.cshtml" />
+    <Content Include="Views\Admin\ListeFavoris.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

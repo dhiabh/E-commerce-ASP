@@ -1,0 +1,111 @@
+﻿@model E_commerce_ASP.Models.Product
+@{
+    ViewBag.Title = "AddProduct";
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+}
+
+<!-- Breadcrumbs -->
+<div class="breadcrumbs">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="bread-inner">
+                    <ul class="bread-list">
+                        <li><a href="index1.html">Home<i class="ti-arrow-right"></i></a></li>
+                        <li class="active"><a href="blog-single.html">Add Product</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Breadcrumbs -->
+<!-- Start Contact -->
+<section id="contact-us" class="contact-us section">
+    <div class="container">
+        <div class="contact-head">
+            <div class="row">
+                <div class="col-lg-8 col-12">
+                    <div class="form-main">
+                        <div class="title">
+                            <h4>Add Product</h4>
+                            <h3>Specify your product details please</h3>
+                        </div>
+                        @using (Html.BeginForm("AddProduct", "Proprietaire", FormMethod.Post))
+                        {
+                            @Html.AntiForgeryToken()
+
+                            <div class="row">
+                                <div class="col-lg-6 col-12">
+                                    <div class="form-group">
+                                        <label>Product Name<span></span></label>
+                                        <input name="name" type="text" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-12">
+                                    <div class="form-group">
+                                        <label>Product price<span></span></label>
+                                        <input name="price" type="text" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-12">
+                                    <div class="form-group">
+                                        <label>Category<span></span></label>
+                                        <br />
+                                        @Html.DropDownList("x", ViewBag.e as SelectList, "Selectioner Category", new { htmlAttributes = new { @class = "form-control" } })
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-12">
+                                    <div class="form-group">
+                                        <label>Choisissez uneImage<span></span></label>
+                                        <input type="file" name="upload">
+                                    </div>
+                                </div>
+
+
+                                <div class="col-12">
+                                    <div class="form-group button">
+                                        <button type="submit" class="btn ">Add product</button>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        }
+
+
+                    </div>
+                </div>
+                <div class="col-lg-4 col-12">
+                    <div class="single-head">
+                        <div class="single-info">
+                            <i class="fa fa-phone"></i>
+                            <h4 class="title">Call us Now:</h4>
+                            <ul>
+                                <li>+212 0608129323</li>
+                                <li>+212 0632493393</li>
+                            </ul>
+                        </div>
+                        <div class="single-info">
+                            <i class="fa fa-envelope-open"></i>
+                            <h4 class="title">Email:</h4>
+                            <ul>
+                                <li><a href="mailto:info@yourwebsite.com">Info@ensaf.com</a></li>
+                                <li><a href="mailto:info@yourwebsite.com">support@ensaf.com</a></li>
+                            </ul>
+                        </div>
+                        <div class="single-info">
+                            <i class="fa fa-location-arrow"></i>
+                            <h4 class="title">Our Address:</h4>
+                            <ul>
+                                <li>Route Sefrou Fes</li>
+                                <li>Kingdom of Morocco</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

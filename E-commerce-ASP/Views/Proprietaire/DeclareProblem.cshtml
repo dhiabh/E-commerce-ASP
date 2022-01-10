@@ -1,0 +1,94 @@
+﻿
+@{
+    ViewBag.Title = "DeclareProblem";
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+}
+
+<!-- Breadcrumbs -->
+<div class="breadcrumbs">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="bread-inner">
+                    <ul class="bread-list">
+                        <li><a href="index1.html">Home<i class="ti-arrow-right"></i></a></li>
+                        <li class="active"><a href="blog-single.html">Declare a Problem</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Breadcrumbs -->
+<!-- Start Contact -->
+<section id="contact-us" class="contact-us section">
+    <div class="container">
+        <div class="contact-head">
+            <div class="row">
+                <div class="col-lg-8 col-12">
+                    <div class="form-main">
+                        <div class="title">
+                            <h4>Get in touch With Us</h4>
+                            <h3>Write us Your Problem here Please</h3>
+                        </div>
+                        <form class="form" method="post" action="mail/mail.php">
+                            <div class="row">
+                               
+                                <div class="col-12">
+                                    <div class="form-group message">
+                                        <label>your Complaint<span>*</span></label>
+                                        <textarea name="problem" placeholder=""></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group button">
+                                        <button type="submit" class="btn ">Send Complaint Message</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-12">
+                    <div class="single-head">
+                        <div class="single-info">
+                            <i class="fa fa-phone"></i>
+                            <h4 class="title">Call us Now:</h4>
+                            <ul>
+                                <li>+212 0608129323</li>
+                                <li>+212 0632493393</li>
+                            </ul>
+                        </div>
+                        <div class="single-info">
+                            <i class="fa fa-envelope-open"></i>
+                            <h4 class="title">Email:</h4>
+                            <ul>
+                                <li><a href="mailto:info@yourwebsite.com">Info@ensaf.com</a></li>
+                                <li><a href="mailto:info@yourwebsite.com">support@ensaf.com</a></li>
+                            </ul>
+                        </div>
+                        <div class="single-info">
+                            <i class="fa fa-location-arrow"></i>
+                            <h4 class="title">Our Address:</h4>
+                            <ul>
+                                <li>Route Sefrou Fes</li>
+                                <li>Kingdom of Morocco</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--/ End Contact -->
+<!-- Fancybox JS -->
+@Scripts.Render("~/Content/js/facnybox.min.js")
+
+<!-- Ytplayer JS -->
+@Scripts.Render("~/Content/js/ytplayer.min.js")
+
+<!-- Google Map JS -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDnhgNBg6jrSuqhTeKKEFDWI0_5fZLx0vM"></script>
+@Scripts.Render("~/Content/js/gmap.min.js")
+@Scripts.Render("~/Content/js/map-script.js")

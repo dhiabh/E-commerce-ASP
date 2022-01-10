@@ -1,0 +1,316 @@
+﻿
+@{
+    Layout = null;
+}
+@using Microsoft.AspNet.Identity
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <!-- Meta Tag -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name='copyright' content=''>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Title Tag  -->
+    <title>Eshop - eCommerce HTML5 Template.</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <!-- Web Font -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
+
+    <!-- StyleSheet -->
+    <!-- Bootstrap -->
+    @Styles.Render("~/Content/styles/bootstrap.css")
+    <!-- Magnific Popup -->
+    @Styles.Render("~/Content/styles/magnific-popup.min.css")
+    <!-- Font Awesome -->
+    @Styles.Render("~/Content/styles/font-awesome.css")
+    <!-- Fancybox -->
+    @Styles.Render("~/Content/styles/jquery.fancybox.min.css")
+    <!-- Themify Icons -->
+    @Styles.Render("~/Content/styles/themify-icons.css")
+    <!-- Nice Select CSS -->
+    @Styles.Render("~/Content/styles/niceselect.css")
+    <!-- Animate CSS -->
+    @Styles.Render("~/Content/styles/animate.css")
+    <!-- Flex Slider CSS -->
+    @Styles.Render("~/Content/styles/flex-slider.min.css")
+    <!-- Owl Carousel -->
+    @Styles.Render("~/Content/styles/owl-carousel.css")
+    <!-- Slicknav -->
+    @Styles.Render("~/Content/styles/slicknav.min.css")
+    <!-- Eshop StyleSheet -->
+    @Styles.Render("~/Content/styles/reset.css")
+    @Styles.Render("~/Content/styles/style.css")
+    @Styles.Render("~/Content/styles/responsive.css")
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+</head>
+<body class="js">
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-icon">
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+    <!-- End Preloader -->
+    <!-- Header -->
+    <header class="header shop">
+
+        <div class="middle-inner">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-2 col-md-2 col-12">
+                        <!-- Logo -->
+                        <div class="logo">
+                            <a href="index.html"><img src="~/Content/images/logo.png" alt="logo"></a>
+                        </div>
+                        <!--/ End Logo -->
+                        <!-- Search Form -->
+                        <div class="search-top">
+                            <div class="top-search"><a href="#0"><i class="ti-search"></i></a></div>
+                            <!-- Search Form -->
+                            <div class="search-top">
+                                <form class="search-form">
+                                    <input type="text" placeholder="Search here..." name="search">
+                                    <button value="search" type="submit"><i class="ti-search"></i></button>
+                                </form>
+                            </div>
+                            <!--/ End Search Form -->
+                        </div>
+                        <!--/ End Search Form -->
+                        <div class="mobile-nav"></div>
+                    </div>
+                    <div class="col-lg-6 col-md-4 col-12">
+                        <div class="search-bar-top">
+                            <div class="search-bar">
+                                <select>
+                                    <option selected="selected">All Category</option>
+                                    <option>watch</option>
+                                    <option>mobile</option>
+                                    <option>kid’s item</option>
+                                </select>
+                                <form>
+                                    <input name="search" placeholder="Search Products Here....." type="search">
+                                    <button class="btnn"><i class="ti-search"></i></button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    @if (Request.IsAuthenticated)
+                    {
+                        <div class="col-lg-2 col-md-3 col-6 m-auto">
+                            Hello @User.Identity.GetUserName()!
+                        </div>
+                    }
+                    <div class="col-lg-2 col-md-3 col-12">
+                        <div class="right-bar">
+                            <div class="sinlge-bar">
+                                <ul class="navbar-nav">
+                                    <li class="nav-item dropdown">
+                                        <a class="fa fa-user-circle-o single-icon icon__item nav-link" id="navbarDropdown" data-toggle="dropdown"
+                                           aria-haspopup="true" aria-expanded="false" style="cursor:pointer">
+                                        </a>
+                                        @if (Request.IsAuthenticated)
+                                        {
+                                            using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+                                            {
+                                                @Html.AntiForgeryToken()
+
+                                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                                    <li class="dropdown-item">
+                                                        @if (User.IsInRole("Admin"))
+                                                        {
+                                                            @Html.ActionLink("My account", "Index", "Admin", routeValues: null, htmlAttributes: new { title = "Manage" })
+                                                        }
+                                                        else
+                                                        {
+                                                            @Html.ActionLink("My account", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+                                                        }
+                                                    </li>
+                                                    <li>
+                                                        <hr class="dropdown-divider">
+                                                    </li>
+                                                    <li class="dropdown-item"><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+                                                </ul>
+                                            }
+                                        }
+                                        else
+                                        {
+                                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                                <li class="dropdown-item">@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+                                                <li class="dropdown-item">@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+                                            </ul>
+                                        }
+                                    </li>
+                                </ul>
+
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Header Inner -->
+        <div class="header-inner">
+            <div class="container">
+                <div class="cat-nav-head">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="menu-area">
+                                <!-- Main Menu -->
+                                <nav class="navbar navbar-expand-lg">
+                                    <div class="navbar-collapse">
+                                        <div class="nav-inner">
+                                            <ul class="nav main-menu menu navbar-nav">
+                                                <li class="active">@Html.ActionLink("Home", "Index", "Home")</li>
+                                                <li>@Html.ActionLink("My Products", "MyProducts", "Proprietaire")</li>
+                                                <li>@Html.ActionLink("Add Product", "AddProduct", "Proprietaire")</li>
+                                                <!--
+    <li>
+        <a href="#">Shop<i class="ti-angle-down"></i><span class="new">New</span></a>
+        <ul class="dropdown">
+            <li><a href="cart.html">Cart</a></li>
+            <li><a href="checkout.html">Checkout</a></li>
+        </ul>
+    </li>-->
+                                                <li>@Html.ActionLink("Historique", "Historique", "Proprietaire")</li>
+                                                <!--
+                                                <li>
+                                                    <a href="#">Blog<i class="ti-angle-down"></i></a>
+                                                    <ul class="dropdown">
+                                                        <li><a href="blog-single-sidebar.html">Blog Single Sidebar</a></li>
+                                                    </ul>
+                                                </li>-->
+                                                <li>@Html.ActionLink("Declare A Problem", "DeclareProblem", "Proprietaire")</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </nav>
+                                <!--/ End Main Menu -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--/ End Header Inner -->
+    </header>
+    <!--/ End Header -->
+
+    @RenderBody()
+    <!-- Start Footer Area -->
+    <footer class="footer">
+        <!-- Footer Top -->
+        <div class="footer-top section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-5 col-md-6 col-12">
+                        <!-- Single Widget -->
+                        <div class="single-footer about">
+                            <div class="logo">
+                                <a href="index.html"><img src="~/Content/images/logo2.png" alt="#"></a>
+                            </div>
+                            <p class="text">Our ASP.Net E-Commerce Site</p>
+                            <p class="call">Got Question? Call us 24/7<span><a href="tel:123456789">+0123 456 789</a></span></p>
+                        </div>
+                        <!-- End Single Widget -->
+                    </div>
+                    <div class="col-lg-2 col-md-6 col-12">
+                        <!-- Single Widget -->
+                        <div class="single-footer links">
+                            <h4>Information</h4>
+                            <ul>
+                                <li><a href="#">About Us</a></li>
+                                <li><a href="#">Faqs</a></li>
+                                <li><a href="#">Terms & Conditions</a></li>
+                                <li><a href="#">Contact Us</a></li>
+                                <li><a href="#">Help</a></li>
+                            </ul>
+                        </div>
+                        <!-- End Single Widget -->
+                    </div>
+                    <div class="col-lg-2 col-md-6 col-12">
+                        <!-- Single Widget -->
+                        <div class="single-footer links">
+                            <h4>Customer Service</h4>
+                            <ul>
+                                <li><a href="#">Payment Methods</a></li>
+                                <li><a href="#">Money-back</a></li>
+                                <li><a href="#">Returns</a></li>
+                                <li><a href="#">Shipping</a></li>
+                                <li><a href="#">Privacy Policy</a></li>
+                            </ul>
+                        </div>
+                        <!-- End Single Widget -->
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-12">
+                        <!-- Single Widget -->
+                        <div class="single-footer social">
+                            <h4>Get In Touch</h4>
+                            <!-- Single Widget -->
+                            <div class="contact">
+                                <ul>
+                                    <li>Fes</li>
+                                    <li>Morocco</li>
+                                   
+                                </ul>
+                            </div>
+                            <!-- End Single Widget -->
+                            <ul>
+                                <li><a href="#"><i class="ti-facebook"></i></a></li>
+                                <li><a href="#"><i class="ti-twitter"></i></a></li>
+                                <li><a href="#"><i class="ti-flickr"></i></a></li>
+                                <li><a href="#"><i class="ti-instagram"></i></a></li>
+                            </ul>
+                        </div>
+                        <!-- End Single Widget -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </footer>
+    <!-- /End Footer Area -->
+    <!-- Jquery -->
+    @Scripts.Render("~/Content/js/jquery.min.js")
+    @Scripts.Render("~/Content/js/jquery-migrate-3.0.0.js")
+    @Scripts.Render("~/Content/js/jquery-ui.min.js")
+    <!-- Popper JS -->
+    @Scripts.Render("~/Content/js/popper.min.js")
+    <!-- Bootstrap JS -->
+    @Scripts.Render("~/Content/js/bootstrap.min.js")
+    <!-- Slicknav JS -->
+    @Scripts.Render("~/Content/js/slicknav.min.js")
+    <!-- Owl Carousel JS -->
+    @Scripts.Render("~/Content/js/owl-carousel.js")
+    <!-- Magnific Popup JS -->
+    @Scripts.Render("~/Content/js/magnific-popup.js")
+    <!-- Waypoints JS -->
+    @Scripts.Render("~/Content/js/waypoints.min.js")
+    <!-- Countdown JS -->
+    @Scripts.Render("~/Content/js/finalcountdown.min.js")
+    <!-- Nice Select JS -->
+    @Scripts.Render("~/Content/js/nicesellect.js")
+    <!-- Flex Slider JS -->
+    @Scripts.Render("~/Content/js/flex-slider.js")
+    <!-- ScrollUp JS -->
+    @Scripts.Render("~/Content/js/scrollup.js")
+    <!-- Onepage Nav JS -->
+    @Scripts.Render("~/Content/js/onepage-nav.min.js")
+    <!-- Easing JS -->
+    @Scripts.Render("~/Content/js/easing.js")
+    <!-- Active JS -->
+    @Scripts.Render("~/Content/js/active.js")
+</body>
+</html>
+

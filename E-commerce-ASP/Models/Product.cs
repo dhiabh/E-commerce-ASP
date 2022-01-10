@@ -24,6 +24,8 @@ namespace E_commerce_ASP.Models
         public string UserId { get; set; }
         public ApplicationUser User { get; set; }
 
+        public string Image { set; get; }
+
         public Product()
         {
             IsInFavList = false;

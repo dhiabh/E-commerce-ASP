@@ -1,4 +1,4 @@
-﻿@model IEnumerable<E_commerce_ASP.Models.AspNetUsers>
+﻿@model IEnumerable<E_commerce_ASP.Models.User>
 @{
     ViewBag.Title = "ListeFavoris";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
@@ -27,7 +27,7 @@
                             <th>Date de Naissance</th>
                             <th>Nature</th>
                             <th>Adresse</th>
-                            
+
                         </tr>
                     </thead>
                     <tfoot>
@@ -39,7 +39,7 @@
                             <th>Date de Naissance</th>
                             <th>Nature</th>
                             <th>Adresse</th>
-                            
+
                         </tr>
                     </tfoot>
                     <tbody>
@@ -55,7 +55,7 @@
                                 <td>@item.DateOfBirth.ToString()</td>
                                 <td>@item.Nature</td>
                                 <td>@item.Address</td>
-                               
+
                             </tr>
                         }
 

@@ -106,9 +106,18 @@
                     </div>
                     @if (Request.IsAuthenticated)
                     {
-                        <div class="col-lg-2 col-md-3 col-6 m-auto">
-                            Hello @User.Identity.GetUserName()!
-                        </div>
+                        if (ViewBag.user.Nature == "Particular")
+                        {
+                            <div class="col-lg-2 col-md-3 col-6 m-auto">
+                                Hello @ViewBag.user.FirstName @ViewBag.user.LastName !
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="col-lg-2 col-md-3 col-6 m-auto">
+                                Hello @ViewBag.user.CompanyName!
+                            </div>
+                        }
                     }
                     <div class="col-lg-2 col-md-3 col-12">
                         <div class="right-bar">

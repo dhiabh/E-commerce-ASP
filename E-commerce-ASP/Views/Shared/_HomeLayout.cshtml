@@ -4,6 +4,8 @@
 }
 @using Microsoft.AspNet.Identity
 
+
+
 <!DOCTYPE html>
 
 <html>
@@ -22,8 +24,6 @@
     <link href="https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
 
     <!-- StyleSheet -->
-    <!-- Bootstrap -->
-    @Styles.Render("~/Content/styles/bootstrap.css")
     <!-- Magnific Popup -->
     @Styles.Render("~/Content/styles/magnific-popup.min.css")
     <!-- Font Awesome -->
@@ -46,8 +46,12 @@
     @Styles.Render("~/Content/styles/reset.css")
     @Styles.Render("~/Content/styles/style.css")
     @Styles.Render("~/Content/styles/responsive.css")
+    <!-- Bootstrap -->
+    @Styles.Render("~/Content/styles/bootstrap.css")
+    <!-- Jquery -->
+    @Scripts.Render("~/bundles/jquery")
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
 
 </head>
 <body class="js">
@@ -106,9 +110,39 @@
                     </div>
                     @if (Request.IsAuthenticated)
                     {
-                        <div class="col-lg-2 col-md-3 col-6 m-auto">
-                            Hello @User.Identity.GetUserName()!
-                        </div>
+                        if (ViewBag.user.Nature == "Particular")
+                        {
+                            if (@ViewBag.user.FirstName != null)
+                            {
+                                <div class="col-lg-2 col-md-3 col-6 m-auto">
+                                    Hello @ViewBag.user.FirstName @ViewBag.user.LastName !
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="col-lg-2 col-md-3 col-6 m-auto">
+                                    Hello @ViewBag.user.Email !
+                                </div>
+                            }
+
+                        }
+                        else
+                        {
+                            if (@ViewBag.user.CompanyName != null)
+                            {
+                                <div class="col-lg-2 col-md-3 col-6 m-auto">
+                                    Hello @ViewBag.user.CompanyName!
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="col-lg-2 col-md-3 col-6 m-auto">
+                                    Hello @ViewBag.user.Email !
+                                </div>
+                            }
+
+                        }
+
                     }
                     <div class="col-lg-2 col-md-3 col-12">
                         <div class="right-bar">
@@ -179,7 +213,15 @@
                                                 }
                                                 @if (Request.IsAuthenticated && !User.IsInRole("Admin"))
                                                 {
-                                                    <li>@Html.ActionLink("My Products", "MyProducts", "Proprietaire")</li>
+                                                    
+                                                   E_commerce_ASP.Models.ApplicationDbContext db = new E_commerce_ASP.Models.ApplicationDbContext();
+                                                   string id = User.Identity.GetUserId();
+                                                   var user = db.Users.Where(u => u.Id.Equals(id)).First();
+
+                                                   var realUser = db.RealUsers.Where(u => u.RealId == user.RefId).First();
+
+                                                    
+                                                    <li>@Html.ActionLink("My Products", "MyProducts", "Proprietaire", new { Id = realUser.RealId }, null)</li>
                                                     <li>@Html.ActionLink("Historique", "Historique", "Proprietaire")</li>
                                                     <li>@Html.ActionLink("Declare A Problem", "DeclareProblem", "Proprietaire")</li>
                                                 }
@@ -309,6 +351,8 @@
     @Scripts.Render("~/Content/js/easing.js")
     <!-- Active JS -->
     @Scripts.Render("~/Content/js/active.js")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
 </body>
 </html>
 

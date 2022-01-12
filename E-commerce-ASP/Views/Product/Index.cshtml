@@ -1,59 +1,126 @@
-﻿@model E_commerce_ASP.Models.Products 
+﻿@model E_commerce_ASP.Models.Product
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_HomeLayout.cshtml";
 }
+@using Microsoft.AspNet.Identity
+@{ 
+    E_commerce_ASP.Models.ApplicationDbContext db = new E_commerce_ASP.Models.ApplicationDbContext();
+ }
 
-<div>
-    <h4>Produit</h4>
-    <hr />
-    <table>
-        <tr>
-            <td>
-                <dl class="dl-horizontal">
-                    <dt>
-                        @Html.DisplayNameFor(model => model.Name)
-                    </dt>
-                    <dd>
-                        @Html.DisplayFor(model => model.Name)
-                    </dd>
-                    <dt>
-                        @Html.DisplayNameFor(model => model.Price)
-                    </dt>
 
-                    <dd>
-                        @Html.DisplayFor(model => model.Price)
-                    </dd>
+<div class="d-flex justify-content-center" style="width:100%">
 
-                    <dt>
-                        @Html.DisplayNameFor(model => model.UserId)
-                    </dt>
+    <div class="row mt-5 d-flex">
+        <div class="card col-lg-6 col-md-6 col-12">
+            <img class="card-img-top" src="~/Uploads/@Model.Image" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title"><b>@Model.Name</b></h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Price: <b>@Model.Price DHS</b></li>
+                <li class="list-group-item">
+                    Address: <b>
+                        @{
+                            E_commerce_ASP.Models.User user = db.RealUsers.Where(u => u.RealId == Model.UserId).First();
 
-                    <dd>
-                        @Html.DisplayFor(model => model.UserId)
-                    </dd>
+                        }
+                        @user.Address
+                    </b>
+                </li>
+                <li class="list-group-item">
+                    Category: <b>
+                        @{
+                            E_commerce_ASP.Models.Category category = db.Categories.Where(c => c.Id == Model.CategoryId).First();
 
-                  
-                    <dt>
-                        
-                    </dt>
-                    <dd>
-                        Elyes Bouallegue
-                    </dd>
+                        }
+                        @category.Name
+                    </b>
+                </li>
+                @if (user.Nature == "Particular")
+                {
+                    <li class="list-group-item">Owner: <b>@user.FirstName @user.LastName</b></li>
+                }
+                else
+                {
+                    <li class="list-group-item">Owner: <b>@user.CompanyName</b></li>
+                }
+            </ul>
+            <div class="card-body">
+                @Html.ActionLink("Check owner informations", "MyProducts", "Proprietaire", new { Id = user.RealId }, new { @class = "card-link btn text-white" })
+            </div>
+        </div>
+        @if (Request.IsAuthenticated)
+        {
+            string id = User.Identity.GetUserId();
 
-                </dl>
-            </td>
-            <td>
-                <div class="col-md-1"></div>
-                <div class="col-md-3 ">
-                    <img src="~/Uploads/@Model.Image" style="width:300px;height:300px;margin-left:500px" />
+            var Authuser = db.Users.Where(u => u.Id.Equals(id)).First();
+
+            var realUser = db.RealUsers.Where(u => u.RealId == Authuser.RefId).First();
+
+            if (Model.UserId == realUser.RealId)
+            {
+                <div class="card col-lg-3 col-md-3 col-12 mx-auto align-items-center flex-wrap">
+                    <div class="mb-5">
+                        @Html.ActionLink("Edit Product", "EditProduct", "Product", new { Id = Model.Id }, new { @class = "btn btn-success" })
+
+                    </div>
+                    <div>
+                        @Html.ActionLink("Delete Product", "DeleteProduct", "Product", new { Id = Model.Id }, new { @class = "btn btn-danger" })
+
+                    </div>
 
                 </div>
-            </td>
-        </tr>
-    </table>
-</div>
+            }
 
-<p>
-    @Html.ActionLink("Retour", "Index","Home")
-</p>
+        }
+
+    </div>
+
+    @*<table>
+            <tr>
+                <td>
+                    <dl class="dl-horizontal">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Name)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.Name)
+                        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Price)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Price)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.UserId)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.UserId)
+                        </dd>
+
+
+                        <dt>
+
+                        </dt>
+                        <dd>
+                            Elyes Bouallegue
+                        </dd>
+
+                    </dl>
+                </td>
+                <td>
+                    <div class="col-md-1"></div>
+                    <div class="col-md-3 ">
+                        <img src="~/Uploads/@Model.Image" style="width:300px;height:300px;margin-left:500px" />
+
+                    </div>
+                </td>
+            </tr>
+        </table>*@
+</div>

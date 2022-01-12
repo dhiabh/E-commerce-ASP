@@ -55,8 +55,6 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -198,55 +196,34 @@
     <Compile Include="Migrations\202201081325474_aaa.Designer.cs">
       <DependentUpon>202201081325474_aaa.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202201081348082_rrr.cs" />
-    <Compile Include="Migrations\202201081348082_rrr.Designer.cs">
-      <DependentUpon>202201081348082_rrr.cs</DependentUpon>
+    <Compile Include="Migrations\202201111142090_historique.cs" />
+    <Compile Include="Migrations\202201111142090_historique.Designer.cs">
+      <DependentUpon>202201111142090_historique.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202201111214320_fix database.cs" />
+    <Compile Include="Migrations\202201111214320_fix database.Designer.cs">
+      <DependentUpon>202201111214320_fix database.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202201112148437_Duplicate user table.cs" />
+    <Compile Include="Migrations\202201112148437_Duplicate user table.Designer.cs">
+      <DependentUpon>202201112148437_Duplicate user table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202201112212189_Fix user id.cs" />
+    <Compile Include="Migrations\202201112212189_Fix user id.Designer.cs">
+      <DependentUpon>202201112212189_Fix user id.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202201112221265_Fix new user id.cs" />
+    <Compile Include="Migrations\202201112221265_Fix new user id.Designer.cs">
+      <DependentUpon>202201112221265_Fix new user id.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\AspNetRoles.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\AspNetUserClaims.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\AspNetUserLogins.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\AspNetUsers.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Categories.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\Category.cs" />
-    <Compile Include="Models\C__MigrationHistory.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Historique.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Models\Historique.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\Model1.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Model1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Model1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Models\Product.cs" />
-    <Compile Include="Models\Products.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -332,16 +309,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\Model1.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\Model1.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.cs</LastGenOutput>
-    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Content\fonts\fontawesome-webfont.eot" />
@@ -351,13 +318,6 @@
     <Content Include="Content\fonts\themify.eot" />
     <Content Include="Content\fonts\themify.ttf" />
     <Content Include="Content\fonts\themify.woff" />
-    <EntityDeploy Include="Models\Model1.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\Model1.edmx.diagram">
-      <DependentUpon>Model1.edmx</DependentUpon>
-    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -391,16 +351,6 @@
     <Content Include="Content\js\waypoints.min.js" />
     <Content Include="Content\js\ytplayer.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="Uploads\Audi.jpg" />
-    <Content Include="Uploads\box.jpg" />
-    <Content Include="Uploads\bugatti.jpg" />
-    <Content Include="Uploads\celtia.jpg" />
-    <Content Include="Uploads\ferrari.jpg" />
-    <Content Include="Uploads\jeep.jpg" />
-    <Content Include="Uploads\kia.jpg" />
-    <Content Include="Uploads\mercedes.jpg" />
-    <Content Include="Uploads\mercedesjfif.jfif" />
-    <Content Include="Uploads\PullupBar.jpg" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -440,25 +390,29 @@
     <Content Include="Views\Admin\Tables.cshtml" />
     <Content Include="Views\Account\ParticularParameters.cshtml" />
     <Content Include="Views\Account\CompanyParameters.cshtml" />
-    <Content Include="Views\Shared\_ManageLayout.cshtml" />
-    <Content Include="Views\Proprietaire\AddProduct.cshtml" />
-    <Content Include="Views\Proprietaire\MyProducts.cshtml" />
-    <Content Include="Views\Proprietaire\Historique.cshtml" />
-    <Content Include="Views\Proprietaire\DeclareProblem.cshtml" />
-    <Content Include="Views\Shared\_HomeLayout.cshtml" />
+    <Content Include="Views\Admin\DashBoard.cshtml" />
+    <Content Include="Views\Admin\DetailUtilisateur.cshtml" />
+    <Content Include="Views\Admin\Historique.cshtml" />
+    <Content Include="Views\Admin\ListeFavoris.cshtml" />
+    <Content Include="Views\Admin\ListeNoire.cshtml" />
     <Content Include="Views\Home\Statistique.cshtml" />
-    <Content Include="Views\Product\Index.cshtml" />
     <Content Include="Views\Product\DeleteProduct.cshtml" />
     <Content Include="Views\Product\EditProduct.cshtml" />
-    <Content Include="Views\Admin\DashBoard.cshtml" />
+    <Content Include="Views\Product\Index.cshtml" />
+    <Content Include="Views\Proprietaire\AddProduct.cshtml" />
+    <Content Include="Views\Proprietaire\DeclareProblem.cshtml" />
+    <Content Include="Views\Proprietaire\Historique.cshtml" />
+    <Content Include="Views\Proprietaire\MyProducts.cshtml" />
     <Content Include="Views\Shared\_AdminLayout.cshtml" />
-    <Content Include="Views\Admin\Historique.cshtml" />
-    <Content Include="Views\Admin\DetailUtilisateur.cshtml" />
-    <Content Include="Views\Admin\ListeNoire.cshtml" />
-    <Content Include="Views\Admin\ListeFavoris.cshtml" />
+    <Content Include="Views\Shared\_HomeLayout.cshtml" />
+    <Content Include="Views\Shared\_ManageLayout.cshtml" />
+    <Content Include="Views\Proprietaire\Error.cshtml" />
+    <Content Include="Views\Product\Error.cshtml" />
+    <Content Include="Views\Home\Error.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Uploads\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -489,12 +443,21 @@
     <EmbeddedResource Include="Migrations\202201081325474_aaa.resx">
       <DependentUpon>202201081325474_aaa.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202201081348082_rrr.resx">
-      <DependentUpon>202201081348082_rrr.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202201111142090_historique.resx">
+      <DependentUpon>202201111142090_historique.cs</DependentUpon>
     </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <EmbeddedResource Include="Migrations\202201111214320_fix database.resx">
+      <DependentUpon>202201111214320_fix database.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201112148437_Duplicate user table.resx">
+      <DependentUpon>202201112148437_Duplicate user table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201112212189_Fix user id.resx">
+      <DependentUpon>202201112212189_Fix user id.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201112221265_Fix new user id.resx">
+      <DependentUpon>202201112221265_Fix new user id.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

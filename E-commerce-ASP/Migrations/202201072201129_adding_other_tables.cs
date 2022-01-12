@@ -60,9 +60,9 @@ namespace E_commerce_ASP.Migrations
             AddColumn("dbo.AspNetUsers", "date_of_birth", c => c.DateTime(nullable: false));
             AddColumn("dbo.AspNetUsers", "last_name", c => c.String());
             AddColumn("dbo.AspNetUsers", "first_name", c => c.String());
-            DropForeignKey("dbo.Products", "UserId", "dbo.AspNetUsers");
+            DropForeignKey("dbo.Products", "RefId", "dbo.AspNetUsers");
             DropForeignKey("dbo.Products", "CategoryId", "dbo.Categories");
-            DropIndex("dbo.Products", new[] { "UserId" });
+            DropIndex("dbo.Products", new[] { "RefId" });
             DropIndex("dbo.Products", new[] { "CategoryId" });
             DropColumn("dbo.AspNetUsers", "IsInBlackList");
             DropColumn("dbo.AspNetUsers", "IsInFavList");

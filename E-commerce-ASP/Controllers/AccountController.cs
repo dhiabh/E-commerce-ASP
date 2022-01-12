@@ -16,6 +16,7 @@ namespace E_commerce_ASP.Controllers
     [Authorize]
     public class AccountController : Controller
     {
+        private ApplicationDbContext db = new ApplicationDbContext();
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
 
@@ -58,6 +59,7 @@ namespace E_commerce_ASP.Controllers
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
+
             ViewBag.ReturnUrl = returnUrl;
             return View();
         }
@@ -104,6 +106,12 @@ namespace E_commerce_ASP.Controllers
         [AllowAnonymous]
         public async Task<ActionResult> VerifyCode(string provider, string returnUrl, bool rememberMe)
         {
+            string id = User.Identity.GetUserId();
+            if (id != null)
+            {
+                var user = db.Users.Where(u => u.Id.Equals(id)).First();
+                ViewBag.user = user;
+            }
             // Require that the user has already logged in via username/password or external login
             if (!await SignInManager.HasBeenVerifiedAsync())
             {
@@ -147,7 +155,6 @@ namespace E_commerce_ASP.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
-
             return View();
         }
 
@@ -160,18 +167,30 @@ namespace E_commerce_ASP.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, Nature = model.Nature };
+                User newUser = new User()
+                {
+                    Email = model.Email,
+                    Nature = model.Nature
+                };
+
+                db.RealUsers.Add(newUser);
+                db.SaveChanges();
+
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                user.RefId = newUser.RealId;
+
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
+                    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
+
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
-                    // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
-                    // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-                    // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
-                    if(model.Nature == "Particular")
+                    // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.RefId);
+                    // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { RefId = user.RefId, code = code }, protocol: Request.Url.Scheme);
+                    // await UserManager.SendEmailAsync(user.RefId, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+                    if (model.Nature == "Particular")
                     {
                         return RedirectToAction("ParticularParameters", "Account");
                     }
@@ -190,6 +209,16 @@ namespace E_commerce_ASP.Controllers
 
         public ActionResult ParticularParameters()
         {
+            string id = User.Identity.GetUserId();
+            if (id != null)
+            {
+                var user = db.Users.Where(u => u.Id.Equals(id)).First();
+
+                var realUser = db.RealUsers.Where(u => u.RealId == user.RefId).First();
+                ViewBag.user = realUser;
+                
+            }
+
             return View();
         }
 
@@ -197,15 +226,29 @@ namespace E_commerce_ASP.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> ParticularParameters(ParticularViewModel model)
         {
+            string id = User.Identity.GetUserId();
+            if (id != null)
+            {
+                var user = db.Users.Where(u => u.Id.Equals(id)).First();
+
+                var realUser = db.RealUsers.Where(u => u.RealId == user.RefId).First();
+                ViewBag.user = realUser;
+
+            }
             if (ModelState.IsValid)
             {
                 var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
-                user.PhoneNumber = model.PhoneNumber; ;
-                user.FirstName = model.FirstName;
-                user.LastName = model.LastName;
-                user.DateOfBirth = model.DateOfBirth;
-                user.Address = model.Address;
-                //user.UserName = model.FirstName + " " + model.LastName;
+                var realUser = db.RealUsers.Where(u => u.RealId == user.RefId).First();
+
+                user.PhoneNumber = model.PhoneNumber;
+                realUser.PhoneNumber = model.PhoneNumber;
+                realUser.FirstName = model.FirstName;
+                realUser.LastName = model.LastName;
+                realUser.DateOfBirth = model.DateOfBirth;
+                realUser.Address = model.Address;
+                realUser.FullName = model.FirstName + " " + model.LastName;
+
+                db.SaveChanges();
 
                 var updateResult = await UserManager.UpdateAsync(user);
                 if(updateResult.Succeeded)
@@ -220,6 +263,15 @@ namespace E_commerce_ASP.Controllers
 
         public ActionResult CompanyParameters()
         {
+            string id = User.Identity.GetUserId();
+            if (id != null)
+            {
+                var user = db.Users.Where(u => u.Id.Equals(id)).First();
+
+                var realUser = db.RealUsers.Where(u => u.RealId == user.RefId).First();
+                ViewBag.user = realUser;
+
+            }
             return View();
         }
 
@@ -227,15 +279,29 @@ namespace E_commerce_ASP.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> CompanyParameters(CompanyViewModel model)
         {
+            string id = User.Identity.GetUserId();
+            if (id != null)
+            {
+                var user = db.Users.Where(u => u.Id.Equals(id)).First();
+
+                var realUser = db.RealUsers.Where(u => u.RealId == user.RefId).First();
+                ViewBag.user = realUser;
+
+            }
             if (ModelState.IsValid)
             {
                 var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
-                user.PhoneNumber = model.PhoneNumber; ;
-                user.CompanyName = model.CompanyName;
-                user.WebSite = model.WebSite;
-                user.Address = model.Address;
-                user.NumPatente = model.NumPatente;
-                //user.UserName = model.CompanyName;
+                var realUser = db.RealUsers.Where(u => u.RealId == user.RefId).First();
+
+                user.PhoneNumber = model.PhoneNumber;
+                realUser.PhoneNumber = model.PhoneNumber;
+                realUser.CompanyName = model.CompanyName;
+                realUser.WebSite = model.WebSite;
+                realUser.Address = model.Address;
+                realUser.NumPatente = model.NumPatente;
+                realUser.FullName = model.CompanyName;
+
+                db.SaveChanges();
 
                 var updateResult = await UserManager.UpdateAsync(user);
                 if (updateResult.Succeeded)
@@ -287,9 +353,9 @@ namespace E_commerce_ASP.Controllers
 
                 // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                 // Send an email with this link
-                // string code = await UserManager.GeneratePasswordResetTokenAsync(user.Id);
-                // var callbackUrl = Url.Action("ResetPassword", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);		
-                // await UserManager.SendEmailAsync(user.Id, "Reset Password", "Please reset your password by clicking <a href=\"" + callbackUrl + "\">here</a>");
+                // string code = await UserManager.GeneratePasswordResetTokenAsync(user.RefId);
+                // var callbackUrl = Url.Action("ResetPassword", "Account", new { RefId = user.RefId, code = code }, protocol: Request.Url.Scheme);		
+                // await UserManager.SendEmailAsync(user.RefId, "Reset Password", "Please reset your password by clicking <a href=\"" + callbackUrl + "\">here</a>");
                 // return RedirectToAction("ForgotPasswordConfirmation", "Account");
             }
 

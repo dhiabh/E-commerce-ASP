@@ -1,4 +1,4 @@
-﻿@model IEnumerable<E_commerce_ASP.Models.Products>
+﻿@model IEnumerable<E_commerce_ASP.Models.Product>
 
 @{
     ViewBag.Title = "MyProducts";
@@ -175,11 +175,18 @@
                     <table class="table">
 
                         <tr><td style="font-weight: bold;">Prix</td><td class="price">@item.Price Dhs</td></tr>
-                        <tr><td style="font-weight: bold;">Category</td><td class="price"></td></tr>
+                        <tr><td style="font-weight: bold;">Category</td><td class="price">
+                            @{
+                                E_commerce_ASP.Models.ApplicationDbContext db = new E_commerce_ASP.Models.ApplicationDbContext();
+                                E_commerce_ASP.Models.Category category = db.Categories.Where(c => c.Id == item.CategoryId).First();
+
+                            }
+                            @category.Name
+                        </td></tr>
 
                     </table>
 
-                    <div class="detailText">@Html.ActionLink("Voir les détails de Produit ", "Index","Product")</div>
+                    <div class="detailText">@Html.ActionLink("Voir les détails de Produit ", "Index", "Product", new { Id = item.Id }, null)</div>
 
 
                 </div>

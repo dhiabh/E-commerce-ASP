@@ -1,10 +1,14 @@
-﻿@model IEnumerable<E_commerce_ASP.Models.Products> 
+﻿@model IEnumerable<E_commerce_ASP.Models.Product>
 
 
 @{
     Layout = null;
 }
 @using Microsoft.AspNet.Identity
+
+@{
+    E_commerce_ASP.Models.ApplicationDbContext db = new E_commerce_ASP.Models.ApplicationDbContext();
+}
 
 
 <!DOCTYPE html>
@@ -113,9 +117,19 @@
                     </div>
                     @if (Request.IsAuthenticated)
                     {
-                        <div class="col-lg-2 col-md-3 col-6 m-auto">
-                            Hello @User.Identity.GetUserName()!
-                        </div>
+                        if (ViewBag.user.Nature == "Particular")
+                        {
+                            <div class="col-lg-2 col-md-3 col-6 m-auto">
+                                Hello @ViewBag.user.FirstName @ViewBag.user.LastName !
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="col-lg-2 col-md-3 col-6 m-auto">
+                                Hello @ViewBag.user.CompanyName!
+                            </div>
+                        }
+
                     }
                     <div class="col-lg-2 col-md-3 col-12">
                         <div class="right-bar">
@@ -193,24 +207,29 @@
                                         <div class="nav-inner">
                                             <ul class="nav main-menu menu navbar-nav">
                                                 <li class="active"><a href="#">Home</a></li>
-                                                    @if (Request.IsAuthenticated)
-                                                    {
-                                                        <li>@Html.ActionLink("Add Product", "AddProduct", "Proprietaire")</li>
-                                                    }
-                                                    @if (Request.IsAuthenticated && !User.IsInRole("Admin"))
-                                                    {
-                                                        <li>@Html.ActionLink("My Products", "MyProducts", "Proprietaire")</li>
+                                                @if (Request.IsAuthenticated)
+                                                {
+                                                    <li>@Html.ActionLink("Add Product", "AddProduct", "Proprietaire")</li>
+                                                }
+                                                @if (Request.IsAuthenticated && !User.IsInRole("Admin"))
+                                                {
+                                                    string id = User.Identity.GetUserId();
+                                                    
+                                                    var user = db.Users.Where(u => u.Id.Equals(id)).First();
+                                                    var realUser = db.RealUsers.Where(u => u.RealId == user.RefId).First();
+                                                    
+                                                    <li>@Html.ActionLink("My Products", "MyProducts", "Proprietaire", new { Id = realUser.RealId }, null)</li>
 
-                                                        <li>@Html.ActionLink("Historique", "Historique", "Proprietaire")</li>
-                                                        <li>@Html.ActionLink("Declare A Problem", "DeclareProblem", "Proprietaire")</li>
-                                                    }
-                                                    @if (User.IsInRole("Admin"))
-                                                    {
-                                                        <li>@Html.ActionLink("Admin DashBoard", "DashBoard", "Admin")</li>
-                                                    }
-                                                    <li>@Html.ActionLink("Statistique", "Statistique", "Home")</li>
-                                                    <li>@Html.ActionLink("About Us", "About", "Home")</li>
-                                                </ul>
+                                                    <li>@Html.ActionLink("Historique", "Historique", "Proprietaire")</li>
+                                                    <li>@Html.ActionLink("Declare A Problem", "DeclareProblem", "Proprietaire")</li>
+                                                }
+                                                @if (User.IsInRole("Admin"))
+                                                {
+                                                    <li>@Html.ActionLink("Admin DashBoard", "DashBoard", "Admin")</li>
+                                                }
+                                                <li>@Html.ActionLink("Statistique", "Statistique", "Home")</li>
+                                                <li>@Html.ActionLink("About Us", "About", "Home")</li>
+                                            </ul>
                                         </div>
                                     </div>
                                 </nav>
@@ -406,11 +425,21 @@
                         <table class="table">
 
                             <tr><td style="font-weight: bold;">Prix</td><td class="price">@item.Price Dhs</td></tr>
-                            <tr><td style="font-weight: bold;">Category</td><td class="price"></td></tr>
+                            <tr>
+                                <td style="font-weight: bold;">Category</td>
+                                <td class="price">
+                                    @{
+                                        E_commerce_ASP.Models.Category category = db.Categories.Where(c => c.Id == item.CategoryId).First();
+                                    }
+                                    @category.Name
+                                </td>
+                            </tr>
+
+
 
                         </table>
 
-                        <div class="detailText">@Html.ActionLink("Voir les détails de Produit ", "Index","Product", new { Id = item.Id })</div>
+                        <div class="detailText">@Html.ActionLink("Voir les détails de Produit ", "Index", "Product", new { Id = item.Id }, null)</div>
 
 
                     </div>

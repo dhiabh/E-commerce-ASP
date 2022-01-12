@@ -10,6 +10,10 @@
     E_commerce_ASP.Models.ApplicationDbContext db = new E_commerce_ASP.Models.ApplicationDbContext();
 }
 
+@{
+    IEnumerable<E_commerce_ASP.Models.Category> category = db.Categories.ToList();
+}
+
 
 <!DOCTYPE html>
 <html>
@@ -101,12 +105,12 @@
                             <div class="search-bar">
                                 <select>
                                     <option selected="selected">All Category</option>
-                                    <option>Véhicule</option>
-                                    <option>Immobilier</option>
-                                    <option>Technologie</option>
-                                    <option>Sport</option>
-                                    <option>Santé</option>
-                                    <option>Alimentation</option>
+                                    @foreach (var item in category)
+                                    {
+                                        <option>@item.Name</option>
+                                    }
+
+                                    
                                 </select>
                                 <form>
                                     <input name="search" placeholder="Search Products Here....." type="search">
@@ -190,12 +194,15 @@
                                 <h3 class="cat-heading"><i class="fa fa-bars" aria-hidden="true"></i>CATEGORIES</h3>
                                 <ul class="main-category">
                                     <!-- CATEGORYYYYYY -->
-                                    <li><a href="#">Véhicule</a></li>
-                                    <li><a href="#">Immobilier</a></li>
-                                    <li><a href="#">Technologie</a></li>
-                                    <li><a href="#">Sport</a></li>
-                                    <li><a href="#">Santé</a></li>
-                                    <li><a href="#">Alimentation</a></li>
+
+                                    @foreach (var item in category)
+                                    {
+                                        <li><a href="#">@item.Name</a></li>
+
+                                    }
+                                    
+
+
                                 </ul>
                             </div>
                         </div>
@@ -214,10 +221,10 @@
                                                 @if (Request.IsAuthenticated && !User.IsInRole("Admin"))
                                                 {
                                                     string id = User.Identity.GetUserId();
-                                                    
+
                                                     var user = db.Users.Where(u => u.Id.Equals(id)).First();
                                                     var realUser = db.RealUsers.Where(u => u.RealId == user.RefId).First();
-                                                    
+
                                                     <li>@Html.ActionLink("My Products", "MyProducts", "Proprietaire", new { Id = realUser.RealId }, null)</li>
 
                                                     <li>@Html.ActionLink("Historique", "Historique", "Proprietaire")</li>
@@ -429,9 +436,9 @@
                                 <td style="font-weight: bold;">Category</td>
                                 <td class="price">
                                     @{
-                                        E_commerce_ASP.Models.Category category = db.Categories.Where(c => c.Id == item.CategoryId).First();
+                                        E_commerce_ASP.Models.Category categoryName = db.Categories.Where(c => c.Id == item.CategoryId).First();
                                     }
-                                    @category.Name
+                                    @categoryName.Name
                                 </td>
                             </tr>
 

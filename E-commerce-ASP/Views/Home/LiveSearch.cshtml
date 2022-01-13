@@ -1,0 +1,52 @@
+﻿@using E_commerce_ASP.Models
+@model List<Product>
+
+<style>
+    .search-tag-detail {
+        display: flex;
+        flex-direction: row;
+        padding: 3px;
+        background-color: #d9edf7;
+        border-radius: 3px;
+    }
+
+    .search-tag {
+        display: flex;
+        margin: 2px 2px 2px 0px;
+        z-index: 2;
+    }
+</style>
+
+@{
+        int counter = 0;
+        foreach (var item in Model)
+        {
+        counter++;
+        <div class="search-tag" style="cursor:pointer">
+            <div class="search-tag-detail" id="@item.Name" onclick="Search(this.id)">
+                @item.Name
+                <span class="search-tag-close">
+                    <i class="fa fa-times "></i>
+                </span>
+            </div>
+        </div>
+
+        if (counter == 4)
+        {
+            break;
+        }
+
+
+    }
+}
+
+
+<script>
+
+    function Search(id) {
+
+        data = id;
+        window.location.href = "/Home/Search?search=" + data;
+
+    }
+</script>

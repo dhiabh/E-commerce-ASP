@@ -1,31 +1,45 @@
 ﻿using E_commerce_ASP.Models;
 using Microsoft.AspNet.Identity;
 using System;
+using System.Data.Entity;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.UI;
 
 namespace E_commerce_ASP.Controllers
 {
-    public class ProprietaireController : Controller
+    public class ProprietaireController : BaseController
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
+        static string error = "";
         // GET: Proprietaire
-        public ActionResult Index()
+        public ActionResult Index(int? Id)
         {
+            if (Id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
             string id = User.Identity.GetUserId();
             if (id != null)
             {
-                var user = db.Users.Where(u => u.Id.Equals(id)).First();
+                var Authuser = db.Users.Where(u => u.Id.Equals(id)).First();
 
-                var realUser = db.RealUsers.Where(u => u.RealId == user.RefId).First();
+                var realUser = db.RealUsers.Where(u => u.RealId == Authuser.RefId).First();
                 ViewBag.user = realUser;
 
             }
-            return View();
+
+            var user = db.RealUsers.Find(Id);
+            if (user == null)
+            {
+                return HttpNotFound();
+            }
+            return View(user);
         }
 
         [HttpGet]
@@ -47,7 +61,7 @@ namespace E_commerce_ASP.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult AddProduct([Bind(Include = "Id,Name,Price,CategoryId")] Product product, HttpPostedFileBase upload)
+        public ActionResult AddProduct([Bind(Include = "Id,Name,Price,CategoryId,Description")] Product product, HttpPostedFileBase upload)
         {
             string id = User.Identity.GetUserId();
             if (id != null)
@@ -84,9 +98,7 @@ namespace E_commerce_ASP.Controllers
                 db.Products.Add(product);
                 db.SaveChanges();
 
-                ModelState.Clear();
-
-                return View(product);
+                return RedirectToAction("MyProducts", new { Id = product.UserId });
                 
                 
             }
@@ -94,9 +106,6 @@ namespace E_commerce_ASP.Controllers
             return View();
             
         }
-
-        
-
 
         public ActionResult MyProducts(int Id)
         {
@@ -113,6 +122,81 @@ namespace E_commerce_ASP.Controllers
 
             //var user = db.Users.Where(u => u.Id.Equals(id)).First();
             return View(db.Products.Where(x => x.UserId == Id).ToList());
+        }
+
+        [HttpGet]
+        public ActionResult Settings(int? Id)
+        {
+
+            if (Id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            string id = User.Identity.GetUserId();
+            if (id != null)
+            {
+                var Authuser = db.Users.Where(u => u.Id.Equals(id)).First();
+
+                if(Authuser.RefId != Id)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+
+                var realUser = db.RealUsers.Where(u => u.RealId == Authuser.RefId).First();
+                ViewBag.user = realUser;
+
+            }
+
+            User user = db.RealUsers.Find(Id);
+            if (user == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View(user);
+        }
+
+        [Authorize]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Settings([Bind(Include = "RealId,FirstName,LastName,Email,PhoneNumber,Address,FullName,Nature,CompanyName,WebSite,NumPatente")] User user)
+        {
+            var Authuser = db.Users.Where(u => u.RefId == user.RealId).First();
+
+            ViewBag.user = user;
+            
+                
+                if (ModelState.IsValid)
+                {
+                    Authuser.Email = user.Email;
+                    Authuser.UserName = user.Email;
+                    Authuser.PhoneNumber = user.PhoneNumber;
+
+                    if (user.Nature == "Particular")
+                    {
+                        user.FullName = user.FirstName + " " + user.LastName;
+                    }
+
+                    db.Entry(user).State = EntityState.Modified;
+
+                    db.SaveChanges();
+
+                    return RedirectToAction("Index","Proprietaire", new { Id = user.RealId });
+                }
+            
+            
+            
+
+            return View(user);
+
+        }
+
+        public ActionResult Error()
+        {
+            ViewBag.error = error;
+            return View();
+
         }
 
         public ActionResult Historique()

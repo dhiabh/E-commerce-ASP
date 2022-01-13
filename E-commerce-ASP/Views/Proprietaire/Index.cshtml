@@ -1,0 +1,76 @@
+﻿@model E_commerce_ASP.Models.User
+
+@{
+    ViewBag.Title = "Manage";
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+
+}
+
+<div class="shopping-cart section">
+    <div class="container">
+        <div class="row">
+            @if (Model.Nature == "Particular")
+            {
+                <div class="col-12">
+                    <table class="table shopping-summery">
+                        <thead>
+                            <tr class="main-hading">
+                                <th>FULL NAME</th>
+                                <th class="text-center">EMAIL</th>
+                                <th class="text-center">PHONE NUMBER</th>
+                                <th class="text-center">ADDRESS</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="product-des product-name font-weight-bold" data-title="FULL NAME">
+                                    @Model.FullName
+                                </td>
+                                <td class="font-weight-bold" data-title="EMAIL">@Model.Email</td>
+                                <td class="font-weight-bold" data-title="PHONE NUMBER">@Model.PhoneNumber</td>
+                                <td class="font-weight-bold" data-title="ADDRESS">@Model.Address</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            }
+            else
+            {
+                <div class="col-12">
+                    <table class="table shopping-summery">
+                        <thead>
+                            <tr class="main-hading">
+                                <th>COMPANY NAME</th>
+                                <th class="text-center">EMAIL</th>
+                                <th class="text-center">PHONE NUMBER</th>
+                                <th class="text-center">ADDRESS</th>
+                                <th class="text-center">WEB SITE</th>
+                                <th class="text-center">PATENT NUMBER</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="product-des product-name font-weight-bold" data-title="FULL NAME">
+                                    @Model.CompanyName
+                                </td>
+                                <td class="font-weight-bold" data-title="EMAIL">@Model.Email</td>
+                                <td class="font-weight-bold" data-title="PHONE NUMBER">@Model.PhoneNumber</td>
+                                <td class="font-weight-bold" data-title="ADDRESS">@Model.Address</td>
+                                <td class="font-weight-bold" data-title="WEB SITE">@Model.WebSite</td>
+                                <td class="font-weight-bold" data-title="PATENT NUMBER">@Model.NumPatente</td>
+
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            }
+
+        </div>
+        <div class="mt-5">
+            @Html.ActionLink("Settings", "Settings", "Proprietaire", new { Id = Model.RealId }, new { @class = "btn btn-warning" })
+        </div>
+    </div>
+</div>

@@ -81,7 +81,7 @@ namespace E_commerce_ASP.Controllers
             var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
 
             var user = await UserManager.FindAsync(model.Email, model.Password);
-            if (UserManager.IsInRole(user.Id, "Admin"))
+            if (user!= null &&  UserManager.IsInRole(user.Id, "Admin"))
             {
                 return RedirectToAction("Index", "Admin");
             }

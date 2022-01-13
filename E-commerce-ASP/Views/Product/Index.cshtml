@@ -6,77 +6,158 @@
 @using Microsoft.AspNet.Identity
 @{ 
     E_commerce_ASP.Models.ApplicationDbContext db = new E_commerce_ASP.Models.ApplicationDbContext();
+
+    string id = User.Identity.GetUserId();
+
+    var Authuser = db.Users.Where(u => u.Id.Equals(id)).First();
+
+    var realUser = db.RealUsers.Where(u => u.RealId == Authuser.RefId).First();
  }
 
 
 <div class="d-flex justify-content-center" style="width:100%">
-
-    <div class="row mt-5 d-flex">
-        <div class="card col-lg-6 col-md-6 col-12">
-            <img class="card-img-top" src="~/Uploads/@Model.Image" alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title"><b>@Model.Name</b></h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            </div>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">Price: <b>@Model.Price DHS</b></li>
-                <li class="list-group-item">
-                    Address: <b>
-                        @{
-                            E_commerce_ASP.Models.User user = db.RealUsers.Where(u => u.RealId == Model.UserId).First();
-
-                        }
-                        @user.Address
-                    </b>
-                </li>
-                <li class="list-group-item">
-                    Category: <b>
-                        @{
-                            E_commerce_ASP.Models.Category category = db.Categories.Where(c => c.Id == Model.CategoryId).First();
-
-                        }
-                        @category.Name
-                    </b>
-                </li>
-                @if (user.Nature == "Particular")
-                {
-                    <li class="list-group-item">Owner: <b>@user.FirstName @user.LastName</b></li>
-                }
-                else
-                {
-                    <li class="list-group-item">Owner: <b>@user.CompanyName</b></li>
-                }
-            </ul>
-            <div class="card-body">
-                @Html.ActionLink("Check owner informations", "MyProducts", "Proprietaire", new { Id = user.RealId }, new { @class = "card-link btn text-white" })
-            </div>
-        </div>
-        @if (Request.IsAuthenticated)
+    <div class="row mt-5 mx-auto d-flex">
+        @if (Request.IsAuthenticated && Model.UserId == realUser.RealId)
         {
-            string id = User.Identity.GetUserId();
+            <style>
+                .action_table {
+                    height: 20rem;
+                    color: var(--black5);
+                    padding: 4rem 5rem;
+                    background-color: rgba(255, 255, 255, 0.8);
+                    box-shadow: 0px 2px 30px 10px rgba(0, 0, 0, 0.09);
+                    border-radius: 0.5rem;
+                }
 
-            var Authuser = db.Users.Where(u => u.Id.Equals(id)).First();
+                .card_table {
+                    margin: auto auto;
+                    color: var(--black5);
+                    padding: 4rem 5rem;
+                    background-color: rgba(255, 255, 255, 0.8);
+                    box-shadow: 0px 2px 30px 10px rgba(0, 0, 0, 0.09);
+                    border-radius: 0.5rem;
+                }
 
-            var realUser = db.RealUsers.Where(u => u.RealId == Authuser.RefId).First();
+                @@media screen and (max-width:768px) {
+                    .card_table, .action_table {
+                        width: 30rem;
+                    }
+                }
 
-            if (Model.UserId == realUser.RealId)
-            {
-                <div class="card col-lg-3 col-md-3 col-12 mx-auto align-items-center flex-wrap">
-                    <div class="mb-5">
-                        @Html.ActionLink("Edit Product", "EditProduct", "Product", new { Id = Model.Id }, new { @class = "btn btn-success" })
+                @@media screen and (min-width:768px) and (max-width:992px) {
+                    .card_table, .action_table {
+                        width: 50rem;
+                    }
+                }
 
-                    </div>
-                    <div>
-                        @Html.ActionLink("Delete Product", "DeleteProduct", "Product", new { Id = Model.Id }, new { @class = "btn btn-danger" })
+                @@media screen and (min-width:992px) and (max-width:1200px) {
+                    .card_table, .action_table {
+                        width: 50rem;
+                    }
+                }
 
-                    </div>
+                @@media screen and (min-width:1200px) {
+                    .card_table, .action_table {
+                        width: 100rem
+                    }
+                }
+            </style>
+
+            <div class="card card_table col-lg-6 col-md-6 col-12">
+                <img class="card-img-top" src="~/Uploads/@Model.Image" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title"><b>@Model.Name</b></h5>
+                    <p class="card-text">@Model.Description</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Price: <b>@Model.Price DHS</b></li>
+                    <li class="list-group-item">
+                        Address: <b>
+                            @{
+                                E_commerce_ASP.Models.User user = db.RealUsers.Where(u => u.RealId == Model.UserId).First();
+
+                            }
+                            @user.Address
+                        </b>
+                    </li>
+                    <li class="list-group-item">
+                        Category: <b>
+                            @{
+                                E_commerce_ASP.Models.Category category = db.Categories.Where(c => c.Id == Model.CategoryId).First();
+
+                            }
+                            @category.Name
+                        </b>
+                    </li>
+                    @if (user.Nature == "Particular")
+                    {
+                        <li class="list-group-item">Owner: <b>@user.FirstName @user.LastName</b></li>
+                    }
+                    else
+                    {
+                        <li class="list-group-item">Owner: <b>@user.CompanyName</b></li>
+                    }
+                </ul>
+            </div>
+
+            <div class="card action_table col-lg-3 col-md-3 col-12 mx-auto align-items-center">
+                <div class="mb-5">
+                    @Html.ActionLink("Edit Product", "EditProduct", "Product", new { Id = Model.Id }, new { @class = "btn btn-success" })
 
                 </div>
-            }
+                <div>
+                    @Html.ActionLink("Delete Product", "DeleteProduct", "Product", new { Id = Model.Id }, new { @class = "btn btn-danger" })
 
+                </div>
+
+            </div>
         }
+        else
+        {
+    <div class="card card_table col-12">
+        <img class="card-img-top" src="~/Uploads/@Model.Image" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title"><b>@Model.Name</b></h5>
+            <p class="card-text">@Model.Description</p>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Price: <b>@Model.Price DHS</b></li>
+            <li class="list-group-item">
+                Address: <b>
+                    @{
+                        E_commerce_ASP.Models.User user = db.RealUsers.Where(u => u.RealId == Model.UserId).First();
 
+                    }
+                    @user.Address
+                </b>
+            </li>
+            <li class="list-group-item">
+                Category: <b>
+                    @{
+                        E_commerce_ASP.Models.Category category = db.Categories.Where(c => c.Id == Model.CategoryId).First();
+
+                    }
+                    @category.Name
+                </b>
+            </li>
+            @if (user.Nature == "Particular")
+            {
+                <li class="list-group-item">Owner: <b>@user.FirstName @user.LastName</b></li>
+            }
+            else
+            {
+                <li class="list-group-item">Owner: <b>@user.CompanyName</b></li>
+            }
+        </ul>
+        <div class="card-body">
+            @Html.ActionLink("Check owner informations", "MyProducts", "Proprietaire", new { Id = user.RealId }, new { @class = "card-link btn text-white" })
+        </div>
     </div>
+        }
+    </div>
+
+</div>
+
 
     @*<table>
             <tr>

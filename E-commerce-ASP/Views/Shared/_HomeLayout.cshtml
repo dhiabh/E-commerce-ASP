@@ -4,6 +4,12 @@
 }
 @using Microsoft.AspNet.Identity
 
+@{
+
+    E_commerce_ASP.Models.ApplicationDbContext db1 = new E_commerce_ASP.Models.ApplicationDbContext();
+    IEnumerable<E_commerce_ASP.Models.Category> category = db1.Categories.ToList();
+
+}
 
 
 <!DOCTYPE html>
@@ -53,6 +59,14 @@
 
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
 
+    <style>
+
+        .tag-results {
+            display: flex;
+            flex-direction: row;
+        }
+    </style>
+
 </head>
 <body class="js">
     <!-- Preloader -->
@@ -74,7 +88,7 @@
                     <div class="col-lg-2 col-md-2 col-12">
                         <!-- Logo -->
                         <div class="logo">
-                            <a href="index.html"><img src="~/Content/images/logo.png" alt="logo"></a>
+                            <a href="/"><img src="~/Content/images/logo.png" alt="logo"></a>
                         </div>
                         <!--/ End Logo -->
                         <!-- Search Form -->
@@ -83,7 +97,8 @@
                             <!-- Search Form -->
                             <div class="search-top">
                                 <form class="search-form">
-                                    <input type="text" placeholder="Search here..." name="search">
+                                    <input placeholder="Search here..." name="search" id="search2" autocomplete="off" />
+                                    <div id="result2" class="tag-results"></div>
                                     <button value="search" type="submit"><i class="ti-search"></i></button>
                                 </form>
                             </div>
@@ -95,14 +110,16 @@
                     <div class="col-lg-6 col-md-4 col-12">
                         <div class="search-bar-top">
                             <div class="search-bar">
-                                <select>
-                                    <option selected="selected">All Category</option>
-                                    <option>watch</option>
-                                    <option>mobile</option>
-                                    <option>kid’s item</option>
+                                <select onchange="location = this.value;">
+                                    <option value="/" selected="selected">All Category</option>
+                                    @foreach (var item in category)
+                                    {
+                                        <option value="~/Category/Index/@item.Id">@item.Name</option>
+                                    }
                                 </select>
                                 <form>
-                                    <input name="search" placeholder="Search Products Here....." type="search">
+                                    <input placeholder="Search here..." name="search" id="search" autocomplete="off" />
+                                    <div id="result" class="tag-results"></div>
                                     <button class="btnn"><i class="ti-search"></i></button>
                                 </form>
                             </div>
@@ -154,6 +171,11 @@
                                         </a>
                                         @if (Request.IsAuthenticated)
                                         {
+                                            string id = User.Identity.GetUserId();
+                                            var user = db1.Users.Where(u => u.Id.Equals(id)).First();
+
+                                            var realUser = db1.RealUsers.Where(u => u.RealId == user.RefId).First();
+
                                             using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
                                             {
                                                 @Html.AntiForgeryToken()
@@ -166,7 +188,7 @@
                                                         }
                                                         else
                                                         {
-                                                            @Html.ActionLink("My account", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+                                                            @Html.ActionLink("My account", "Index", "Proprietaire", new { Id = realUser.RealId }, new { title = "Manage" })
                                                         }
                                                     </li>
                                                     <li>
@@ -213,14 +235,13 @@
                                                 }
                                                 @if (Request.IsAuthenticated && !User.IsInRole("Admin"))
                                                 {
-                                                    
-                                                   E_commerce_ASP.Models.ApplicationDbContext db = new E_commerce_ASP.Models.ApplicationDbContext();
-                                                   string id = User.Identity.GetUserId();
-                                                   var user = db.Users.Where(u => u.Id.Equals(id)).First();
 
-                                                   var realUser = db.RealUsers.Where(u => u.RealId == user.RefId).First();
+                                                    string id = User.Identity.GetUserId();
+                                                    var user = db1.Users.Where(u => u.Id.Equals(id)).First();
 
-                                                    
+                                                    var realUser = db1.RealUsers.Where(u => u.RealId == user.RefId).First();
+
+
                                                     <li>@Html.ActionLink("My Products", "MyProducts", "Proprietaire", new { Id = realUser.RealId }, null)</li>
                                                     <li>@Html.ActionLink("Historique", "Historique", "Proprietaire")</li>
                                                     <li>@Html.ActionLink("Declare A Problem", "DeclareProblem", "Proprietaire")</li>
@@ -258,7 +279,7 @@
                         <!-- Single Widget -->
                         <div class="single-footer about">
                             <div class="logo">
-                                <a href="index.html"><img src="~/Content/images/logo2.png" alt="#"></a>
+                                <a href="/"><img src="~/Content/images/logo2.png" alt="#"></a>
                             </div>
                             <p class="text">Our ASP.Net E-Commerce Site</p>
                             <p class="call">Got Question? Call us 24/7<span><a href="tel:123456789">+0123 456 789</a></span></p>
@@ -321,6 +342,67 @@
 
     </footer>
     <!-- /End Footer Area -->
+    <!-- ************************************Search************************-->
+    <script>
+
+        let timeout = null;
+
+        document.getElementById('search').addEventListener('keyup', function (e) {
+
+            clearTimeout(timeout);
+            timeout = setTimeout(function () {
+                LiveSearch()
+            }, 800);
+        });
+
+        function LiveSearch() {
+            //Get the input value
+            let value = document.getElementById('search').value
+
+            $.ajax({
+                type: "POST",
+                // You can use the absolute url eg www.site.com/MyControllerName/LiveTagSearch or the relative path live below
+                url: "/Home/LiveSearch",
+                // Attach the value to a parameter called search
+                data: { search: value },
+                datatype: "html",
+                success: function (data) {
+                    // Insert the returned search results html into the result element
+                    $('#result').html(data);
+                }
+            });
+        }
+    </script>
+
+    <script>
+        document.getElementById('search2').addEventListener('keyup', function (e) {
+
+            clearTimeout(timeout);
+            timeout = setTimeout(function () {
+                LiveSearch2()
+            }, 800);
+        });
+
+        function LiveSearch2() {
+            //Get the input value
+            let value = document.getElementById('search2').value
+
+            $.ajax({
+                type: "POST",
+                // You can use the absolute url eg www.site.com/MyControllerName/LiveTagSearch or the relative path live below
+                url: "/Home/LiveSearch",
+                // Attach the value to a parameter called search
+                data: { search: value },
+                datatype: "html",
+                success: function (data) {
+                    // Insert the returned search results html into the result element
+                    $('#result2').html(data);
+                }
+            });
+        }
+    </script>
+
+
     <!-- Jquery -->
     @Scripts.Render("~/Content/js/jquery.min.js")
     @Scripts.Render("~/Content/js/jquery-migrate-3.0.0.js")

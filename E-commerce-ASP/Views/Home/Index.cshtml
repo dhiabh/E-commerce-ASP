@@ -8,12 +8,9 @@
 
 @{
     E_commerce_ASP.Models.ApplicationDbContext db = new E_commerce_ASP.Models.ApplicationDbContext();
-}
 
-@{
     IEnumerable<E_commerce_ASP.Models.Category> category = db.Categories.ToList();
 }
-
 
 <!DOCTYPE html>
 <html>
@@ -59,6 +56,17 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
+    
+
+    <style>
+        
+        .tag-results {
+            display: flex;
+            flex-direction: row;
+            
+        }
+    </style>
+
 </head>
 <body class="js">
 
@@ -91,7 +99,8 @@
                             <!-- Search Form -->
                             <div class="search-top">
                                 <form class="search-form">
-                                    <input type="text" placeholder="Search here..." name="search">
+                                    <input placeholder="Search here..." name="search" id="search2" autocomplete="off" />
+                                    <div id="result2" class="tag-results"></div>
                                     <button value="search" type="submit"><i class="ti-search"></i></button>
                                 </form>
                             </div>
@@ -103,17 +112,18 @@
                     <div class="col-lg-6 col-md-4 col-12">
                         <div class="search-bar-top">
                             <div class="search-bar">
-                                <select>
-                                    <option selected="selected">All Category</option>
+                                <select onchange="location = this.value;">
+                                    <option value="/" selected="selected">All Category</option>
                                     @foreach (var item in category)
                                     {
-                                        <option>@item.Name</option>
+                                        <option value="~/Category/Index/@item.Id">@item.Name</option>
                                     }
 
-                                    
+
                                 </select>
                                 <form>
-                                    <input name="search" placeholder="Search Products Here....." type="search">
+                                    <input placeholder="Search here..." name="search" id="search" autocomplete="off" />
+                                     <div id="result" class="tag-results"></div> 
                                     <button class="btnn"><i class="ti-search"></i></button>
                                 </form>
                             </div>
@@ -145,6 +155,11 @@
                                         </a>
                                         @if (Request.IsAuthenticated)
                                         {
+                                            string id = User.Identity.GetUserId();
+
+                                            var user = db.Users.Where(u => u.Id.Equals(id)).First();
+                                            var realUser = db.RealUsers.Where(u => u.RealId == user.RefId).First();
+
                                             using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
                                             {
                                                 @Html.AntiForgeryToken()
@@ -157,7 +172,7 @@
                                                         }
                                                         else
                                                         {
-                                                            @Html.ActionLink("My account", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+                                                            @Html.ActionLink("My account", "Index", "Proprietaire", new { Id = realUser.RealId }, new { title = "Manage" })
                                                         }
                                                     </li>
                                                     <li>
@@ -191,16 +206,17 @@
                     <div class="row">
                         <div class="col-lg-3">
                             <div class="all-category">
-                                <h3 class="cat-heading"><i class="fa fa-bars" aria-hidden="true"></i>CATEGORIES</h3>
+                                <h3 class="cat-heading mt-0"><i class="fa fa-bars" aria-hidden="true"></i>CATEGORIES</h3>
                                 <ul class="main-category">
                                     <!-- CATEGORYYYYYY -->
 
                                     @foreach (var item in category)
                                     {
-                                        <li><a href="#">@item.Name</a></li>
+
+                                        <li>@Html.ActionLink(item.Name, "Index", "Category", new { Id = item.Id }, null)</li>
 
                                     }
-                                    
+
 
 
                                 </ul>
@@ -380,6 +396,7 @@
                 color: #666;
                 font-size: 0.8em;
             }
+            
         </style>
 
 
@@ -403,23 +420,25 @@
                 bottom: 16px;
                 left: 0;
             }
+
+            .card-price{
+                width:320px;
+            }
         </style>
         <br />
         <br />
-        <div class="row">
-
-        </div>
+        
 
 
 
         @foreach (var item in Model)
         {
 
-            <div class="col-lg-4">
+            <div class="col-lg-4 col-md-6 col-sm-6 col-12">
 
-                <div class="card card-price" style="border-radius: 50px">
+                <div class="card card-price mt-5" style="border-radius: 50px">
                     <div class="card-img">
-                        <a href="#">
+                        <a href="/Product/Index/@item.Id">
                             <img src="~/Uploads/@item.Image" class="img-responsive" style="width:360px;height:220px">
                             <div class="card-caption">
 
@@ -428,7 +447,7 @@
                     </div>
                     <div class="card-body">
                         <div class="lead text-center" style="color:rgba(0,0,0); font-weight:bold;">@item.Name</div>
-                        <div class="titre"> Carte de la Produit</div>
+                        <div>@item.Description</div>
                         <table class="table">
 
                             <tr><td style="font-weight: bold;">Prix</td><td class="price">@item.Price Dhs</td></tr>
@@ -446,7 +465,7 @@
 
                         </table>
 
-                        <div class="detailText">@Html.ActionLink("Voir les détails de Produit ", "Index", "Product", new { Id = item.Id }, null)</div>
+                        <div class="detailText">@Html.ActionLink("Voir les détails du produit ", "Index", "Product", new { Id = item.Id }, null)</div>
 
 
                     </div>
@@ -569,5 +588,62 @@
     @Scripts.Render("~/Content/js/easing.js")
     <!-- Active JS -->
     @Scripts.Render("~/Content/js/active.js")
+
+    <!-- ************************************Search************************-->
+    <script>
+
+        let timeout = null;
+
+        document.getElementById('search').addEventListener('keyup', function (e) {
+
+            clearTimeout(timeout);
+            timeout = setTimeout(function () {
+                LiveSearch()
+            }, 800);
+        });
+
+        function LiveSearch() {
+            //Get the input value
+            let value = document.getElementById('search').value
+            var counter = 0;
+            $.ajax({
+                type: "POST",
+                url: "/Home/LiveSearch",
+                data: { search: value },
+                datatype: "html",
+                success: function (data) { 
+                $('#result').html(data);                              
+                }
+            });
+        }
+    </script>
+
+    <script>
+        document.getElementById('search2').addEventListener('keyup', function (e) {
+
+            clearTimeout(timeout);
+            timeout = setTimeout(function () {
+                LiveSearch2()
+            }, 800);
+        });
+
+        function LiveSearch2() {
+            //Get the input value
+            let value = document.getElementById('search2').value
+
+            $.ajax({
+                type: "POST",
+                // You can use the absolute url eg www.site.com/MyControllerName/LiveTagSearch or the relative path live below
+                url: "/Home/LiveSearch",
+                // Attach the value to a parameter called search
+                data: { search: value },
+                datatype: "html",
+                success: function (data) {
+                    // Insert the returned search results html into the result element
+                    $('#result2').html(data);
+                }
+            });
+        }
+    </script>
 </body>
 </html>

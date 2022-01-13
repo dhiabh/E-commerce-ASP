@@ -169,6 +169,8 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
@@ -409,10 +411,16 @@
     <Content Include="Views\Proprietaire\Error.cshtml" />
     <Content Include="Views\Product\Error.cshtml" />
     <Content Include="Views\Home\Error.cshtml" />
+    <Content Include="Views\Category\Index.cshtml" />
+    <Content Include="Views\Proprietaire\Index.cshtml" />
+    <Content Include="Views\Proprietaire\Settings.cshtml" />
+    <Content Include="Views\Home\LiveSearch.cshtml" />
+    <Content Include="Views\Home\Search.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Uploads\" />
+    <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

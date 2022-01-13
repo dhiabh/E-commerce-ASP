@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Helpers;
 using System.Web.Mvc;
 
 namespace E_commerce_ASP.Controllers
@@ -110,7 +111,37 @@ namespace E_commerce_ASP.Controllers
                 ViewBag.user = realUser;
 
             }
+
+           
+            @ViewData["nb_Users"] = db.RealUsers.ToList().Count();
+            @ViewData["nb_Products"] =db.Products.ToList().Count();
+            @ViewData["nb_Companies"] =db.RealUsers.Where(x=>x.Nature.Equals("Company")).Count();
+            @ViewData["nb_Categories"] =db.Categories.ToList().Count();
+            @ViewData["nb_Particulars"] = db.RealUsers.Where(x => x.Nature.Equals("Particular")).Count();
+
+
+
+
             return View();
         }
+
+
+        /*
+        public ActionResult Chart()
+        {
+
+            var userslist = new List<String>();
+            //string[] x = ;
+            //int[] y = { 5, 3 };
+
+            new System.Web.Helpers.Chart(width: 800, height: 200, theme: ChartTheme.Green)
+                .AddTitle("Nombre des Prouids par Utilisateur")
+                .AddSeries(
+                    chartType: "Column",
+                    xValue: x,
+                    yValues: y
+                ).Write("png");
+            return null;
+        }*/
     }
 }

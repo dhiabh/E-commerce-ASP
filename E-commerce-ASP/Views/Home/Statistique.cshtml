@@ -4,5 +4,78 @@
     Layout = "~/Views/Shared/_HomeLayout.cshtml";
 }
 
-<h2>Statistique</h2>
+<!-- Breadcrumbs -->
+<div class="breadcrumbs">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="bread-inner">
+                    <ul class="bread-list">
+                        <li><a href="index1.html">Home<i class="ti-arrow-right"></i></a></li>
+                        <li class="active"><a href="blog-single.html">Statistics</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Breadcrumbs -->
+<!-- Start Contact -->
+<section id="contact-us" class="contact-us section">
+    <div class="container">
+        <div class="contact-head">
+            <div class="row">
+                <div class="col-lg-8 col-12">
+                    <div class="form-main">
+                        <div class="title">
+                            <h4>Statistics</h4>
+                            <h3>Here you can find Statitstics about our site</h3>
+                        </div>
 
+                        <div><h6>Number of Registered Users :</h6>@ViewData["nb_Users"]</div>
+                        <hr />
+                        <div><h6>Number of Listed Products :</h6>@ViewData["nb_Products"]</div>
+                        <hr />
+                        <div><h6>Number of Companies Registered on our Site :</h6>@ViewData["nb_Companies"]</div>
+                        <hr />
+                        <div><h6>Number of Particualrs Registered on our Site :</h6>@ViewData["nb_Particulars"]</div>
+                        <hr />
+                        <div> <h6>Categories Which our Site Contains :</h6>@ViewData["nb_Categories"]</div>
+                        <br />
+                        <!--<div><h6>Graph Showing the ownership of Products per User</h6><img src="@Url.Action("Chart")" /></div>-->
+
+
+                    </div>
+                </div>
+                <div class="col-lg-4 col-12">
+                    <div class="single-head">
+                        <div class="single-info">
+                            <i class="fa fa-phone"></i>
+                            <h4 class="title">Call us Now:</h4>
+                            <ul>
+                                <li>+212 0608129323</li>
+                                <li>+212 0632493393</li>
+                            </ul>
+                        </div>
+                        <div class="single-info">
+                            <i class="fa fa-envelope-open"></i>
+                            <h4 class="title">Email:</h4>
+                            <ul>
+                                <li><a href="mailto:info@yourwebsite.com">Info@ensaf.com</a></li>
+                                <li><a href="mailto:info@yourwebsite.com">support@ensaf.com</a></li>
+                            </ul>
+                        </div>
+                        <div class="single-info">
+                            <i class="fa fa-location-arrow"></i>
+                            <h4 class="title">Our Address:</h4>
+                            <ul>
+                                <li>Route Sefrou Fes</li>
+                                <li>Kingdom of Morocco</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

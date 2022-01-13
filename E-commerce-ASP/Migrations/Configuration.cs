@@ -9,7 +9,8 @@ namespace E_commerce_ASP.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationDataLossAllowed = true;
             ContextKey = "E_commerce_ASP.Models.ApplicationDbContext";
         }
 

@@ -235,3 +235,5 @@ C:\Users\Elyes\OneDrive\Desktop\ASProjet\E-commerce-ASP\E-commerce-ASP\obj\Debug
 C:\Users\Elyes\OneDrive\Desktop\ASProjet\E-commerce-ASP\E-commerce-ASP\obj\Debug\E-commerce-ASP.csproj.CoreCompileInputs.cache
 C:\Users\Elyes\OneDrive\Desktop\ASProjet\E-commerce-ASP\E-commerce-ASP\obj\Debug\E-commerce-ASP.dll
 C:\Users\Elyes\OneDrive\Desktop\ASProjet\E-commerce-ASP\E-commerce-ASP\obj\Debug\E-commerce-ASP.pdb
+C:\Users\Elyes\OneDrive\Desktop\ASProjet\E-commerce-ASP\E-commerce-ASP\obj\Debug\E_commerce_ASP.Migrations.AddedHitorique.resources
+C:\Users\Elyes\OneDrive\Desktop\ASProjet\E-commerce-ASP\E-commerce-ASP\obj\Debug\E_commerce_ASP.Migrations.AddedProblem.resources

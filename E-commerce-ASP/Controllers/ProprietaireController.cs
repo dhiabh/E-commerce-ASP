@@ -74,6 +74,7 @@ namespace E_commerce_ASP.Controllers
             }
             if (ModelState.IsValid)
             {
+                Historique historique = new Historique();
                 
                 ViewBag.CategoryList = new SelectList(db.Categories, "Id", "Name");
 
@@ -84,6 +85,8 @@ namespace E_commerce_ASP.Controllers
 
                 var user = db.Users.Where(u => u.Id.Equals(id)).First();
                 product.UserId = user.RefId;
+                historique.UserId = user.RefId;
+                
 
                 User realUser = db.RealUsers.Where(u => u.RealId == product.UserId).First();
                 product.User = realUser;
@@ -96,6 +99,11 @@ namespace E_commerce_ASP.Controllers
 
 
                 db.Products.Add(product);
+                historique.Transaction = "Created";
+                historique.Date = DateTime.Now;
+                historique.ProductId = product.Id;
+                historique.Pname = product.Name;
+                db.Historiques.Add(historique);
                 db.SaveChanges();
 
                 return RedirectToAction("MyProducts", new { Id = product.UserId });
@@ -185,9 +193,7 @@ namespace E_commerce_ASP.Controllers
                     return RedirectToAction("Index","Proprietaire", new { Id = user.RealId });
                 }
             
-            
-            
-
+     
             return View(user);
 
         }
@@ -202,17 +208,20 @@ namespace E_commerce_ASP.Controllers
         public ActionResult Historique()
         {
             string id = User.Identity.GetUserId();
+            int  Realid=0;
             if (id != null)
             {
                 var user = db.Users.Where(u => u.Id.Equals(id)).First();
 
                 var realUser = db.RealUsers.Where(u => u.RealId == user.RefId).First();
                 ViewBag.user = realUser;
-
+                Realid = realUser.RealId;
             }
-            return View();
+
+            return View(db.Historiques.Where(x=>x.UserId==Realid).ToList());
         }
 
+        [HttpGet]
         public ActionResult DeclareProblem()
         {
             string id = User.Identity.GetUserId();
@@ -224,7 +233,30 @@ namespace E_commerce_ASP.Controllers
                 ViewBag.user = realUser;
 
             }
+
             return View();
+        }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeclareProblem([Bind(Include = "RealId,Problem")] User user)
+        {
+
+            ViewBag.user = user;
+
+
+            if (ModelState.IsValid)
+            {
+
+                db.Entry(user).State = EntityState.Modified;
+
+                db.SaveChanges();
+
+                return RedirectToAction("Index", "Proprietaire", new { Id = user.RealId });
+            }
+
+            return View(user);
         }
 
        

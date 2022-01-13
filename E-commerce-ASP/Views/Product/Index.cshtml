@@ -7,17 +7,17 @@
 @{ 
     E_commerce_ASP.Models.ApplicationDbContext db = new E_commerce_ASP.Models.ApplicationDbContext();
 
-    string id = User.Identity.GetUserId();
+    //string id = User.Identity.GetUserId();
 
-    var Authuser = db.Users.Where(u => u.Id.Equals(id)).First();
+    //var Authuser = db.Users.Where(u => u.Id.Equals(id)).First();
 
-    var realUser = db.RealUsers.Where(u => u.RealId == Authuser.RefId).First();
+    var realUser = db.RealUsers.Find(Model.UserId);
  }
 
 
 <div class="d-flex justify-content-center" style="width:100%">
     <div class="row mt-5 mx-auto d-flex">
-        @if (Request.IsAuthenticated && Model.UserId == realUser.RealId)
+        @if ((Request.IsAuthenticated && Model.UserId == realUser.RealId) || User.IsInRole("Admin"))
         {
             <style>
                 .action_table {

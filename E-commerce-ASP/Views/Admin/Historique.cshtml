@@ -2,6 +2,13 @@
 @{
 
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
+
+}
+
+@{
+    E_commerce_ASP.Models.ApplicationDbContext db = new E_commerce_ASP.Models.ApplicationDbContext();
+
+
 }
 
 <main>
@@ -20,17 +27,17 @@
                 <table id="datatablesSimple">
                     <thead>
                         <tr>
-                            <th>Nom Produit</th>
                             <th>id Produit</th>
-                            <th>Propretaire</th>
+                            <th>Nom Produit</th>
+                            <th>Owner</th>
                             <th>Date</th>
                             <th>Modification</th>
                         </tr>
                     </thead>
                     <tfoot>
                         <tr>
-                            <th>Nom Produit</th>
                             <th>id Produit</th>
+                            <th>Nom Produit</th>
                             <th>Propretaire</th>
                             <th>Date</th>
                             <th>Modification</th>
@@ -41,21 +48,27 @@
                         @foreach (var item in Model)
                         {
 
-                        <tr>
-                            <td>@item.Product.Name</td>
-                            <td>@item.Product.Id</td>
-                            @if (item.User.Nature.Equals("Particular"))
-                            {
-                                <td>@item.User.FirstName @item.User.LastName</td>
-                            }
-                            else
-                            {
-                                <td>@item.User.CompanyName</td>
-                            }
+                            <tr>
+                                <td>@item.ProductId</td>
+                                @{
+                                    E_commerce_ASP.Models.User UserHis = db.RealUsers.Where(u => u.RealId == item.UserId).First();
+                                }
+                               
+                                <td>@item.Pname</td>
 
-                            <td>@item.Date.ToString()</td>
-                            <td>@item.Transaction</td>
-                        </tr>
+
+                                @if (UserHis.Nature.Equals("Particular"))
+                                {
+                                    <td>@UserHis.FirstName @UserHis.LastName</td>
+                                }
+                                else
+                                {
+                                    <td>@UserHis.CompanyName</td>
+                                }
+
+                                <td>@item.Date.ToString()</td>
+                                <td>@item.Transaction</td>
+                            </tr>
                         }
 
 

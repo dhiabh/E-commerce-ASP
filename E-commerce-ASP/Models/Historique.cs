@@ -14,14 +14,9 @@ namespace E_commerce_ASP.Models
         public int Id { get; set; }
         public string Transaction { get; set; }
         public DateTime Date { get; set; }
-
-        [ForeignKey("User")]
         public int UserId { get; set; }
-        public User User { get; set; }
-
-        [ForeignKey("Product")]
         public int ProductId { get; set; }
-        public Product Product { get; set; }
+        public string Pname { get; set; }
        
        
     }

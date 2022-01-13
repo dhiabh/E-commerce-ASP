@@ -97,6 +97,8 @@ namespace E_commerce_ASP.Controllers
 
             if (ModelState.IsValid)
             {
+                Historique historique = new Historique();
+
                 string pic = Path.GetFileName(upload.FileName);
                 string path = Path.Combine(Server.MapPath("~/Uploads"), pic);
                 upload.SaveAs(path);
@@ -104,6 +106,7 @@ namespace E_commerce_ASP.Controllers
 
                 var user = db.Users.Where(u => u.Id.Equals(id)).First();
                 product.UserId = user.RefId;
+                historique.UserId = user.RefId;
 
                 User realUser = db.RealUsers.Where(u => u.RealId == product.UserId).First();
                 product.User = realUser;
@@ -115,7 +118,11 @@ namespace E_commerce_ASP.Controllers
                 product.Category = category;
 
                 db.Entry(product).State = EntityState.Modified;
-
+                historique.Transaction = "Edited";
+                historique.Date = DateTime.Now;
+                historique.ProductId = product.Id;
+                historique.Pname = product.Name;
+                db.Historiques.Add(historique);
                 db.SaveChanges();
 
                 return RedirectToAction("Index",new { id = product.Id });
@@ -132,8 +139,10 @@ namespace E_commerce_ASP.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             string id = User.Identity.GetUserId();
+            Historique historique = new Historique();
             
             var user = db.Users.Where(u => u.Id.Equals(id)).First();
+            historique.UserId = user.RefId;
 
             var realUser = db.RealUsers.Where(u => u.RealId == user.RefId).First();
             ViewBag.user = realUser;
@@ -146,8 +155,12 @@ namespace E_commerce_ASP.Controllers
             {
                 return HttpNotFound();
             }
-
+            historique.Transaction = "Deleted";
+            historique.Date = DateTime.Now;
+            historique.ProductId = product.Id;
+            historique.Pname = product.Name;
             db.Products.Remove(product);
+            db.Historiques.Add(historique);
             db.SaveChanges();
             return RedirectToAction("MyProducts","Proprietaire",new { Id = realUser.RealId } );
         }

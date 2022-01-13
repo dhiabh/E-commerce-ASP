@@ -1,4 +1,4 @@
-﻿
+﻿@model E_commerce_ASP.Models.User
 @{
     ViewBag.Title = "DeclareProblem";
     Layout = "~/Views/Shared/_HomeLayout.cshtml";
@@ -31,22 +31,38 @@
                             <h4>Get in touch With Us</h4>
                             <h3>Write us Your Problem here Please</h3>
                         </div>
-                        <form class="form" method="post" action="mail/mail.php">
+                        <!---->
+
+                        @using (Html.BeginForm("DeclareProblem", "Proprietaire", FormMethod.Post))
+                         {
+                            @Html.AntiForgeryToken()
+
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            @Html.HiddenFor(model => model.RealId)
+
                             <div class="row">
 
                                 <div class="col-12">
                                     <div class="form-group message">
-                                        <label>your Complaint<span>*</span></label>
-                                        <textarea name="problem" placeholder=""></textarea>
+                                        @Html.LabelFor(m => m.Problem, new { @class = "control-label" })
+                                        @Html.TextAreaFor(m => m.Problem)
+                                        @Html.ValidationMessageFor(m => m.Problem, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
+
+
                                 <div class="col-12">
                                     <div class="form-group button">
                                         <button type="submit" class="btn ">Send Complaint Message</button>
                                     </div>
                                 </div>
                             </div>
-                        </form>
+
+
+                         }
+
+
+                        <!---->
                     </div>
                 </div>
                 <div class="col-lg-4 col-12">

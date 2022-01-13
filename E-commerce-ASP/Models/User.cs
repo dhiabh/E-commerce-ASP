@@ -54,5 +54,7 @@ namespace E_commerce_ASP.Models
             Problems = new List<string>();
             Products = new List<Product>();
         }
+
+        public string Problem { get; set; }
     }
 }

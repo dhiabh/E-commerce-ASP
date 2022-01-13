@@ -1,4 +1,5 @@
-﻿
+﻿@model IEnumerable<E_commerce_ASP.Models.Historique>
+
 @{
     ViewBag.Title = "Historique";
     Layout = "~/Views/Shared/_HomeLayout.cshtml";
@@ -22,5 +23,89 @@
 </div>
 <!-- End Breadcrumbs -->
 
-<h2>Historique</h2>
+@{
+    E_commerce_ASP.Models.ApplicationDbContext db = new E_commerce_ASP.Models.ApplicationDbContext();
+
+
+}
+
+
+<main>
+    <div class="container-fluid px-4">
+        <h1 class="mt-4">Historiques de Votre Produits</h1>
+
+        <div class="card mb-4">
+
+        </div>
+        <div class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-table me-1"></i>
+                Historique
+            </div>
+            <div class="card-body">
+                <table id="datatablesSimple">
+                    <thead>
+                        <tr>
+                            <th>id Produit</th>
+                            <th>Nom Produit</th>
+                            <th>Owner</th>
+                            <th>Date</th>
+                            <th>Modification</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>id Produit</th>
+                            <th>Nom Produit</th>
+                            <th>Propretaire</th>
+                            <th>Date</th>
+                            <th>Modification</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+
+                        @foreach (var item in Model)
+                        {
+
+                            <tr>
+                                <td>@item.ProductId</td>
+                                @{
+                                    E_commerce_ASP.Models.User UserHis = db.RealUsers.Where(u => u.RealId == item.UserId).First();
+                                }
+
+                                <td>@item.Pname</td>
+
+
+                                @if (UserHis.Nature.Equals("Particular"))
+                                {
+                                    <td>@UserHis.FirstName @UserHis.LastName</td>
+                                }
+                                else
+                                {
+                                    <td>@UserHis.CompanyName</td>
+                                }
+
+                                <td>@item.Date.ToString()</td>
+                                <td>@item.Transaction</td>
+                            </tr>
+                        }
+
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+@Scripts.Render("~/Content/js/scripts.js")
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+@Scripts.Render("~/Content/assets/demo/chart-area-demo.js")
+@Scripts.Render("~/Content/assets/demo/chart-bar-demo.js")
+<script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+@Scripts.Render("~/Content/js/datatables-simple-demo.js")
+<link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
+@Styles.Render("~/Content/styles/styles.css")
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
 

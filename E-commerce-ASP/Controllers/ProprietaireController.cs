@@ -240,23 +240,37 @@ namespace E_commerce_ASP.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult DeclareProblem([Bind(Include = "RealId,Problem")] User user)
+        public ActionResult DeclareProblem([Bind(Include = "Complaint")] Problem problem)
         {
+            string id = User.Identity.GetUserId();
+            if (id != null)
+            {
+                var user = db.Users.Where(u => u.Id.Equals(id)).First();
 
-            ViewBag.user = user;
+                var realUser = db.RealUsers.Where(u => u.RealId == user.RefId).First();
+                ViewBag.user = realUser;
 
+            }
 
             if (ModelState.IsValid)
             {
 
-                db.Entry(user).State = EntityState.Modified;
+                var user = db.Users.Where(u => u.Id.Equals(id)).First();
+                problem.UserId = user.RefId;
+
+                User realUser = db.RealUsers.Where(u => u.RealId == problem.UserId).First();
+                problem.User = realUser;
+
+                problem.Date = DateTime.Now;
+
+                db.Problems.Add(problem);
 
                 db.SaveChanges();
 
-                return RedirectToAction("Index", "Proprietaire", new { Id = user.RealId });
+                return RedirectToAction("DeclareProblem");
             }
 
-            return View(user);
+            return View();
         }
 
        

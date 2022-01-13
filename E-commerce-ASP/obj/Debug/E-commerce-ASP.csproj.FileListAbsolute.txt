@@ -237,3 +237,6 @@ C:\Users\Elyes\OneDrive\Desktop\ASProjet\E-commerce-ASP\E-commerce-ASP\obj\Debug
 C:\Users\Elyes\OneDrive\Desktop\ASProjet\E-commerce-ASP\E-commerce-ASP\obj\Debug\E-commerce-ASP.pdb
 C:\Users\Elyes\OneDrive\Desktop\ASProjet\E-commerce-ASP\E-commerce-ASP\obj\Debug\E_commerce_ASP.Migrations.AddedHitorique.resources
 C:\Users\Elyes\OneDrive\Desktop\ASProjet\E-commerce-ASP\E-commerce-ASP\obj\Debug\E_commerce_ASP.Migrations.AddedProblem.resources
+C:\Users\Elyes\OneDrive\Desktop\ASProjet\E-commerce-ASP\E-commerce-ASP\obj\Debug\E_commerce_ASP.Migrations.Add_Problem.resources
+C:\Users\Elyes\OneDrive\Desktop\ASProjet\E-commerce-ASP\E-commerce-ASP\obj\Debug\E_commerce_ASP.Migrations.Added_p.resources
+C:\Users\Elyes\OneDrive\Desktop\ASProjet\E-commerce-ASP\E-commerce-ASP\obj\Debug\E_commerce_ASP.Migrations.Added_DateTime.resources

@@ -39,6 +39,11 @@ namespace E_commerce_ASP.Controllers
             return View();
         }
 
+        public ActionResult ListeProbleme()
+        {
+            return View(db.Problems.ToList());
+        }
+
         public ActionResult Historique()
         {
             return View(db.Historiques.ToList());

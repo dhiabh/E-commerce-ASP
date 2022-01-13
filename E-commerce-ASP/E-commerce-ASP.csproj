@@ -226,12 +226,25 @@
     <Compile Include="Migrations\202201131508070_Added Problem.Designer.cs">
       <DependentUpon>202201131508070_Added Problem.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202201131845304_Add_Problem.cs" />
+    <Compile Include="Migrations\202201131845304_Add_Problem.Designer.cs">
+      <DependentUpon>202201131845304_Add_Problem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202201131900064_Added_p.cs" />
+    <Compile Include="Migrations\202201131900064_Added_p.Designer.cs">
+      <DependentUpon>202201131900064_Added_p.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202201131915030_Added_DateTime.cs" />
+    <Compile Include="Migrations\202201131915030_Added_DateTime.Designer.cs">
+      <DependentUpon>202201131915030_Added_DateTime.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Historique.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Problem.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -424,6 +437,7 @@
     <Content Include="Views\Proprietaire\Settings.cshtml" />
     <Content Include="Views\Home\LiveSearch.cshtml" />
     <Content Include="Views\Home\Search.cshtml" />
+    <Content Include="Views\Admin\ListeProbleme.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -479,6 +493,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202201131508070_Added Problem.resx">
       <DependentUpon>202201131508070_Added Problem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201131845304_Add_Problem.resx">
+      <DependentUpon>202201131845304_Add_Problem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201131900064_Added_p.resx">
+      <DependentUpon>202201131900064_Added_p.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201131915030_Added_DateTime.resx">
+      <DependentUpon>202201131915030_Added_DateTime.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

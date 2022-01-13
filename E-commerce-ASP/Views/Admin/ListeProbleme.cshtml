@@ -1,0 +1,74 @@
+﻿@model IEnumerable<E_commerce_ASP.Models.Problem>
+@{
+
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+
+}
+
+@{
+    E_commerce_ASP.Models.ApplicationDbContext db = new E_commerce_ASP.Models.ApplicationDbContext();
+
+}
+
+<main>
+    <div class="container-fluid px-4">
+        <h1 class="mt-4">Problem List</h1>
+
+        <div class="card mb-4">
+
+        </div>
+        <div class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-table me-1"></i>
+                Problems
+            </div>
+            <div class="card-body">
+                <table id="datatablesSimple">
+                    <thead>
+                        <tr>
+                            <th>Problem Id</th>
+                            <th>Sent By</th>
+                            <th>Problem</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Problem Id</th>
+                            <th>Sent By</th>
+                            <th>Problem</th>
+                            <th>Date</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+
+                        @foreach (var item in Model)
+                        {
+
+                        <tr>
+                            <td>@item.Id</td>
+                            @{
+                                E_commerce_ASP.Models.User UserHis = db.RealUsers.Where(u => u.RealId == item.UserId).First();
+                            }
+
+                            @if (UserHis.Nature.Equals("Particular"))
+                            {
+                                <td>@UserHis.FirstName @UserHis.LastName</td>
+                            }
+                            else
+                            {
+                                <td>@UserHis.CompanyName</td>
+                            }
+                            <td>@item.Complaint</td>
+                            <td>@item.Date.ToString()</td>
+
+                        </tr>
+                        }
+
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</main>

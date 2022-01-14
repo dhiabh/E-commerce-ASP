@@ -160,9 +160,9 @@
                         <div class="titre">@item.Description</div>
                         <table class="table">
 
-                            <tr><td style="font-weight: bold;">Prix</td><td class="price">@item.Price Dhs</td></tr>
+                            <tr><td style="font-weight: bold;">@E_commerce_ASP.Resources.Views.Home.Index.Price</td><td class="price">@item.Price Dhs</td></tr>
                             <tr>
-                                <td style="font-weight: bold;">Category</td>
+                                <td style="font-weight: bold;">@E_commerce_ASP.Resources.Views.Home.Index.Category</td>
                                 <td class="price">
                                     @{
                                         E_commerce_ASP.Models.Category categoryName = db.Categories.Where(c => c.Id == item.CategoryId).First();
@@ -175,7 +175,7 @@
 
                         </table>
 
-                        <div class="detailText">@Html.ActionLink("Voir les détails du produit ", "Index", "Product", new { Id = item.Id }, null)</div>
+                        <div class="detailText">@Html.ActionLink(E_commerce_ASP.Resources.Views.Home.Index.WatchDetails, "Index", "Product", new { Id = item.Id }, null)</div>
 
 
                     </div>

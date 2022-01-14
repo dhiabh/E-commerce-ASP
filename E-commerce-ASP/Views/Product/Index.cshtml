@@ -70,9 +70,9 @@
                     <p class="card-text">@Model.Description</p>
                 </div>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Price: <b>@Model.Price DHS</b></li>
+                    <li class="list-group-item">@E_commerce_ASP.Resources.Views.Product.Product.Price: <b>@Model.Price DHS</b></li>
                     <li class="list-group-item">
-                        Address: <b>
+                        @E_commerce_ASP.Resources.Views.Product.Product.Address: <b>
                             @{
                                 E_commerce_ASP.Models.User user = db.RealUsers.Where(u => u.RealId == Model.UserId).First();
 
@@ -81,7 +81,7 @@
                         </b>
                     </li>
                     <li class="list-group-item">
-                        Category: <b>
+                        @E_commerce_ASP.Resources.Views.Product.Product.Category: <b>
                             @{
                                 E_commerce_ASP.Models.Category category = db.Categories.Where(c => c.Id == Model.CategoryId).First();
 
@@ -91,22 +91,22 @@
                     </li>
                     @if (user.Nature == "Particular")
                     {
-                        <li class="list-group-item">Owner: <b>@user.FirstName @user.LastName</b></li>
+                <li class="list-group-item">@E_commerce_ASP.Resources.Views.Product.Product.Owner: <b>@user.FirstName @user.LastName</b></li>
                     }
                     else
                     {
-                        <li class="list-group-item">Owner: <b>@user.CompanyName</b></li>
+                <li class="list-group-item">@E_commerce_ASP.Resources.Views.Product.Product.Owner: <b>@user.CompanyName</b></li>
                     }
                 </ul>
             </div>
 
             <div class="card action_table col-lg-3 col-md-3 col-12 mx-auto align-items-center">
                 <div class="mb-5">
-                    @Html.ActionLink("Edit Product", "EditProduct", "Product", new { Id = Model.Id }, new { @class = "btn btn-success" })
+                    @Html.ActionLink(@E_commerce_ASP.Resources.Views.Product.Product.EditProduct, "EditProduct", "Product", new { Id = Model.Id }, new { @class = "btn btn-success" })
 
                 </div>
                 <div>
-                    @Html.ActionLink("Delete Product", "DeleteProduct", "Product", new { Id = Model.Id }, new { @class = "btn btn-danger" })
+                    @Html.ActionLink(@E_commerce_ASP.Resources.Views.Product.Product.DeleteProduct, "DeleteProduct", "Product", new { Id = Model.Id }, new { @class = "btn btn-danger" })
 
                 </div>
 
@@ -121,9 +121,9 @@
             <p class="card-text">@Model.Description</p>
         </div>
         <ul class="list-group list-group-flush">
-            <li class="list-group-item">Price: <b>@Model.Price DHS</b></li>
+            <li class="list-group-item">@E_commerce_ASP.Resources.Views.Product.Product.Price: <b>@Model.Price DHS</b></li>
             <li class="list-group-item">
-                Address: <b>
+                @E_commerce_ASP.Resources.Views.Product.Product.Address: <b>
                     @{
                         E_commerce_ASP.Models.User user = db.RealUsers.Where(u => u.RealId == Model.UserId).First();
 
@@ -132,7 +132,7 @@
                 </b>
             </li>
             <li class="list-group-item">
-                Category: <b>
+                @E_commerce_ASP.Resources.Views.Product.Product.Category: <b>
                     @{
                         E_commerce_ASP.Models.Category category = db.Categories.Where(c => c.Id == Model.CategoryId).First();
 
@@ -142,15 +142,15 @@
             </li>
             @if (user.Nature == "Particular")
             {
-                <li class="list-group-item">Owner: <b>@user.FirstName @user.LastName</b></li>
+        <li class="list-group-item">@E_commerce_ASP.Resources.Views.Product.Product.Owner: <b>@user.FirstName @user.LastName</b></li>
             }
             else
             {
-                <li class="list-group-item">Owner: <b>@user.CompanyName</b></li>
+        <li class="list-group-item">@E_commerce_ASP.Resources.Views.Product.Product.Owner: <b>@user.CompanyName</b></li>
             }
         </ul>
         <div class="card-body">
-            @Html.ActionLink("    Check owner informations", "Index", "Proprietaire", new { Id = user.RealId }, new { @class = "card-link btn text-white" })
+            @Html.ActionLink(@E_commerce_ASP.Resources.Views.Product.Product.CheckOwnerInfo, "Index", "Proprietaire", new { Id = user.RealId }, new { @class = "card-link btn text-white" })
         </div>
     </div>
         }

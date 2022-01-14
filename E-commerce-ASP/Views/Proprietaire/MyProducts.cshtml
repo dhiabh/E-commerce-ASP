@@ -12,8 +12,8 @@
             <div class="col-12">
                 <div class="bread-inner">
                     <ul class="bread-list">
-                        <li><a href="index1.html">Home<i class="ti-arrow-right"></i></a></li>
-                        <li class="active"><a href="blog-single.html">My Products</a></li>
+                        <li><a href="index1.html">@E_commerce_ASP.Resources.Views.Proprietaire.Proprieataire.Home<i class="ti-arrow-right"></i></a></li>
+                        <li class="active"><a href="blog-single.html">@E_commerce_ASP.Resources.Views.Proprietaire.Proprieataire.MyProducts</a></li>
                     </ul>
                 </div>
             </div>
@@ -178,8 +178,8 @@
                     <div>@item.Description</div>
                     <table class="table">
 
-                        <tr><td style="font-weight: bold;">Prix</td><td class="price">@item.Price Dhs</td></tr>
-                        <tr><td style="font-weight: bold;">Category</td><td class="price">
+                        <tr><td style="font-weight: bold;">@E_commerce_ASP.Resources.Views.Proprietaire.Proprieataire.Price</td><td class="price">@item.Price Dhs</td></tr>
+                        <tr><td style="font-weight: bold;">@E_commerce_ASP.Resources.Views.Proprietaire.Proprieataire.Category</td><td class="price">
                             @{
                                 E_commerce_ASP.Models.ApplicationDbContext db = new E_commerce_ASP.Models.ApplicationDbContext();
                                 E_commerce_ASP.Models.Category category = db.Categories.Where(c => c.Id == item.CategoryId).First();
@@ -190,7 +190,7 @@
 
                     </table>
 
-                    <div class="detailText">@Html.ActionLink("Voir les détails du produit ", "Index", "Product", new { Id = item.Id }, null)</div>
+                    <div class="detailText">@Html.ActionLink(@E_commerce_ASP.Resources.Views.Proprietaire.Proprieataire.CheckProductInfo, "Index", "Product", new { Id = item.Id }, null)</div>
 
 
                 </div>

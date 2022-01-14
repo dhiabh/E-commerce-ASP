@@ -4,22 +4,7 @@
     Layout = "~/Views/Shared/_HomeLayout.cshtml";
 }
 
-<!-- Breadcrumbs -->
-<div class="breadcrumbs">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="bread-inner">
-                    <ul class="bread-list">
-                        <li><a href="index1.html">Home<i class="ti-arrow-right"></i></a></li>
-                        <li class="active"><a href="blog-single.html">Add Product</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- End Breadcrumbs -->
+
 <!-- Start Contact -->
 <section id="contact-us" class="contact-us section">
     <div class="container">
@@ -28,8 +13,8 @@
                 <div class="col-lg-8 col-12">
                     <div class="form-main">
                         <div class="title">
-                            <h4>Add Product</h4>
-                            <h3>Specify your product details please</h3>
+                            <h4>@E_commerce_ASP.Resources.Views.Product.Product.EditProduct</h4>
+                            <h3>@E_commerce_ASP.Resources.Views.Product.Product.SpecifyYourProductDetails</h3>
                         </div>
                         @using (Html.BeginForm("EditProduct", "Product", FormMethod.Post,
                             new { enctype = "multipart/form-data" }))
@@ -63,7 +48,7 @@
                                 </div>
                                 <div class="col-lg-6 col-12">
                                     <div class="form-group">
-                                        <label>Choisissez une Image<span></span></label>
+                                        <label>@E_commerce_ASP.Resources.Views.Product.Product.ChoosePicture<span></span></label>
                                         <input type="file" name="upload">
                                     </div>
                                 </div>
@@ -79,7 +64,7 @@
 
                                 <div class="col-12">
                                     <div class="form-group button">
-                                        <button type="submit" class="btn ">Update product</button>
+                                        <button type="submit" class="btn ">@E_commerce_ASP.Resources.Views.Product.Product.UpdateProduct</button>
                                     </div>
                                 </div>
                             </div>
@@ -94,7 +79,7 @@
                     <div class="single-head">
                         <div class="single-info">
                             <i class="fa fa-phone"></i>
-                            <h4 class="title">Call us Now:</h4>
+                            <h4 class="title">@E_commerce_ASP.Resources.Views.Home.About.CallusNow:</h4>
                             <ul>
                                 <li>+212 0608129323</li>
                                 <li>+212 0632493393</li>
@@ -110,7 +95,7 @@
                         </div>
                         <div class="single-info">
                             <i class="fa fa-location-arrow"></i>
-                            <h4 class="title">Our Address:</h4>
+                            <h4 class="title">@E_commerce_ASP.Resources.Views.Home.About.OurAddress:</h4>
                             <ul>
                                 <li>Route Sefrou Fes</li>
                                 <li>Kingdom of Morocco</li>
@@ -122,4 +107,3 @@
         </div>
     </div>
 </section>
-

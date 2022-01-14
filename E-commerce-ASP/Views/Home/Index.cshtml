@@ -2,647 +2,662 @@
 
 
 @{
-    Layout = null;
+	Layout = null;
 }
 @using Microsoft.AspNet.Identity
 
 @{
-    E_commerce_ASP.Models.ApplicationDbContext db = new E_commerce_ASP.Models.ApplicationDbContext();
+	E_commerce_ASP.Models.ApplicationDbContext db = new E_commerce_ASP.Models.ApplicationDbContext();
 
-    IEnumerable<E_commerce_ASP.Models.Category> category = db.Categories.ToList();
+	IEnumerable<E_commerce_ASP.Models.Category> category = db.Categories.ToList();
 }
 
 <!DOCTYPE html>
 <html>
 <head>
-    <!-- Meta Tag -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name='copyright' content=''>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Title Tag  -->
-    <title>E-Commerce-ASP</title>
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="images/favicon.png">
-    <!-- Web Font -->
-    <link href="https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
+	<!-- Meta Tag -->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name='copyright' content=''>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<!-- Title Tag  -->
+	<title>E-Commerce-ASP</title>
+	<!-- Favicon -->
+	<link rel="icon" type="image/png" href="images/favicon.png">
+	<!-- Web Font -->
+	<link href="https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
 
-    <!-- StyleSheet -->
-    <!-- Bootstrap -->
-    @Styles.Render("~/Content/styles/bootstrap.css")
-    <!-- Magnific Popup -->
-    @Styles.Render("~/Content/styles/magnific-popup.min.css")
-    <!-- Font Awesome -->
-    @Styles.Render("~/Content/styles/font-awesome.css")
-    <!-- Fancybox -->
-    @Styles.Render("~/Content/styles/jquery.fancybox.min.css")
-    <!-- Themify Icons -->
-    @Styles.Render("~/Content/styles/themify-icons.css")
-    <!-- Nice Select CSS -->
-    @Styles.Render("~/Content/styles/niceselect.css")
-    <!-- Animate CSS -->
-    @Styles.Render("~/Content/styles/animate.css")
-    <!-- Flex Slider CSS -->
-    @Styles.Render("~/Content/styles/flex-slider.min.css")
-    <!-- Owl Carousel -->
-    @Styles.Render("~/Content/styles/owl-carousel.css")
-    <!-- Slicknav -->
-    @Styles.Render("~/Content/styles/slicknav.min.css")
-    <!-- Eshop StyleSheet -->
-    @Styles.Render("~/Content/styles/reset.css")
-    @Styles.Render("~/Content/styles/style.css")
-    @Styles.Render("~/Content/styles/responsive.css")
+	<!-- StyleSheet -->
+	<!-- Bootstrap -->
+	@Styles.Render("~/Content/styles/bootstrap.css")
+	<!-- Magnific Popup -->
+	@Styles.Render("~/Content/styles/magnific-popup.min.css")
+	<!-- Font Awesome -->
+	@Styles.Render("~/Content/styles/font-awesome.css")
+	<!-- Fancybox -->
+	@Styles.Render("~/Content/styles/jquery.fancybox.min.css")
+	<!-- Themify Icons -->
+	@Styles.Render("~/Content/styles/themify-icons.css")
+	<!-- Nice Select CSS -->
+	@Styles.Render("~/Content/styles/niceselect.css")
+	<!-- Animate CSS -->
+	@Styles.Render("~/Content/styles/animate.css")
+	<!-- Flex Slider CSS -->
+	@Styles.Render("~/Content/styles/flex-slider.min.css")
+	<!-- Owl Carousel -->
+	@Styles.Render("~/Content/styles/owl-carousel.css")
+	<!-- Slicknav -->
+	@Styles.Render("~/Content/styles/slicknav.min.css")
+	<!-- Eshop StyleSheet -->
+	@Styles.Render("~/Content/styles/reset.css")
+	@Styles.Render("~/Content/styles/style.css")
+	@Styles.Render("~/Content/styles/responsive.css")
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-    
+	
 
-    <style>
-        
-        .tag-results {
-            display: flex;
-            flex-direction: row;
-            
-        }
-    </style>
+	<style>
+		
+		.tag-results {
+			display: flex;
+			flex-direction: row;
+			
+		}
+	</style>
 
 </head>
 <body class="js">
 
-    <!-- Preloader -->
-    <div class="preloader">
-        <div class="preloader-inner">
-            <div class="preloader-icon">
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-    </div>
-    <!-- End Preloader -->
-    <!-- Header -->
-
-    <header class="header shop">
-
-        <div class="middle-inner">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-2 col-md-2 col-12">
-                        <!-- Logo -->
-                        <div class="logo">
-                            <a href="index.html"><img src="~/Content/images/logo.png" alt="logo"></a>
-                        </div>
-                        <!--/ End Logo -->
-                        <!-- Search Form -->
-                        <div class="search-top">
-                            <div class="top-search"><a href="#0"><i class="ti-search"></i></a></div>
-                            <!-- Search Form -->
-                            <div class="search-top">
-                                <form class="search-form">
-                                    <input placeholder="Search here..." name="search" id="search2" autocomplete="off" />
-                                    <div id="result2" class="tag-results"></div>
-                                    <button value="search" type="submit"><i class="ti-search"></i></button>
-                                </form>
-                            </div>
-                            <!--/ End Search Form -->
-                        </div>
-                        <!--/ End Search Form -->
-                        <div class="mobile-nav"></div>
-                    </div>
-                    <div class="col-lg-6 col-md-4 col-12">
-                        <div class="search-bar-top">
-                            <div class="search-bar">
-                                <select onchange="location = this.value;">
-                                    <option value="/" selected="selected">All Category</option>
-                                    @foreach (var item in category)
-                                    {
-                                        <option value="~/Category/Index/@item.Id">@item.Name</option>
-                                    }
-
-
-                                </select>
-                                <form>
-                                    <input placeholder="Search here..." name="search" id="search" autocomplete="off" />
-                                     <div id="result" class="tag-results"></div> 
-                                    <button class="btnn"><i class="ti-search"></i></button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                    @if (Request.IsAuthenticated)
-                    {
-                        if (ViewBag.user.Nature == "Particular")
-                        {
-                            <div class="col-lg-2 col-md-3 col-6 m-auto">
-                                Hello @ViewBag.user.FirstName @ViewBag.user.LastName !
-                            </div>
-                        }
-                        else
-                        {
-                            <div class="col-lg-2 col-md-3 col-6 m-auto">
-                                Hello @ViewBag.user.CompanyName!
-                            </div>
-                        }
-
-                    }
-                    <div class="col-lg-2 col-md-3 col-12">
-                        <div class="right-bar">
-                            <div class="sinlge-bar">
-                                <ul class="navbar-nav">
-                                    <li class="nav-item dropdown">
-                                        <a class="fa fa-user-circle-o single-icon icon__item nav-link" id="navbarDropdown" data-toggle="dropdown"
-                                           aria-haspopup="true" aria-expanded="false" style="cursor:pointer">
-                                        </a>
-                                        @if (Request.IsAuthenticated)
-                                        {
-                                            string id = User.Identity.GetUserId();
-
-                                            var user = db.Users.Where(u => u.Id.Equals(id)).First();
-                                            var realUser = db.RealUsers.Where(u => u.RealId == user.RefId).First();
-
-                                            using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
-                                            {
-                                                @Html.AntiForgeryToken()
-
-                                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                                    <li class="dropdown-item">
-                                                        @if (User.IsInRole("Admin"))
-                                                        {
-                                                            @Html.ActionLink("My account", "Index", "Admin", routeValues: null, htmlAttributes: new { title = "Manage" })
-                                                        }
-                                                        else
-                                                        {
-                                                            @Html.ActionLink("My account", "Index", "Proprietaire", new { Id = realUser.RealId }, new { title = "Manage" })
-                                                        }
-                                                    </li>
-                                                    <li>
-                                                        <hr class="dropdown-divider">
-                                                    </li>
-                                                    <li class="dropdown-item"><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
-                                                </ul>
-                                            }
-                                        }
-                                        else
-                                        {
-                                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                                <li class="dropdown-item">@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
-                                                <li class="dropdown-item">@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
-                                            </ul>
-                                        }
-                                    </li>
-                                </ul>
-
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Header Inner -->
-        <div class="header-inner">
-            <div class="container">
-                <div class="cat-nav-head">
-                    <div class="row">
-                        <div class="col-lg-3">
-                            <div class="all-category">
-                                <h3 class="cat-heading mt-0"><i class="fa fa-bars" aria-hidden="true"></i>CATEGORIES</h3>
-                                <ul class="main-category">
-                                    <!-- CATEGORYYYYYY -->
-
-                                    @foreach (var item in category)
-                                    {
-
-                                        <li>@Html.ActionLink(item.Name, "Index", "Category", new { Id = item.Id }, null)</li>
-
-                                    }
-
-
-
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-lg-9 col-12">
-                            <div class="menu-area">
-                                <!-- Main Menu -->
-                                <nav class="navbar navbar-expand-lg">
-                                    <div class="navbar-collapse">
-                                        <div class="nav-inner">
-                                            <ul class="nav main-menu menu navbar-nav">
-                                                <li class="active"><a href="#">Home</a></li>
-                                                @if (Request.IsAuthenticated)
-                                                {
-                                                    <li>@Html.ActionLink("Add Product", "AddProduct", "Proprietaire")</li>
-                                                }
-                                                @if (Request.IsAuthenticated && !User.IsInRole("Admin"))
-                                                {
-                                                    string id = User.Identity.GetUserId();
-
-                                                    var user = db.Users.Where(u => u.Id.Equals(id)).First();
-                                                    var realUser = db.RealUsers.Where(u => u.RealId == user.RefId).First();
-
-                                                    <li>@Html.ActionLink("My Products", "MyProducts", "Proprietaire", new { Id = realUser.RealId }, null)</li>
-
-                                                    <li>@Html.ActionLink("Historique", "Historique", "Proprietaire")</li>
-                                                    <li>@Html.ActionLink("Declare A Problem", "DeclareProblem", "Proprietaire")</li>
-                                                }
-                                                @if (User.IsInRole("Admin"))
-                                                {
-                                                    <li>@Html.ActionLink("Admin DashBoard", "DashBoard", "Admin")</li>
-                                                }
-                                                <li>@Html.ActionLink("Statistique", "Statistique", "Home")</li>
-                                                <li>@Html.ActionLink("About Us", "About", "Home")</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </nav>
-                                <!--/ End Main Menu -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--/ End Header Inner -->
-    </header>
-    <!--/ End Header -->
-    <!-- Slider Area -->
-    <section class="hero-slider">
-        <!-- Single Slider -->
-        <!-- Image 1900*700 is Here-->
-        <div class="single-slider">
-            <div class="container">
-                <div class="row no-gutters">
-                    <div class="col-lg-9 offset-lg-3 col-12">
-                        <div class="text-inner">
-                            <div class="row">
-                                <div class="col-lg-7 col-12">
-                                    <div class="hero-text">
-                                        <h1><span>UP TO 50% OFF </span>Shirt For Man</h1>
-                                        <p>Our Site Uses The latest technologies <br> To ensure the best security for you.</p>
-                                        <div class="button">
-                                            <a href="#" class="btn">Shop Now!</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--/ End Single Slider -->
-    </section>
-    <!--/ End Slider Area -->
-
-
-    <div class="container body-content">
-
-
-        <style>
-            .card-price {
-                border-color: #999;
-                background-color: #ededed;
-                margin-bottom: 24px;
-                padding-bottom: 20px;
-            }
-
-                .card-price > .card-heading,
-                .card-price > .card-footer {
-                    color: #333;
-                    background-color: #fdfdfd;
-                }
-
-                .card-price > .card-heading {
-                    border-bottom: 1px solid #ddd;
-                    padding: 8px;
-                }
-
-                .card-price > .card-footer {
-                    border-top: 1px solid #ddd;
-                    padding: 8px;
-                }
-
-                .card-price > .card-img:first-child img {
-                    border-radius: 50px 50px 0 0;
-                }
-
-                .card-price > .card-left {
-                    padding-right: 4px;
-                }
-
-                .card-price > .card-right {
-                    padding-left: 4px;
-                }
-
-                .card-price p:last-child {
-                    margin-bottom: 0;
-                }
-
-                .card-price .price {
-                    text-align: center;
-                    color: #337ab7;
-                    font-size: 3em;
-                    text-transform: uppercase;
-                    line-height: 0.7em;
-                    margin: 24px 0 16px;
-                }
-
-                    .card-price .price small {
-                        font-size: 0.4em;
-                        color: #337ab7;
-                    }
-
-                .card-price .details {
-                    list-style: none;
-                    margin-bottom: 24px;
-                    padding: 0px 18px;
-                }
-
-                    .card-price .details li {
-                        text-align: center;
-                        margin-bottom: 8px;
-                    }
-
-                .card-price .buy-now {
-                    text-transform: uppercase;
-                    margin-bottom: 20px;
-                    margin-left: 80px;
-                    background-color: rgba(0,0,0); /* Product Name Color */
-                    width: 200px;
-                }
-
-                .card-price table {
-                    margin-left: 5px;
-                }
-
-            .titre {
-                margin-left: 100px;
-                font-size: 15px;
-                font-weight: 700;
-            }
-
-            .detailText {
-                margin-left: 70px;
-                font-size: 15px;
-            }
-
-            .card-price table .price {
-                font-size: 15px;
-                font-weight: 700;
-            }
-
-            .card-price table .note {
-                color: #666;
-                font-size: 0.8em;
-            }
-            
-        </style>
-
-
-
-
-        <style>
-            .card {
-                /* Add shadows to create the "card" effect */
-                box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-                transition: 0.3s;
-            }
-
-                /* On mouse-over, add a deeper shadow */
-                .card:hover {
-                    box-shadow: 0 8px 16px 0 #666;
-                }
-
-            .card-caption {
-                position: absolute;
-                right: 0;
-                bottom: 16px;
-                left: 0;
-            }
-
-            .card-price{
-                width:320px;
-            }
-        </style>
-        <br />
-        <br />
-        
-
-
-
-        @foreach (var item in Model)
-        {
-
-            <div class="col-lg-4 col-md-6 col-sm-6 col-12">
-
-                <div class="card card-price mt-5" style="border-radius: 50px">
-                    <div class="card-img">
-                        <a href="/Product/Index/@item.Id">
-                            <img src="~/Uploads/@item.Image" class="img-responsive" style="width:360px;height:220px">
-                            <div class="card-caption">
-
-                            </div>
-                        </a>
-                    </div>
-                    <div class="card-body">
-                        <div class="lead text-center" style="color:rgba(0,0,0); font-weight:bold;">@item.Name</div>
-                        <table class="table">
-
-                            <tr><td style="font-weight: bold;">Prix</td><td class="price">@item.Price Dhs</td></tr>
-                            <tr>
-                                <td style="font-weight: bold;">Category</td>
-                                <td class="price">
-                                    @{
-                                        E_commerce_ASP.Models.Category categoryName = db.Categories.Where(c => c.Id == item.CategoryId).First();
-                                    }
-                                    @categoryName.Name
-                                </td>
-                            </tr>
-
-
-
-                        </table>
-
-                        <div class="detailText">@Html.ActionLink("Voir les détails du produit ", "Index", "Product", new { Id = item.Id }, null)</div>
-
-
-                    </div>
-                </div>
-            </div>
-
-        }
-
-
-    </div>
-
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-
-
-
-
-    <!-- Start Footer Area -->
-    <footer class="footer">
-        <!-- Footer Top -->
-        <div class="footer-top section">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-5 col-md-6 col-12">
-                        <!-- Single Widget -->
-                        <div class="single-footer about">
-                            <div class="logo">
-                                <a href="index.html"><img src="~/Content/images/logo2.png" alt="#"></a>
-                            </div>
-                            <p class="text">Our ASP.Net E-Commerce Site</p>
-                            <p class="call">Got Question? Call us 24/7<span><a href="tel:123456789">+0123 456 789</a></span></p>
-                        </div>
-                        <!-- End Single Widget -->
-                    </div>
-                    <div class="col-lg-2 col-md-6 col-12">
-                        <!-- Single Widget -->
-                        <div class="single-footer links">
-                            <h4>Information</h4>
-                            <ul>
-                                <li><a href="#">About Us</a></li>
-                                <li><a href="#">Faqs</a></li>
-                                <li><a href="#">Terms & Conditions</a></li>
-                                <li><a href="#">Contact Us</a></li>
-                                <li><a href="#">Help</a></li>
-                            </ul>
-                        </div>
-                        <!-- End Single Widget -->
-                    </div>
-                    <div class="col-lg-2 col-md-6 col-12">
-                        <!-- Single Widget -->
-                        <div class="single-footer links">
-                            <h4>Customer Service</h4>
-                            <ul>
-                                <li><a href="#">Payment Methods</a></li>
-                                <li><a href="#">Money-back</a></li>
-                                <li><a href="#">Returns</a></li>
-                                <li><a href="#">Shipping</a></li>
-                                <li><a href="#">Privacy Policy</a></li>
-                            </ul>
-                        </div>
-                        <!-- End Single Widget -->
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-12">
-                        <!-- Single Widget -->
-                        <div class="single-footer social">
-                            <h4>Get In Touch</h4>
-                            <!-- Single Widget -->
-                            <div class="contact">
-                                <ul>
-                                    <li>Fes</li>
-                                    <li>Morocco</li>
-
-                                </ul>
-                            </div>
-                            <!-- End Single Widget -->
-                            <ul>
-                                <li><a href="#"><i class="ti-facebook"></i></a></li>
-                                <li><a href="#"><i class="ti-twitter"></i></a></li>
-                                <li><a href="#"><i class="ti-flickr"></i></a></li>
-                                <li><a href="#"><i class="ti-instagram"></i></a></li>
-                            </ul>
-                        </div>
-                        <!-- End Single Widget -->
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </footer>
-    <!-- /End Footer Area -->
-    <!-- Jquery -->
-    @Scripts.Render("~/Content/js/jquery.min.js")
-    @Scripts.Render("~/Content/js/jquery-migrate-3.0.0.js")
-    @Scripts.Render("~/Content/js/jquery-ui.min.js")
-    <!-- Popper JS -->
-    @Scripts.Render("~/Content/js/popper.min.js")
-    <!-- Bootstrap JS -->
-    @Scripts.Render("~/Content/js/bootstrap.min.js")
-    <!-- Slicknav JS -->
-    @Scripts.Render("~/Content/js/slicknav.min.js")
-    <!-- Owl Carousel JS -->
-    @Scripts.Render("~/Content/js/owl-carousel.js")
-    <!-- Magnific Popup JS -->
-    @Scripts.Render("~/Content/js/magnific-popup.js")
-    <!-- Waypoints JS -->
-    @Scripts.Render("~/Content/js/waypoints.min.js")
-    <!-- Countdown JS -->
-    @Scripts.Render("~/Content/js/finalcountdown.min.js")
-    <!-- Nice Select JS -->
-    @Scripts.Render("~/Content/js/nicesellect.js")
-    <!-- Flex Slider JS -->
-    @Scripts.Render("~/Content/js/flex-slider.js")
-    <!-- ScrollUp JS -->
-    @Scripts.Render("~/Content/js/scrollup.js")
-    <!-- Onepage Nav JS -->
-    @Scripts.Render("~/Content/js/onepage-nav.min.js")
-    <!-- Easing JS -->
-    @Scripts.Render("~/Content/js/easing.js")
-    <!-- Active JS -->
-    @Scripts.Render("~/Content/js/active.js")
-
-    <!-- ************************************Search************************-->
-    <script>
-
-        let timeout = null;
-
-        document.getElementById('search').addEventListener('keyup', function (e) {
-
-            clearTimeout(timeout);
-            timeout = setTimeout(function () {
-                LiveSearch()
-            }, 800);
-        });
-
-        function LiveSearch() {
-            //Get the input value
-            let value = document.getElementById('search').value
-            var counter = 0;
-            $.ajax({
-                type: "POST",
-                url: "/Home/LiveSearch",
-                data: { search: value },
-                datatype: "html",
-                success: function (data) { 
-                $('#result').html(data);                              
-                }
-            });
-        }
-    </script>
-
-    <script>
-        document.getElementById('search2').addEventListener('keyup', function (e) {
-
-            clearTimeout(timeout);
-            timeout = setTimeout(function () {
-                LiveSearch2()
-            }, 800);
-        });
-
-        function LiveSearch2() {
-            //Get the input value
-            let value = document.getElementById('search2').value
-
-            $.ajax({
-                type: "POST",
-                // You can use the absolute url eg www.site.com/MyControllerName/LiveTagSearch or the relative path live below
-                url: "/Home/LiveSearch",
-                // Attach the value to a parameter called search
-                data: { search: value },
-                datatype: "html",
-                success: function (data) {
-                    // Insert the returned search results html into the result element
-                    $('#result2').html(data);
-                }
-            });
-        }
-    </script>
+	<!-- Preloader -->
+	<div class="preloader">
+		<div class="preloader-inner">
+			<div class="preloader-icon">
+				<span></span>
+				<span></span>
+			</div>
+		</div>
+	</div>
+	<!-- End Preloader -->
+	<!-- Header -->
+
+	<header class="header shop">
+
+		<div class="middle-inner">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-2 col-md-2 col-12">
+						<!-- Logo -->
+						<div class="logo">
+							<a href="index.html"><img src="~/Content/images/logo.png" alt="logo"></a>
+						</div>
+						<!--/ End Logo -->
+						<!-- Search Form -->
+						<div class="search-top">
+							<div class="top-search"><a href="#0"><i class="ti-search"></i></a></div>
+							<!-- Search Form -->
+							<div class="search-top">
+								<form class="search-form">
+									<input placeholder="@E_commerce_ASP.Resources.Views.Home.Index.SearchHere" name="search" id="search2" autocomplete="off" />
+									<div id="result2" class="tag-results"></div>
+									<button value="search" type="submit"><i class="ti-search"></i></button>
+								</form>
+							</div>
+							<!--/ End Search Form -->
+						</div>
+						<!--/ End Search Form -->
+						<div class="mobile-nav"></div>
+					</div>
+					<div class="col-lg-6 col-md-4 col-12">
+						<div class="search-bar-top">
+							<div class="search-bar">
+								<select onchange="location = this.value;">
+									<option value="/" selected="selected">@E_commerce_ASP.Resources.Views.Home.Index.AllCategory</option>
+									@foreach (var item in category)
+									{
+										<option value="~/Category/Index/@item.Id">@item.Name</option>
+									}
+
+
+								</select>
+								<form>
+									<input placeholder="@E_commerce_ASP.Resources.Views.Home.Index.SearchHere" name="search" id="search" autocomplete="off" />
+									 <div id="result" class="tag-results"></div> 
+									<button class="btnn"><i class="ti-search"></i></button>
+								</form>
+							</div>
+						</div>
+					</div>
+					@if (Request.IsAuthenticated)
+					{
+						if (ViewBag.user.Nature == "Particular")
+						{
+							<div class="col-lg-2 col-md-3 col-6 m-auto">
+								@E_commerce_ASP.Resources.Views.Home.Index.Hello @ViewBag.user.FirstName @ViewBag.user.LastName !
+							</div>
+						}
+						else
+						{
+				<div class="col-lg-2 col-md-3 col-6 m-auto">
+					@E_commerce_ASP.Resources.Views.Home.Index.Hello @ViewBag.user.CompanyName!
+				</div>
+						}
+
+					}
+					<div class="col-lg-2 col-md-3 col-12">
+						<div class="right-bar">
+							<div class="sinlge-bar">
+								<ul class="navbar-nav">
+									<li class="nav-item dropdown">
+										<a class="fa fa-user-circle-o single-icon icon__item nav-link" id="navbarDropdown" data-toggle="dropdown"
+										   aria-haspopup="true" aria-expanded="false" style="cursor:pointer">
+										</a>
+										@if (Request.IsAuthenticated)
+										{
+											string id = User.Identity.GetUserId();
+
+											var user = db.Users.Where(u => u.Id.Equals(id)).First();
+											var realUser = db.RealUsers.Where(u => u.RealId == user.RefId).First();
+
+											using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+											{
+												@Html.AntiForgeryToken()
+
+												<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+													<li class="dropdown-item">
+														@if (User.IsInRole("Admin"))
+														{
+															@Html.ActionLink(E_commerce_ASP.Resources.Views.Home.Index.MyAccount, "Index", "Admin", routeValues: null, htmlAttributes: new { title = "Manage" })
+														}
+														else
+														{
+															@Html.ActionLink(E_commerce_ASP.Resources.Views.Home.Index.MyAccount, "Index", "Proprietaire", new { Id = realUser.RealId }, new { title = "Manage" })
+														}
+													</li>
+													<li>
+														<hr class="dropdown-divider">
+													</li>
+													<li class="dropdown-item"><a href="javascript:document.getElementById('logoutForm').submit()">@E_commerce_ASP.Resources.Views.Home.Index.LogOff</a></li>
+												</ul>
+											}
+										}
+										else
+										{
+											<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+												<li class="dropdown-item">@Html.ActionLink(E_commerce_ASP.Resources.Views.Home.Index.Register, "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+												<li class="dropdown-item">@Html.ActionLink(E_commerce_ASP.Resources.Views.Home.Index.Login, "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+											</ul>
+										}
+									</li>
+								</ul>
+
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Header Inner -->
+		<div class="header-inner">
+			<div class="container">
+				<div class="cat-nav-head">
+					<div class="row">
+						<div class="col-lg-3">
+							<div class="all-category">
+								<h3 class="cat-heading mt-0"><i class="fa fa-bars" aria-hidden="true"></i>@E_commerce_ASP.Resources.Views.Home.Index.Categories</h3>
+								<ul class="main-category">
+									<!-- CATEGORYYYYYY -->
+
+									@foreach (var item in category)
+									{
+
+										<li>@Html.ActionLink(item.Name, "Index", "Category", new { Id = item.Id }, null)</li>
+
+									}
+
+
+								</ul>
+							</div>
+						</div>
+						<div class="col-lg-9 col-12">
+							<div class="menu-area">
+								<!-- Main Menu -->
+								<nav class="navbar navbar-expand-lg">
+									<div class="navbar-collapse">
+										<div class="nav-inner">
+											<ul class="nav main-menu menu navbar-nav">
+												<li class="active"><a href="#">@E_commerce_ASP.Resources.Views.Home.Index.Home</a></li>
+												@if (Request.IsAuthenticated)
+												{
+													<li>@Html.ActionLink(@E_commerce_ASP.Resources.Views.Home.Index.AddProducts, "AddProduct", "Proprietaire")</li>
+												}
+												@if (Request.IsAuthenticated && !User.IsInRole("Admin"))
+												{
+													string id = User.Identity.GetUserId();
+
+													var user = db.Users.Where(u => u.Id.Equals(id)).First();
+													var realUser = db.RealUsers.Where(u => u.RealId == user.RefId).First();
+
+													<li>
+														<a href="#">@E_commerce_ASP.Resources.Views.Home.Index.Products<i class="ti-angle-down"></i></a>
+														<ul class="dropdown">
+															<li><a href="blog-single-sidebar.html">@Html.ActionLink(@E_commerce_ASP.Resources.Views.Home.Index.MyProducts, "MyProducts", "Proprietaire", new { Id = realUser.RealId }, null)</a></li>
+															<li><a href="blog-single-sidebar.html">@Html.ActionLink(@E_commerce_ASP.Resources.Views.Home.Index.ProductLogs, "Historique", "Proprietaire")</a></li>
+														</ul>
+													</li>
+													<li>@Html.ActionLink(@E_commerce_ASP.Resources.Views.Home.Index.Complaints, "DeclareProblem", "Proprietaire")</li>
+												}
+												@if (User.IsInRole("Admin"))
+												{
+													<li>@Html.ActionLink(@E_commerce_ASP.Resources.Views.Home.Index.AdminDashboard, "DashBoard", "Admin")</li>
+												}
+
+												<li>@Html.ActionLink(@E_commerce_ASP.Resources.Views.Home.Index.Statistics, "Statistique", "Home")</li>
+												<li>@Html.ActionLink(@E_commerce_ASP.Resources.Views.Home.Index.AboutUs, "About", "Home")</li>
+												<li>
+													<a href="#">@E_commerce_ASP.Resources.Views.Home.Index.Language<i class="ti-angle-down"></i></a>
+													<ul class="dropdown">
+														<li><a href="blog-single-sidebar.html">@Html.ActionLink("English", "ChangeLanguage", "Home", new { lang = "en" }, null)</a></li>
+														
+													   
+														<li><a href="blog-single-sidebar.html">@Html.ActionLink("French", "ChangeLanguage", "Home", new { lang = "fr" }, null)</a></li>
+													</ul>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</nav>
+								<!--/ End Main Menu -->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--/ End Header Inner -->
+	</header>
+	<!--/ End Header -->
+	<!-- Slider Area -->
+	<section class="hero-slider">
+		<!-- Single Slider -->
+		<!-- Image 1900*700 is Here-->
+		<div class="single-slider">
+			<img src="~/Uploads/ecommerce.jpg" alt="alternatetext" style="width:1900px;height:700px;">
+			<!--IMAAAAAAAAAAAAAAAAAAAAAAAGE IS HERE !!!!!!!!!!-->
+			<!--IMAAAAAAAAAAAAAAAAAAAAAAAGE IS HERE !!!!!!!!!!-->
+			<!--IMAAAAAAAAAAAAAAAAAAAAAAAGE IS HERE !!!!!!!!!!-->
+			<!--IMAAAAAAAAAAAAAAAAAAAAAAAGE IS HERE !!!!!!!!!!-->
+			<div class="container">
+				<div class="row no-gutters">
+					<div class="col-lg-9 offset-lg-3 col-12">
+						<div class="text-inner">
+							<div class="row">
+								<div class="col-lg-7 col-12">
+									<div class="hero-text">
+
+
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--/ End Single Slider -->
+	</section>
+	<!--/ End Slider Area -->
+
+
+	<div class="container body-content">
+
+
+		<style>
+			.card-price {
+				border-color: #999;
+				background-color: #ededed;
+				margin-bottom: 24px;
+				padding-bottom: 20px;
+			}
+
+				.card-price > .card-heading,
+				.card-price > .card-footer {
+					color: #333;
+					background-color: #fdfdfd;
+				}
+
+				.card-price > .card-heading {
+					border-bottom: 1px solid #ddd;
+					padding: 8px;
+				}
+
+				.card-price > .card-footer {
+					border-top: 1px solid #ddd;
+					padding: 8px;
+				}
+
+				.card-price > .card-img:first-child img {
+					border-radius: 50px 50px 0 0;
+				}
+
+				.card-price > .card-left {
+					padding-right: 4px;
+				}
+
+				.card-price > .card-right {
+					padding-left: 4px;
+				}
+
+				.card-price p:last-child {
+					margin-bottom: 0;
+				}
+
+				.card-price .price {
+					text-align: center;
+					color: #337ab7;
+					font-size: 3em;
+					text-transform: uppercase;
+					line-height: 0.7em;
+					margin: 24px 0 16px;
+				}
+
+					.card-price .price small {
+						font-size: 0.4em;
+						color: #337ab7;
+					}
+
+				.card-price .details {
+					list-style: none;
+					margin-bottom: 24px;
+					padding: 0px 18px;
+				}
+
+					.card-price .details li {
+						text-align: center;
+						margin-bottom: 8px;
+					}
+
+				.card-price .buy-now {
+					text-transform: uppercase;
+					margin-bottom: 20px;
+					margin-left: 80px;
+					background-color: rgba(0,0,0); /* Product Name Color */
+					width: 200px;
+				}
+
+				.card-price table {
+					margin-left: 5px;
+				}
+
+			.titre {
+				margin-left: 100px;
+				font-size: 15px;
+				font-weight: 700;
+			}
+
+			.detailText {
+				margin-left: 70px;
+				font-size: 15px;
+			}
+
+			.card-price table .price {
+				font-size: 15px;
+				font-weight: 700;
+			}
+
+			.card-price table .note {
+				color: #666;
+				font-size: 0.8em;
+			}
+			
+		</style>
+
+
+
+
+		<style>
+			.card {
+				/* Add shadows to create the "card" effect */
+				box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+				transition: 0.3s;
+			}
+
+				/* On mouse-over, add a deeper shadow */
+				.card:hover {
+					box-shadow: 0 8px 16px 0 #666;
+				}
+
+			.card-caption {
+				position: absolute;
+				right: 0;
+				bottom: 16px;
+				left: 0;
+			}
+
+			.card-price{
+				width:320px;
+			}
+		</style>
+		<br />
+		<br />
+		
+
+
+
+		@foreach (var item in Model)
+		{
+
+			<div class="col-lg-4 col-md-6 col-sm-6 col-12">
+
+				<div class="card card-price mt-5" style="border-radius: 50px">
+					<div class="card-img">
+						<a href="/Product/Index/@item.Id">
+							<img src="~/Uploads/@item.Image" class="img-responsive" style="width:360px;height:220px">
+							<div class="card-caption">
+
+							</div>
+						</a>
+					</div>
+					<div class="card-body">
+						<div class="lead text-center" style="color:rgba(0,0,0); font-weight:bold;">@item.Name</div>
+						<table class="table">
+
+							<tr><td style="font-weight: bold;">@E_commerce_ASP.Resources.Views.Home.Index.Price</td><td class="price">@item.Price Dhs</td></tr>
+							<tr>
+								<td style="font-weight: bold;">@E_commerce_ASP.Resources.Views.Home.Index.Category</td>
+								<td class="price">
+									@{
+										E_commerce_ASP.Models.Category categoryName = db.Categories.Where(c => c.Id == item.CategoryId).First();
+									}
+									@categoryName.Name
+								</td>
+							</tr>
+
+
+
+						</table>
+
+						<div class="detailText">@Html.ActionLink(E_commerce_ASP.Resources.Views.Home.Index.WatchDetails, "Index", "Product", new { Id = item.Id }, null)</div>
+
+
+					</div>
+				</div>
+			</div>
+
+		}
+
+
+	</div>
+
+	@Styles.Render("~/Content/css")
+	@Scripts.Render("~/bundles/modernizr")
+	@Scripts.Render("~/bundles/jquery")
+	@Scripts.Render("~/bundles/bootstrap")
+
+
+
+
+	<!-- Start Footer Area -->
+	<footer class="footer">
+		<!-- Footer Top -->
+		<div class="footer-top section">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-5 col-md-6 col-12">
+						<!-- Single Widget -->
+						<div class="single-footer about">
+							<div class="logo">
+								<a href="index.html"><img src="~/Content/images/logo2.png" alt="#"></a>
+							</div>
+							<p class="text">Our ASP.Net E-Commerce Site</p>
+							<p class="call">Got Question? Call us 24/7<span><a href="tel:123456789">+0123 456 789</a></span></p>
+						</div>
+						<!-- End Single Widget -->
+					</div>
+					<div class="col-lg-2 col-md-6 col-12">
+						<!-- Single Widget -->
+						<div class="single-footer links">
+							<h4>Information</h4>
+							<ul>
+								<li><a href="#">About Us</a></li>
+								<li><a href="#">Faqs</a></li>
+								<li><a href="#">Terms & Conditions</a></li>
+								<li><a href="#">Contact Us</a></li>
+								<li><a href="#">Help</a></li>
+							</ul>
+						</div>
+						<!-- End Single Widget -->
+					</div>
+					<div class="col-lg-2 col-md-6 col-12">
+						<!-- Single Widget -->
+						<div class="single-footer links">
+							<h4>Customer Service</h4>
+							<ul>
+								<li><a href="#">Payment Methods</a></li>
+								<li><a href="#">Money-back</a></li>
+								<li><a href="#">Returns</a></li>
+								<li><a href="#">Shipping</a></li>
+								<li><a href="#">Privacy Policy</a></li>
+							</ul>
+						</div>
+						<!-- End Single Widget -->
+					</div>
+					<div class="col-lg-3 col-md-6 col-12">
+						<!-- Single Widget -->
+						<div class="single-footer social">
+							<h4>Get In Touch</h4>
+							<!-- Single Widget -->
+							<div class="contact">
+								<ul>
+									<li>Fes</li>
+									<li>Morocco</li>
+
+								</ul>
+							</div>
+							<!-- End Single Widget -->
+							<ul>
+								<li><a href="#"><i class="ti-facebook"></i></a></li>
+								<li><a href="#"><i class="ti-twitter"></i></a></li>
+								<li><a href="#"><i class="ti-flickr"></i></a></li>
+								<li><a href="#"><i class="ti-instagram"></i></a></li>
+							</ul>
+						</div>
+						<!-- End Single Widget -->
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</footer>
+	<!-- /End Footer Area -->
+	<!-- Jquery -->
+	@Scripts.Render("~/Content/js/jquery.min.js")
+	@Scripts.Render("~/Content/js/jquery-migrate-3.0.0.js")
+	@Scripts.Render("~/Content/js/jquery-ui.min.js")
+	<!-- Popper JS -->
+	@Scripts.Render("~/Content/js/popper.min.js")
+	<!-- Bootstrap JS -->
+	@Scripts.Render("~/Content/js/bootstrap.min.js")
+	<!-- Slicknav JS -->
+	@Scripts.Render("~/Content/js/slicknav.min.js")
+	<!-- Owl Carousel JS -->
+	@Scripts.Render("~/Content/js/owl-carousel.js")
+	<!-- Magnific Popup JS -->
+	@Scripts.Render("~/Content/js/magnific-popup.js")
+	<!-- Waypoints JS -->
+	@Scripts.Render("~/Content/js/waypoints.min.js")
+	<!-- Countdown JS -->
+	@Scripts.Render("~/Content/js/finalcountdown.min.js")
+	<!-- Nice Select JS -->
+	@Scripts.Render("~/Content/js/nicesellect.js")
+	<!-- Flex Slider JS -->
+	@Scripts.Render("~/Content/js/flex-slider.js")
+	<!-- ScrollUp JS -->
+	@Scripts.Render("~/Content/js/scrollup.js")
+	<!-- Onepage Nav JS -->
+	@Scripts.Render("~/Content/js/onepage-nav.min.js")
+	<!-- Easing JS -->
+	@Scripts.Render("~/Content/js/easing.js")
+	<!-- Active JS -->
+	@Scripts.Render("~/Content/js/active.js")
+
+	<!-- ************************************Search************************-->
+	<script>
+
+		let timeout = null;
+
+		document.getElementById('search').addEventListener('keyup', function (e) {
+
+			clearTimeout(timeout);
+			timeout = setTimeout(function () {
+				LiveSearch()
+			}, 800);
+		});
+
+		function LiveSearch() {
+			//Get the input value
+			let value = document.getElementById('search').value
+			var counter = 0;
+			$.ajax({
+				type: "POST",
+				url: "/Home/LiveSearch",
+				data: { search: value },
+				datatype: "html",
+				success: function (data) { 
+				$('#result').html(data);                              
+				}
+			});
+		}
+	</script>
+
+	<script>
+		document.getElementById('search2').addEventListener('keyup', function (e) {
+
+			clearTimeout(timeout);
+			timeout = setTimeout(function () {
+				LiveSearch2()
+			}, 800);
+		});
+
+		function LiveSearch2() {
+			//Get the input value
+			let value = document.getElementById('search2').value
+
+			$.ajax({
+				type: "POST",
+				// You can use the absolute url eg www.site.com/MyControllerName/LiveTagSearch or the relative path live below
+				url: "/Home/LiveSearch",
+				// Attach the value to a parameter called search
+				data: { search: value },
+				datatype: "html",
+				success: function (data) {
+					// Insert the returned search results html into the result element
+					$('#result2').html(data);
+				}
+			});
+		}
+	</script>
 </body>
 </html>

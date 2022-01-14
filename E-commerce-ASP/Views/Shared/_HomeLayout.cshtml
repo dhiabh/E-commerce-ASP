@@ -97,7 +97,7 @@
                             <!-- Search Form -->
                             <div class="search-top">
                                 <form class="search-form">
-                                    <input placeholder="Search here..." name="search" id="search2" autocomplete="off" />
+                                    <input placeholder="@E_commerce_ASP.Resources.Views.Shared._HomeLayout.SearchHere" name="search" id="search2" autocomplete="off" />
                                     <div id="result2" class="tag-results"></div>
                                     <button value="search" type="submit"><i class="ti-search"></i></button>
                                 </form>
@@ -111,14 +111,14 @@
                         <div class="search-bar-top">
                             <div class="search-bar">
                                 <select onchange="location = this.value;">
-                                    <option value="/" selected="selected">All Category</option>
+                                    <option value="/" selected="selected">@E_commerce_ASP.Resources.Views.Shared._HomeLayout.AllCategory</option>
                                     @foreach (var item in category)
                                     {
                                         <option value="~/Category/Index/@item.Id">@item.Name</option>
                                     }
                                 </select>
                                 <form>
-                                    <input placeholder="Search here..." name="search" id="search" autocomplete="off" />
+                                    <input placeholder="@E_commerce_ASP.Resources.Views.Shared._HomeLayout.SearchHere" name="search" id="search" autocomplete="off" />
                                     <div id="result" class="tag-results"></div>
                                     <button class="btnn"><i class="ti-search"></i></button>
                                 </form>
@@ -131,15 +131,15 @@
                         {
                             if (@ViewBag.user.FirstName != null)
                             {
-                                <div class="col-lg-2 col-md-3 col-6 m-auto">
-                                    Hello @ViewBag.user.FirstName @ViewBag.user.LastName !
-                                </div>
-                            }
-                            else
-                            {
-                                <div class="col-lg-2 col-md-3 col-6 m-auto">
-                                    Hello @ViewBag.user.Email !
-                                </div>
+                            <div class="col-lg-2 col-md-3 col-6 m-auto">
+                                @E_commerce_ASP.Resources.Views.Shared._HomeLayout.Hello @ViewBag.user.FirstName @ViewBag.user.LastName !
+                            </div>
+                                        }
+                                        else
+                                        {
+                            <div class="col-lg-2 col-md-3 col-6 m-auto">
+                                @E_commerce_ASP.Resources.Views.Shared._HomeLayout.Hello @ViewBag.user.Email !
+                            </div>
                             }
 
                         }
@@ -147,15 +147,15 @@
                         {
                             if (@ViewBag.user.CompanyName != null)
                             {
-                                <div class="col-lg-2 col-md-3 col-6 m-auto">
-                                    Hello @ViewBag.user.CompanyName!
-                                </div>
-                            }
-                            else
-                            {
-                                <div class="col-lg-2 col-md-3 col-6 m-auto">
-                                    Hello @ViewBag.user.Email !
-                                </div>
+                            <div class="col-lg-2 col-md-3 col-6 m-auto">
+                                @E_commerce_ASP.Resources.Views.Shared._HomeLayout.Hello @ViewBag.user.CompanyName!
+                            </div>
+                                        }
+                                        else
+                                        {
+                            <div class="col-lg-2 col-md-3 col-6 m-auto">
+                                @E_commerce_ASP.Resources.Views.Shared._HomeLayout.Hello @ViewBag.user.Email !
+                            </div>
                             }
 
                         }
@@ -184,25 +184,25 @@
                                                     <li class="dropdown-item">
                                                         @if (User.IsInRole("Admin"))
                                                         {
-                                                            @Html.ActionLink("My account", "Index", "Admin", routeValues: null, htmlAttributes: new { title = "Manage" })
+                                                            @Html.ActionLink(@E_commerce_ASP.Resources.Views.Shared._HomeLayout.MyAccount, "Index", "Admin", routeValues: null, htmlAttributes: new { title = "Manage" })
                                                         }
                                                         else
                                                         {
-                                                            @Html.ActionLink("My account", "Index", "Proprietaire", new { Id = realUser.RealId }, new { title = "Manage" })
+                                                            @Html.ActionLink(@E_commerce_ASP.Resources.Views.Shared._HomeLayout.MyAccount, "Index", "Proprietaire", new { Id = realUser.RealId }, new { title = "Manage" })
                                                         }
                                                     </li>
                                                     <li>
                                                         <hr class="dropdown-divider">
                                                     </li>
-                                                    <li class="dropdown-item"><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+                                                    <li class="dropdown-item"><a href="javascript:document.getElementById('logoutForm').submit()">@E_commerce_ASP.Resources.Views.Home.Index.LogOff</a></li>
                                                 </ul>
                                             }
                                         }
                                         else
                                         {
                                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                                <li class="dropdown-item">@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
-                                                <li class="dropdown-item">@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+                                                <li class="dropdown-item">@Html.ActionLink(@E_commerce_ASP.Resources.Views.Shared._HomeLayout.Register, "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+                                                <li class="dropdown-item">@Html.ActionLink(@E_commerce_ASP.Resources.Views.Shared._HomeLayout.Login, "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
                                             </ul>
                                         }
                                     </li>
@@ -228,10 +228,10 @@
                                     <div class="navbar-collapse">
                                         <div class="nav-inner">
                                             <ul class="nav main-menu menu navbar-nav">
-                                                <li class="active">@Html.ActionLink("Home", "Index", "Home")</li>
+                                                <li class="active">@Html.ActionLink(@E_commerce_ASP.Resources.Views.Shared._HomeLayout.Home, "Index", "Home")</li>
                                                 @if (Request.IsAuthenticated)
                                                 {
-                                                    <li>@Html.ActionLink("Add Product", "AddProduct", "Proprietaire")</li>
+                                                    <li>@Html.ActionLink(@E_commerce_ASP.Resources.Views.Shared._HomeLayout.AddProducts, "AddProduct", "Proprietaire")</li>
                                                 }
                                                 @if (Request.IsAuthenticated && !User.IsInRole("Admin"))
                                                 {
@@ -241,17 +241,30 @@
 
                                                     var realUser = db1.RealUsers.Where(u => u.RealId == user.RefId).First();
 
-
-                                                    <li>@Html.ActionLink("My Products", "MyProducts", "Proprietaire", new { Id = realUser.RealId }, null)</li>
-                                                    <li>@Html.ActionLink("Historique", "Historique", "Proprietaire")</li>
-                                                    <li>@Html.ActionLink("Declare A Problem", "DeclareProblem", "Proprietaire")</li>
+                                                    <li>
+                                                        <a href="#">Products<i class="ti-angle-down"></i></a>
+                                                        <ul class="dropdown">
+                                                            <li><a href="blog-single-sidebar.html">@Html.ActionLink(@E_commerce_ASP.Resources.Views.Shared._HomeLayout.MyProducts, "MyProducts", "Proprietaire", new { Id = realUser.RealId }, null)</a></li>
+                                                            <li><a href="blog-single-sidebar.html">@Html.ActionLink(@E_commerce_ASP.Resources.Views.Shared._HomeLayout.ProductLogs, "Historique", "Proprietaire")</a></li>
+                                                        </ul>
+                                                    </li>
+                                             
+                                                    <li>@Html.ActionLink(@E_commerce_ASP.Resources.Views.Shared._HomeLayout.Complaints, "DeclareProblem", "Proprietaire")</li>
                                                 }
                                                 @if (User.IsInRole("Admin"))
                                                 {
-                                                    <li>@Html.ActionLink("Admin DashBoard", "DashBoard", "Admin")</li>
+                                                    <li>@Html.ActionLink(@E_commerce_ASP.Resources.Views.Shared._HomeLayout.AdminDashboard, "DashBoard", "Admin")</li>
                                                 }
-                                                <li>@Html.ActionLink("Statistique", "Statistique", "Home")</li>
-                                                <li>@Html.ActionLink("About Us", "About", "Home")</li>
+                                                <li>@Html.ActionLink(@E_commerce_ASP.Resources.Views.Shared._HomeLayout.Statistics, "Statistique", "Home")</li>
+                                                <li>@Html.ActionLink(@E_commerce_ASP.Resources.Views.Shared._HomeLayout.AboutUs, "About", "Home")</li>
+
+                                                <li>
+                                                    <a href="#">@E_commerce_ASP.Resources.Views.Shared._HomeLayout.Language<i class="ti-angle-down"></i></a>
+                                                    <ul class="dropdown">
+                                                        <li><a href="blog-single-sidebar.html">@Html.ActionLink("English", "Index", "Home")</a></li>
+                                                        <li><a href="blog-single-sidebar.html">@Html.ActionLink("French", "Index", "Home")</a></li>
+                                                    </ul>
+                                                </li>
 
                                             </ul>
                                         </div>

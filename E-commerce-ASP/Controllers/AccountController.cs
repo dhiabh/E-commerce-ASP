@@ -14,7 +14,7 @@ using System.Collections.Generic;
 namespace E_commerce_ASP.Controllers
 {
     [Authorize]
-    public class AccountController : Controller
+    public class AccountController : BaseController
     {
         private ApplicationDbContext db = new ApplicationDbContext();
         private ApplicationSignInManager _signInManager;

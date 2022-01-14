@@ -15,10 +15,10 @@
                     <table class="table shopping-summery">
                         <thead>
                             <tr class="main-hading">
-                                <th>FULL NAME</th>
-                                <th class="text-center">EMAIL</th>
-                                <th class="text-center">PHONE NUMBER</th>
-                                <th class="text-center">ADDRESS</th>
+                                <th>@E_commerce_ASP.Resources.Views.Proprietaire.Proprieataire.FullName</th>
+                                <th class="text-center">@E_commerce_ASP.Resources.Views.Proprietaire.Proprieataire.Email</th>
+                                <th class="text-center">@E_commerce_ASP.Resources.Views.Proprietaire.Proprieataire.PhoneNumber</th>
+                                <th class="text-center">@E_commerce_ASP.Resources.Views.Proprietaire.Proprieataire.Address</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -40,12 +40,12 @@
                     <table class="table shopping-summery">
                         <thead>
                             <tr class="main-hading">
-                                <th>COMPANY NAME</th>
-                                <th class="text-center">EMAIL</th>
-                                <th class="text-center">PHONE NUMBER</th>
-                                <th class="text-center">ADDRESS</th>
-                                <th class="text-center">WEB SITE</th>
-                                <th class="text-center">PATENT NUMBER</th>
+                                <th>@E_commerce_ASP.Resources.Views.Proprietaire.Proprieataire.CompanyName</th>
+                                <th class="text-center">@E_commerce_ASP.Resources.Views.Proprietaire.Proprieataire.Email</th>
+                                <th class="text-center">@E_commerce_ASP.Resources.Views.Proprietaire.Proprieataire.PhoneNumber</th>
+                                <th class="text-center">@E_commerce_ASP.Resources.Views.Proprietaire.Proprieataire.Address</th>
+                                <th class="text-center">@E_commerce_ASP.Resources.Views.Proprietaire.Proprieataire.Website</th>
+                                <th class="text-center">@E_commerce_ASP.Resources.Views.Proprietaire.Proprieataire.PatentNumber</th>
 
                             </tr>
                         </thead>
@@ -72,7 +72,7 @@
         @if (Request.IsAuthenticated && Model.RealId==ViewBag.authenticatedUserId)
         {
             <div class="mt-5">
-                @Html.ActionLink("Settings", "Settings", "Proprietaire", new { Id = Model.RealId }, new { @class = "btn btn-warning" })
+                @Html.ActionLink(@E_commerce_ASP.Resources.Views.Proprietaire.Proprieataire.Settings, "Settings", "Proprietaire", new { Id = Model.RealId }, new { @class = "btn btn-warning" })
             </div>
         }
 

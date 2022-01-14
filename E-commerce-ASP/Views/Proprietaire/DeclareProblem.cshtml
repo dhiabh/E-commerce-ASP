@@ -11,8 +11,8 @@
             <div class="col-12">
                 <div class="bread-inner">
                     <ul class="bread-list">
-                        <li><a href="index1.html">Home<i class="ti-arrow-right"></i></a></li>
-                        <li class="active"><a href="blog-single.html">Declare a Problem</a></li>
+                        <li><a href="index1.html">@E_commerce_ASP.Resources.Views.Proprietaire.Proprieataire.Home<i class="ti-arrow-right"></i></a></li>
+                        <li class="active"><a href="blog-single.html">@E_commerce_ASP.Resources.Views.Proprietaire.Proprieataire.Complains</a></li>
                     </ul>
                 </div>
             </div>
@@ -28,17 +28,17 @@
                 <div class="col-lg-8 col-12">
                     <div class="form-main">
                         <div class="title">
-                            <h4>Get in touch With Us</h4>
-                            <h3>Write us Your Problem here Please</h3>
+                            <h4>@E_commerce_ASP.Resources.Views.Proprietaire.Proprieataire.GetInTouchWithus</h4>
+                            <h3>@E_commerce_ASP.Resources.Views.Proprietaire.Proprieataire.WriteUsYourProblemHerePlease</h3>
                         </div>
                         <!---->
 
-                        @using (Html.BeginForm("DeclareProblem", "Proprietaire", FormMethod.Post,new { enctype = "multipart/form-data" }))
-                         {
+                        @using (Html.BeginForm("DeclareProblem", "Proprietaire", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                        {
                             @Html.AntiForgeryToken()
 
                             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                          
+
                             <div class="row">
 
                                 <div class="col-12">
@@ -52,13 +52,13 @@
 
                                 <div class="col-12">
                                     <div class="form-group button">
-                                        <button type="submit" class="btn ">Send Complaint Message</button>
+                                        <button type="submit" class="btn ">@E_commerce_ASP.Resources.Views.Proprietaire.Proprieataire.SendComplaintMessage</button>
                                     </div>
                                 </div>
                             </div>
 
 
-                         }
+                        }
 
 
                         <!---->
@@ -68,7 +68,7 @@
                     <div class="single-head">
                         <div class="single-info">
                             <i class="fa fa-phone"></i>
-                            <h4 class="title">Call us Now:</h4>
+                            <h4 class="title">@E_commerce_ASP.Resources.Views.Home.About.CallusNow:</h4>
                             <ul>
                                 <li>+212 0608129323</li>
                                 <li>+212 0632493393</li>
@@ -84,7 +84,7 @@
                         </div>
                         <div class="single-info">
                             <i class="fa fa-location-arrow"></i>
-                            <h4 class="title">Our Address:</h4>
+                            <h4 class="title">@E_commerce_ASP.Resources.Views.Home.About.OurAddress:</h4>
                             <ul>
                                 <li>Route Sefrou Fes</li>
                                 <li>Kingdom of Morocco</li>

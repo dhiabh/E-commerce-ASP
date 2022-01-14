@@ -10,7 +10,7 @@ using System.Web.Mvc;
 namespace E_commerce_ASP.Controllers
 {
     [Authorize(Roles = "Admin")]
-    public class AdminController : Controller
+    public class AdminController : BaseController
     {
 
         private ApplicationDbContext db = new ApplicationDbContext();

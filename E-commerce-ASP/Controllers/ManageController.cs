@@ -11,7 +11,7 @@ using E_commerce_ASP.Models;
 namespace E_commerce_ASP.Controllers
 {
     [Authorize]
-    public class ManageController : Controller
+    public class ManageController : BaseController
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 

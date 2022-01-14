@@ -13,6 +13,15 @@ namespace E_commerce_ASP.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
+
+        public ActionResult ChangeLanguage(string lang)
+        {
+            new GestionLanguages().SetLanguage(lang);
+            return Redirect(Request.UrlReferrer.ToString());
+            /* obtient les informations sur l'URL de la précédente requête du client
+            qui était liée a la requête actuelle */
+        }
+
         [RequireHttps]
         public ActionResult Index(string search)
         {

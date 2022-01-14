@@ -240,3 +240,17 @@ C:\Users\Elyes\OneDrive\Desktop\ASProjet\E-commerce-ASP\E-commerce-ASP\obj\Debug
 C:\Users\Elyes\OneDrive\Desktop\ASProjet\E-commerce-ASP\E-commerce-ASP\obj\Debug\E_commerce_ASP.Migrations.Add_Problem.resources
 C:\Users\Elyes\OneDrive\Desktop\ASProjet\E-commerce-ASP\E-commerce-ASP\obj\Debug\E_commerce_ASP.Migrations.Added_p.resources
 C:\Users\Elyes\OneDrive\Desktop\ASProjet\E-commerce-ASP\E-commerce-ASP\obj\Debug\E_commerce_ASP.Migrations.Added_DateTime.resources
+C:\Users\Elyes\OneDrive\Desktop\ASProjet\E-commerce-ASP\E-commerce-ASP\bin\fr\E-commerce-ASP.resources.dll
+C:\Users\Elyes\OneDrive\Desktop\ASProjet\E-commerce-ASP\E-commerce-ASP\obj\Debug\E_commerce_ASP.Resources.Views.Home.Index.resources
+C:\Users\Elyes\OneDrive\Desktop\ASProjet\E-commerce-ASP\E-commerce-ASP\obj\Debug\E_commerce_ASP.Resources.Views.Home.Index.fr.resources
+C:\Users\Elyes\OneDrive\Desktop\ASProjet\E-commerce-ASP\E-commerce-ASP\obj\Debug\fr\E-commerce-ASP.resources.dll
+C:\Users\Elyes\OneDrive\Desktop\ASProjet\E-commerce-ASP\E-commerce-ASP\obj\Debug\E_commerce_ASP.Resources.Views.Shared._HomeLayout.resources
+C:\Users\Elyes\OneDrive\Desktop\ASProjet\E-commerce-ASP\E-commerce-ASP\obj\Debug\E_commerce_ASP.Resources.Views.Shared._HomeLayout.fr.resources
+C:\Users\Elyes\OneDrive\Desktop\ASProjet\E-commerce-ASP\E-commerce-ASP\obj\Debug\E_commerce_ASP.Resources.Views.Home.About.resources
+C:\Users\Elyes\OneDrive\Desktop\ASProjet\E-commerce-ASP\E-commerce-ASP\obj\Debug\E_commerce_ASP.Resources.Views.Home.About.fr.resources
+C:\Users\Elyes\OneDrive\Desktop\ASProjet\E-commerce-ASP\E-commerce-ASP\obj\Debug\E_commerce_ASP.Resources.Views.Home.Statistique.resources
+C:\Users\Elyes\OneDrive\Desktop\ASProjet\E-commerce-ASP\E-commerce-ASP\obj\Debug\E_commerce_ASP.Resources.Views.Product.Product.resources
+C:\Users\Elyes\OneDrive\Desktop\ASProjet\E-commerce-ASP\E-commerce-ASP\obj\Debug\E_commerce_ASP.Resources.Views.Home.Statistique.fr.resources
+C:\Users\Elyes\OneDrive\Desktop\ASProjet\E-commerce-ASP\E-commerce-ASP\obj\Debug\E_commerce_ASP.Resources.Views.Product.Product.fr.resources
+C:\Users\Elyes\OneDrive\Desktop\ASProjet\E-commerce-ASP\E-commerce-ASP\obj\Debug\E_commerce_ASP.Resources.Views.Proprietaire.Proprieataire.resources
+C:\Users\Elyes\OneDrive\Desktop\ASProjet\E-commerce-ASP\E-commerce-ASP\obj\Debug\E_commerce_ASP.Resources.Views.Proprietaire.Proprieataire.fr.resources

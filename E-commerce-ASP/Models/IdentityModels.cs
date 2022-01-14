@@ -40,11 +40,9 @@ namespace E_commerce_ASP.Models
 
         //public System.Data.Entity.DbSet<E_commerce_ASP.Models.ApplicationUser> ApplicationUsers { get; set; }
         public System.Data.Entity.DbSet<E_commerce_ASP.Models.User> RealUsers { get; set; }
-
         public System.Data.Entity.DbSet<E_commerce_ASP.Models.Product> Products { get; set; }
         public System.Data.Entity.DbSet<E_commerce_ASP.Models.Category> Categories { get; set; }
         public System.Data.Entity.DbSet<E_commerce_ASP.Models.Historique> Historiques { get; set; }
-
         public System.Data.Entity.DbSet<E_commerce_ASP.Models.Problem> Problems { get; set; }
 
 

@@ -31,6 +31,7 @@ namespace E_commerce_ASP.Controllers
 
                 var realUser = db.RealUsers.Where(u => u.RealId == user.RefId).First();
                 ViewBag.user = realUser;
+                ViewBag.authenticatedUserId = Convert.ToInt32(realUser.RealId);
 
             }
 

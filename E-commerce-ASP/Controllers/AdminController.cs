@@ -2,6 +2,7 @@
 using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -31,7 +32,9 @@ namespace E_commerce_ASP.Controllers
 
         public ActionResult DashBoard()
         {
-            return View();
+            
+
+            return View(db.RealUsers.ToList());
         }
 
         public ActionResult Tables()
@@ -49,20 +52,128 @@ namespace E_commerce_ASP.Controllers
             return View(db.Historiques.ToList());
         }
 
-        public ActionResult DetailUtilisateur()
-        {
-            return View(db.Users.ToList());
-        }
-
-
         public ActionResult ListeNoire()
         {
-            return View(db.RealUsers.Where(x => x.IsInBlackList).ToList());
+            ViewBag.UsersList = new SelectList(db.RealUsers.Where(x => !x.IsInBlackList).ToList(), "RealId", "Email");
+            ViewBag.usersBlackList = new SelectList(db.RealUsers.Where(x => x.IsInBlackList).ToList(), "RealId", "Email");
+
+            return View();
         }
 
+
+
+       
         public ActionResult ListeFavoris()
         {
-            return View(db.RealUsers.Where(x => x.IsInFavList).ToList());
+            ViewBag.RealId = new SelectList(db.RealUsers.Where(x => !x.IsInFavList).ToList(), "RealId", "Email");
+            ViewBag.usersFavList = new SelectList(db.RealUsers.Where(x => x.IsInFavList).ToList(), "RealId", "Email");
+
+            return View();
         }
+
+        
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AddListeFavoris([Bind(Include = "RealId")] User user)
+        {
+
+            ViewBag.RealId = new SelectList(db.RealUsers.Where(x => !x.IsInFavList).ToList(), "RealId", "Email",user.RealId);
+            
+
+            if (ModelState.IsValid)
+            {
+               
+                User realUser = db.RealUsers.Where(u => u.RealId == user.RealId).First();
+                user = realUser;
+                user.IsInFavList = true;
+                db.Entry(realUser).CurrentValues.SetValues(user);
+                
+                db.SaveChanges();
+
+                return RedirectToAction("ListeFavoris", "Admin", new { Id = user.RealId });
+            }
+
+
+                return View("ListeFavoris");
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult RemoveListeFavoris([Bind(Include = "RealId")] User user)
+        {
+           
+            ViewBag.usersFavList = new SelectList(db.RealUsers.Where(x => x.IsInFavList).ToList(), "RealId", "Email",user.RealId);
+
+            if (ModelState.IsValid)
+            {
+
+                User realUser = db.RealUsers.Where(u => u.RealId == user.RealId).First();
+                user = realUser;
+                user.IsInFavList = false;
+                db.Entry(realUser).CurrentValues.SetValues(user);
+
+                db.SaveChanges();
+
+                return RedirectToAction("ListeFavoris", "Admin", new { Id = user.RealId });
+            }
+
+
+            return View("ListeFavoris");
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AddListeNoire([Bind(Include = "RealId")] User user)
+        {
+
+            ViewBag.RealId = new SelectList(db.RealUsers.Where(x => !x.IsInBlackList).ToList(), "RealId", "Email", user.RealId);
+
+
+            if (ModelState.IsValid)
+            {
+
+                User realUser = db.RealUsers.Where(u => u.RealId == user.RealId).First();
+                user = realUser;
+                user.IsInBlackList = true;
+                db.Entry(realUser).CurrentValues.SetValues(user);
+
+                db.SaveChanges();
+
+                return RedirectToAction("ListeNoire", "Admin", new { Id = user.RealId });
+            }
+
+
+            return View("ListeNoire");
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult RemoveListeNoire([Bind(Include = "RealId")] User user)
+        {
+
+            ViewBag.RealId = new SelectList(db.RealUsers.Where(x => x.IsInBlackList).ToList(), "RealId", "Email", user.RealId);
+
+
+            if (ModelState.IsValid)
+            {
+
+                User realUser = db.RealUsers.Where(u => u.RealId == user.RealId).First();
+                user = realUser;
+                user.IsInBlackList = false;
+                db.Entry(realUser).CurrentValues.SetValues(user);
+
+                db.SaveChanges();
+
+                return RedirectToAction("ListeNoire", "Admin", new { Id = user.RealId });
+            }
+
+
+            return View("ListeNoire");
+        }
+
+
+
     }
 }

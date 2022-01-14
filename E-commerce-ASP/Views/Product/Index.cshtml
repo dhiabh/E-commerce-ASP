@@ -17,7 +17,7 @@
 
 <div class="d-flex justify-content-center" style="width:100%">
     <div class="row mt-5 mx-auto d-flex">
-        @if ((Request.IsAuthenticated && Model.UserId == realUser.RealId) || User.IsInRole("Admin"))
+        @if((Request.IsAuthenticated && Model.UserId == ViewBag.authenticatedUserId) || User.IsInRole("Admin"))
         {
             <style>
                 .action_table {
@@ -150,7 +150,7 @@
             }
         </ul>
         <div class="card-body">
-            @Html.ActionLink("Check owner informations", "MyProducts", "Proprietaire", new { Id = user.RealId }, new { @class = "card-link btn text-white" })
+            @Html.ActionLink("    Check owner informations", "Index", "Proprietaire", new { Id = user.RealId }, new { @class = "card-link btn text-white" })
         </div>
     </div>
         }

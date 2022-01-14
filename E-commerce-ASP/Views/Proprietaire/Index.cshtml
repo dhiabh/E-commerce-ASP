@@ -69,8 +69,12 @@
             }
 
         </div>
-        <div class="mt-5">
-            @Html.ActionLink("Settings", "Settings", "Proprietaire", new { Id = Model.RealId }, new { @class = "btn btn-warning" })
-        </div>
+        @if (Request.IsAuthenticated && Model.RealId==ViewBag.authenticatedUserId)
+        {
+            <div class="mt-5">
+                @Html.ActionLink("Settings", "Settings", "Proprietaire", new { Id = Model.RealId }, new { @class = "btn btn-warning" })
+            </div>
+        }
+
     </div>
 </div>

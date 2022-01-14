@@ -1,15 +1,141 @@
-﻿@model IEnumerable<E_commerce_ASP.Models.User>
+﻿@model E_commerce_ASP.Models.User
 @{
     ViewBag.Title = "ListeFavoris";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
+@{
+    E_commerce_ASP.Models.ApplicationDbContext db = new E_commerce_ASP.Models.ApplicationDbContext();
+
+    IEnumerable<E_commerce_ASP.Models.User> UsersL = db.RealUsers.Where(x => x.IsInFavList).ToList();
+
+}
+
 <main>
     <div class="container-fluid px-4">
         <h1 class="mt-4">Liste Favoris</h1>
+        <div class="card mb-4">
+
+        </div>
+
+        <div class="row">
+            <div class="col-xl-3 col-md-6">
+                <div class="card bg-primary text-white mb-4">
+                    <div class="card-body">Products Logs</div>
+                    <div class="card-footer d-flex align-items-center justify-content-between">
+                        <a class="small text-white stretched-link" href="~/Admin/Historique">View Details</a>
+                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+                <div class="card bg-warning text-white mb-4">
+                    <div class="card-body">User Details</div>
+                    <div class="card-footer d-flex align-items-center justify-content-between">
+                        <a class="small text-white stretched-link" href="~/Admin/DashBoard">View Details</a>
+                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+                <div class="card bg-success text-white mb-4">
+                    <div class="card-body">View Complaints</div>
+                    <div class="card-footer d-flex align-items-center justify-content-between">
+                        <a class="small text-white stretched-link" href="~/Admin/ListeProbleme">View Details</a>
+                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+                <div class="card bg-danger text-white mb-4">
+                    <div class="card-body">Back to E-shop</div>
+                    <div class="card-footer d-flex align-items-center justify-content-between">
+                        <a class="small text-white stretched-link" href="~/Home/Index">View Details</a>
+                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <div class="card mb-4">
 
+        </div>
+
+        <div class="row">
+            <div class="col-xl-6">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <i class="fas fa-heart me-1"></i>
+                        Add to Favorite Liste
+                    </div>
+                    <div class="card-body">
+                        <!---->
+
+                        @using (Html.BeginForm("AddListeFavoris", "Admin", FormMethod.Post,
+                            new { enctype = "multipart/form-data" }))
+                        {
+                            @Html.AntiForgeryToken()
+                           
+
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                            <div class="row">
+
+
+                                <div class="form-group">
+                                    @Html.Label("Add to Favorite List   ")
+
+                                    @Html.DropDownListFor(x=>x.RealId, ViewBag.UsersList as SelectList, "Select User", new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(x => x.RealId, "", new { @class = "text-danger" })
+
+                                    <button type="submit" class="button ">Add</button>
+                                </div>
+
+                            </div>
+
+                        }
+
+                        
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-6">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <i class="fas fa-heart me-1"></i>
+                        Remove From Favourite List
+                    </div>
+                    <div class="card-body">
+                        <!---->
+                        @using (Html.BeginForm("RemoveListeFavoris", "Admin", FormMethod.Post,
+                           new { enctype = "multipart/form-data" }))
+                        {
+                            @Html.AntiForgeryToken()
+
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                           
+
+                            <div class="row">
+
+
+                                <div class="form-group">
+                                    @Html.Label("Remove from Favourite List   ")
+
+                                    @Html.DropDownListFor(m => m.RealId, ViewBag.usersFavList as SelectList, "Select User", new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.RealId, "", new { @class = "text-danger" })
+
+                                    <button type="submit" class="button ">Remove</button>
+                                </div>
+
+                            </div>
+
+                        }
+
+
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="card mb-4">
             <div class="card-header">
@@ -20,11 +146,9 @@
                 <table id="datatablesSimple">
                     <thead>
                         <tr>
-                            <th>Nom</th>
-                            <th>Prenom</th>
+                            <th>Owner</th>
                             <th>Email</th>
                             <th>Téléphone</th>
-                            <th>Date de Naissance</th>
                             <th>Nature</th>
                             <th>Adresse</th>
 
@@ -32,27 +156,29 @@
                     </thead>
                     <tfoot>
                         <tr>
-                            <th>Nom</th>
-                            <th>Prenom</th>
+                            <th>Owner</th>
                             <th>Email</th>
                             <th>Téléphone</th>
-                            <th>Date de Naissance</th>
                             <th>Nature</th>
                             <th>Adresse</th>
-
                         </tr>
                     </tfoot>
                     <tbody>
 
-                        @foreach (var item in Model)
+                        @foreach (var item in UsersL)
                         {
 
                             <tr>
-                                <td>@item.LastName</td>
-                                <td>@item.FirstName</td>
+                                @if (item.Nature.Equals("Particular"))
+                                {
+                                    <td>@item.FirstName @item.LastName</td>
+                                }
+                                else
+                                {
+                                    <td>@item.CompanyName</td>
+                                }
                                 <td>@item.Email</td>
                                 <td>@item.PhoneNumber</td>
-                                <td>@item.DateOfBirth.ToString()</td>
                                 <td>@item.Nature</td>
                                 <td>@item.Address</td>
 

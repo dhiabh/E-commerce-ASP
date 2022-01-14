@@ -19,18 +19,21 @@ namespace E_commerce_ASP.Controllers
         // GET: Proprietaire
         public ActionResult Index(int? Id)
         {
+
             if (Id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
             string id = User.Identity.GetUserId();
+            
             if (id != null)
             {
                 var Authuser = db.Users.Where(u => u.Id.Equals(id)).First();
 
                 var realUser = db.RealUsers.Where(u => u.RealId == Authuser.RefId).First();
                 ViewBag.user = realUser;
+                ViewBag.authenticatedUserId = Convert.ToInt32(realUser.RealId);
 
             }
 

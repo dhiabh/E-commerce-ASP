@@ -121,7 +121,7 @@
     <value>À propos</value>
   </data>
   <data name="CallusNow" xml:space="preserve">
-    <value>Appelez-nous maintenant :</value>
+    <value>Appelez-nous maintenant </value>
   </data>
   <data name="HereYouCanFindInfoAboutOurSite" xml:space="preserve">
     <value>Vous trouverez ici des informations sur notre site</value>
@@ -130,6 +130,6 @@
     <value>Acceuil</value>
   </data>
   <data name="OurAddress" xml:space="preserve">
-    <value>Notre adresse:</value>
+    <value>Notre adresse</value>
   </data>
 </root>

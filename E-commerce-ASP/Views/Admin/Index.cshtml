@@ -4,6 +4,13 @@
     ViewBag.Title = "Admin Index";
     Layout = "~/Views/Shared/_HomeLayout.cshtml";
 }
+@using Microsoft.AspNet.Identity
+
+@{
+    E_commerce_ASP.Models.ApplicationDbContext db = new E_commerce_ASP.Models.ApplicationDbContext();
+
+    IEnumerable<E_commerce_ASP.Models.Category> category = db.Categories.ToList();
+}
 
 <div class="container body-content">
 
@@ -128,23 +135,25 @@
             bottom: 16px;
             left: 0;
         }
+
+        .card-price {
+            width: 320px;
+        }
     </style>
     <br />
     <br />
-    <div class="row">
 
-    </div>
 
 
 
     @foreach (var item in Model)
     {
 
-        <div class="col-lg-4">
+        <div class="col-lg-4 col-md-6 col-sm-6 col-12">
 
-            <div class="card card-price" style="border-radius: 50px">
+            <div class="card card-price mt-5" style="border-radius: 50px">
                 <div class="card-img">
-                    <a href="#">
+                    <a href="/Product/Index/@item.Id">
                         <img src="~/Uploads/@item.Image" class="img-responsive" style="width:360px;height:220px">
                         <div class="card-caption">
 
@@ -153,15 +162,24 @@
                 </div>
                 <div class="card-body">
                     <div class="lead text-center" style="color:rgba(0,0,0); font-weight:bold;">@item.Name</div>
-                    <div class="titre"> Carte de la Produit</div>
                     <table class="table">
 
-                        <tr><td style="font-weight: bold;">Prix</td><td class="price">@item.Price Dhs</td></tr>
-                        <tr><td style="font-weight: bold;">Category</td><td class="price"></td></tr>
+                        <tr><td style="font-weight: bold;">@E_commerce_ASP.Resources.Views.Home.Index.Price</td><td class="price">@item.Price Dhs</td></tr>
+                        <tr>
+                            <td style="font-weight: bold;">@E_commerce_ASP.Resources.Views.Home.Index.Category</td>
+                            <td class="price">
+                                @{
+                                    E_commerce_ASP.Models.Category categoryName = db.Categories.Where(c => c.Id == item.CategoryId).First();
+                                }
+                                @categoryName.Name
+                            </td>
+                        </tr>
+
+
 
                     </table>
 
-                    <div class="detailText">@Html.ActionLink("Voir les détails de Produit ", "Index", "Product")</div>
+                    <div class="detailText">@Html.ActionLink(E_commerce_ASP.Resources.Views.Home.Index.WatchDetails, "Index", "Product", new { Id = item.Id }, null)</div>
 
 
                 </div>

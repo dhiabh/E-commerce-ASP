@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Dashboard - SB Admin</title>
+    <title>Administrateur-Dashboard</title>
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
     @Styles.Render("~/Content/styles/styles.css")
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
@@ -18,13 +18,13 @@
 <body class="sb-nav-fixed">
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
         <!-- Navbar Brand-->
-        @Html.ActionLink("Go Back To Eshop", "Index", "Home", null, new { @class = "navbar-brand ps-3" })
+        @Html.ActionLink(E_commerce_ASP.Resources.Views.Admin.Admin.GoBackToEshop, "Index", "Home", null, new { @class = "navbar-brand ps-3" })
         <!-- Sidebar Toggle-->
         <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
         <!-- Navbar Search-->
         <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
             <div class="input-group">
-                <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
+                <input class="form-control" type="text" placeholder="@E_commerce_ASP.Resources.Views.Admin.Admin.SearchFor" aria-label="Search for..." aria-describedby="btnNavbarSearch" />
                 <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
             </div>
         </form>
@@ -33,10 +33,8 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="#!">Settings</a></li>
-                    <li><a class="dropdown-item" href="#!">Activity Log</a></li>
-                    <li><hr class="dropdown-divider" /></li>
-                    <li><a class="dropdown-item" href="#!">Logout</a></li>
+                    
+                    <li><a class="dropdown-item" href="#!">@Html.ActionLink(@E_commerce_ASP.Resources.Views.Admin.Admin.EShopHome, "Index", "Home")</a></li>
                 </ul>
             </li>
         </ul>
@@ -47,32 +45,31 @@
             <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                 <div class="sb-sidenav-menu">
                     <div class="nav">
-                        <div class="sb-sidenav-menu-heading">Core</div>
+                        <div class="sb-sidenav-menu-heading">@E_commerce_ASP.Resources.Views.Admin.Admin.Settings</div>
                         <a class="nav-link" href="~/Admin/DashBoard">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                            Admin Dashboard
+                            @E_commerce_ASP.Resources.Views.Admin.Admin.MainDashBoard
                         </a>
-                        <div class="sb-sidenav-menu-heading">Settings</div>
                         <a class="nav-link" href="~/Admin/Historique">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                            Historique Produits
+                            @E_commerce_ASP.Resources.Views.Admin.Admin.ProductLogs
                         </a>
                         <a class="nav-link" href="~/Admin/ListeProbleme">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                            Listes des problèmes
+                            @E_commerce_ASP.Resources.Views.Admin.Admin.Complaints
                         </a>
                         <a class="nav-link" href="~/Admin/ListeFavoris">
                             <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                            Liste Favoris
+                            @E_commerce_ASP.Resources.Views.Admin.Admin.FavouriteList
                         </a>
                         <a class="nav-link" href="~/Admin/ListeNoire">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                            Liste Noir
+                            @E_commerce_ASP.Resources.Views.Admin.Admin.Blacklist
                         </a>
                     </div>
                 </div>
                 <div class="sb-sidenav-footer">
-                    <div class="small">Logged in as:</div>
+                    <div class="small">@E_commerce_ASP.Resources.Views.Admin.Admin.Loggedinas</div>
                     Administrator
                 </div>
             </nav>
@@ -85,9 +82,9 @@
                     <div class="d-flex align-items-center justify-content-between small">
                         <div class="text-muted">Copyright &copy; E-Shop@ensaf.usmba.ma</div>
                         <div>
-                            <a href="#">Privacy Policy</a>
+                            <a href="#">@E_commerce_ASP.Resources.Views.Admin.Admin.PrivacyPolicy</a>
                             &middot;
-                            <a href="#">Terms &amp; Conditions</a>
+                            <a href="#">@E_commerce_ASP.Resources.Views.Admin.Admin.Terms &amp; @E_commerce_ASP.Resources.Views.Admin.Admin.Conditions</a>
                         </div>
                     </div>
                 </div>

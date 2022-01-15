@@ -13,44 +13,43 @@
 
 <main>
     <div class="container-fluid px-4">
-        <h1 class="mt-4">Liste Favoris</h1>
-        <div class="card mb-4">
-
-        </div>
-
+        <h1 class="mt-4">Main DashBoard</h1>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item active">@E_commerce_ASP.Resources.Views.Admin.Admin.Shortcuts</li>
+        </ol>
         <div class="row">
             <div class="col-xl-3 col-md-6">
                 <div class="card bg-primary text-white mb-4">
-                    <div class="card-body">Products Logs</div>
+                    <div class="card-body">@E_commerce_ASP.Resources.Views.Admin.Admin.ProductLogs</div>
                     <div class="card-footer d-flex align-items-center justify-content-between">
-                        <a class="small text-white stretched-link" href="~/Admin/Historique">View Details</a>
+                        <a class="small text-white stretched-link" href="~/Admin/Historique">@E_commerce_ASP.Resources.Views.Admin.Admin.View_Details</a>
                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                     </div>
                 </div>
             </div>
             <div class="col-xl-3 col-md-6">
                 <div class="card bg-warning text-white mb-4">
-                    <div class="card-body">User Details</div>
+                    <div class="card-body">@E_commerce_ASP.Resources.Views.Admin.Admin.UserDetails</div>
                     <div class="card-footer d-flex align-items-center justify-content-between">
-                        <a class="small text-white stretched-link" href="~/Admin/DashBoard">View Details</a>
+                        <a class="small text-white stretched-link" href="~/Admin/DashBoard">@E_commerce_ASP.Resources.Views.Admin.Admin.View_Details</a>
                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                     </div>
                 </div>
             </div>
             <div class="col-xl-3 col-md-6">
                 <div class="card bg-success text-white mb-4">
-                    <div class="card-body">View Complaints</div>
+                    <div class="card-body">@E_commerce_ASP.Resources.Views.Admin.Admin.ViewComplaints</div>
                     <div class="card-footer d-flex align-items-center justify-content-between">
-                        <a class="small text-white stretched-link" href="~/Admin/ListeProbleme">View Details</a>
+                        <a class="small text-white stretched-link" href="~/Admin/ListeProbleme">@E_commerce_ASP.Resources.Views.Admin.Admin.View_Details</a>
                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                     </div>
                 </div>
             </div>
             <div class="col-xl-3 col-md-6">
                 <div class="card bg-danger text-white mb-4">
-                    <div class="card-body">Back to E-shop</div>
+                    <div class="card-body">@E_commerce_ASP.Resources.Views.Admin.Admin.BacktoEshop</div>
                     <div class="card-footer d-flex align-items-center justify-content-between">
-                        <a class="small text-white stretched-link" href="~/Home/Index">View Details</a>
+                        <a class="small text-white stretched-link" href="~/Home/Index">@E_commerce_ASP.Resources.Views.Admin.Admin.View_Details</a>
                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                     </div>
                 </div>
@@ -66,7 +65,7 @@
                 <div class="card mb-4">
                     <div class="card-header">
                         <i class="fas fa-heart me-1"></i>
-                        Add to Favorite Liste
+                        @E_commerce_ASP.Resources.Views.Admin.Admin.AddToFavouriteList
                     </div>
                     <div class="card-body">
                         <!---->
@@ -75,7 +74,7 @@
                             new { enctype = "multipart/form-data" }))
                         {
                             @Html.AntiForgeryToken()
-                           
+
 
                             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
@@ -83,19 +82,19 @@
 
 
                                 <div class="form-group">
-                                    @Html.Label("Add to Favorite List   ")
+                                    @Html.Label(@E_commerce_ASP.Resources.Views.Admin.Admin.AddToFavouriteList+"    ")
 
-                                    @Html.DropDownListFor(x=>x.RealId, ViewBag.UsersList as SelectList, "Select User", new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.DropDownListFor(x => x.RealId, ViewBag.UsersList as SelectList, @E_commerce_ASP.Resources.Views.Admin.Admin.SelectUser, new { htmlAttributes = new { @class = "form-control" } })
                                     @Html.ValidationMessageFor(x => x.RealId, "", new { @class = "text-danger" })
 
-                                    <button type="submit" class="button ">Add</button>
+                                    <button type="submit" class="button ">@E_commerce_ASP.Resources.Views.Admin.Admin.Add</button>
                                 </div>
 
                             </div>
 
                         }
 
-                        
+
 
                     </div>
                 </div>
@@ -104,7 +103,7 @@
                 <div class="card mb-4">
                     <div class="card-header">
                         <i class="fas fa-heart me-1"></i>
-                        Remove From Favourite List
+                        @E_commerce_ASP.Resources.Views.Admin.Admin.RemoveFromFavouriteList
                     </div>
                     <div class="card-body">
                         <!---->
@@ -114,18 +113,18 @@
                             @Html.AntiForgeryToken()
 
                             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                           
+
 
                             <div class="row">
 
 
                                 <div class="form-group">
-                                    @Html.Label("Remove from Favourite List   ")
+                                    @Html.Label(@E_commerce_ASP.Resources.Views.Admin.Admin.RemoveFromFavouriteList+"    ")
 
-                                    @Html.DropDownListFor(m => m.RealId, ViewBag.usersFavList as SelectList, "Select User", new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.DropDownListFor(m => m.RealId, ViewBag.usersFavList as SelectList, @E_commerce_ASP.Resources.Views.Admin.Admin.SelectUser, new { htmlAttributes = new { @class = "form-control" } })
                                     @Html.ValidationMessageFor(model => model.RealId, "", new { @class = "text-danger" })
 
-                                    <button type="submit" class="button ">Remove</button>
+                                    <button type="submit" class="button ">@E_commerce_ASP.Resources.Views.Admin.Admin.Remove</button>
                                 </div>
 
                             </div>
@@ -140,27 +139,27 @@
         <div class="card mb-4">
             <div class="card-header">
                 <i class="fas fa-table me-1"></i>
-                Les Utilisateurs dans la liste favoris
+                @E_commerce_ASP.Resources.Views.Admin.Admin.FavouriteListUsers
             </div>
             <div class="card-body">
                 <table id="datatablesSimple">
                     <thead>
                         <tr>
-                            <th>Owner</th>
+                            <th>@E_commerce_ASP.Resources.Views.Admin.Admin.Owner</th>
                             <th>Email</th>
-                            <th>Téléphone</th>
-                            <th>Nature</th>
-                            <th>Adresse</th>
+                            <th>@E_commerce_ASP.Resources.Views.Admin.Admin.PhoneNumber</th>
+                            <th>@E_commerce_ASP.Resources.Views.Admin.Admin.Nature</th>
+                            <th>@E_commerce_ASP.Resources.Views.Admin.Admin.Address</th>
 
                         </tr>
                     </thead>
                     <tfoot>
                         <tr>
-                            <th>Owner</th>
+                            <th>@E_commerce_ASP.Resources.Views.Admin.Admin.Owner</th>
                             <th>Email</th>
-                            <th>Téléphone</th>
-                            <th>Nature</th>
-                            <th>Adresse</th>
+                            <th>@E_commerce_ASP.Resources.Views.Admin.Admin.PhoneNumber</th>
+                            <th>@E_commerce_ASP.Resources.Views.Admin.Admin.Nature</th>
+                            <th>@E_commerce_ASP.Resources.Views.Admin.Admin.Address</th>
                         </tr>
                     </tfoot>
                     <tbody>

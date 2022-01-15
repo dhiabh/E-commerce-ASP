@@ -4,60 +4,101 @@
     Layout = "~/Views/Shared/_HomeLayout.cshtml";
 }
 
-<br />
-
-<div class="container body-content">
-
-    @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-    {
-        @Html.AntiForgeryToken()
-        <h4>Create a new account.</h4>
-        <hr />
-        @Html.ValidationSummary("", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
-            <div class="col-md-10">
-                @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
-            </div>
-        </div>
-
-        <div class="form-check">
-            @Html.LabelFor(m => m.Nature, new { @class = "col-md-2 control-label" })
-            <div class="col-md-10">
-                <div>
-                    @Html.RadioButtonFor(model => model.Nature, "Particular", new { @class = "form-check-input" })
-                    @Html.Label("Particular", new { @class = "form-check-label" })
-                </div>
-                <div>
-                    @Html.RadioButtonFor(model => model.Nature, "Company", new { @class = "form-check-input" })
-                    @Html.Label("Company", new { @class = "form-check-label" })
-                </div>
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
-            <div class="col-md-10">
-                @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
-            </div>
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
-            <div class="col-md-10">
-                @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" class="btn btn-default" value="Register" />
-            </div>
-        </div>
-    }
-
-</div>
-
-<br />
 
 @Styles.Render("~/Content/css")
 @Scripts.Render("~/bundles/modernizr")
 @Scripts.Render("~/bundles/jquery")
+
+
+<!-- Start Contact -->
+<section id="contact-us" class="contact-us section">
+    <div class="container">
+        <div class="contact-head">
+            <div class="row">
+                <div class="col-lg-8 col-12">
+                    <div class="form-main">
+                        <div class="title">
+                            <h4>@E_commerce_ASP.Resources.Views.Account.Account.CreateANewAccount</h4>
+                        </div>
+
+                        @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary("", new { @class = "text-danger" })
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+                                <div class="col-md-10">
+                                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                                </div>
+                            </div>
+
+                            <div class="form-check">
+                                @Html.LabelFor(m => m.Nature, new { @class = "col-md-2 control-label" })
+                                <div class="col-md-10">
+                                    <div>
+                                        @Html.RadioButtonFor(model => model.Nature, "Particular", new { @class = "form-check-input" })
+                                        @Html.Label("Particular", new { @class = "form-check-label" })
+                                    </div>
+                                    <div>
+                                        @Html.RadioButtonFor(model => model.Nature, "Company", new { @class = "form-check-input" })
+                                        @Html.Label("Company", new { @class = "form-check-label" })
+                                    </div>
+                                </div>
+                            </div>
+                           <div class="form-group"></div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+                                <div class="col-md-10">
+                                    @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
+                                <div class="col-md-10">
+                                    @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-10">
+                                    <input type="submit" class="btn btn-default" value="@E_commerce_ASP.Resources.Views.Account.Account.Register" />
+                                </div>
+                            </div>
+                        }
+
+
+                    </div>
+                </div>
+                <div class="col-lg-4 col-12">
+                    <div class="single-head">
+                        <div class="single-info">
+                            <i class="fa fa-phone"></i>
+                            <h4 class="title">@E_commerce_ASP.Resources.Views.Home.About.CallusNow:</h4>
+                            <ul>
+                                <li>+212 0608129323</li>
+                                <li>+212 0632493393</li>
+                            </ul>
+                        </div>
+                        <div class="single-info">
+                            <i class="fa fa-envelope-open"></i>
+                            <h4 class="title">Email:</h4>
+                            <ul>
+                                <li><a href="mailto:info@yourwebsite.com">Info@ensaf.com</a></li>
+                                <li><a href="mailto:info@yourwebsite.com">support@ensaf.com</a></li>
+                            </ul>
+                        </div>
+                        <div class="single-info">
+                            <i class="fa fa-location-arrow"></i>
+                            <h4 class="title">@E_commerce_ASP.Resources.Views.Home.About.OurAddress:</h4>
+                            <ul>
+                                <li>Route Sefrou Fes</li>
+                                <li>Kingdom of Morocco</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

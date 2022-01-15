@@ -70,7 +70,7 @@ namespace E_commerce_ASP.Resources.Views.Home {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Call us Now:.
+        ///   Looks up a localized string similar to Call us Now.
         /// </summary>
         public static string CallusNow {
             get {
@@ -97,7 +97,7 @@ namespace E_commerce_ASP.Resources.Views.Home {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Our Address:.
+        ///   Looks up a localized string similar to Our Address.
         /// </summary>
         public static string OurAddress {
             get {

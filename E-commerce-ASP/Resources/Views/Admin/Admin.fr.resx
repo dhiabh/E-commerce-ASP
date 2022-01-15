@@ -1,0 +1,249 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Add" xml:space="preserve">
+    <value>Ajouter</value>
+  </data>
+  <data name="Address" xml:space="preserve">
+    <value>Adresse</value>
+  </data>
+  <data name="AddToBlackList" xml:space="preserve">
+    <value>Ajouter à la liste noire</value>
+  </data>
+  <data name="AddToFavouriteList" xml:space="preserve">
+    <value>Ajouter à la liste des favoris</value>
+  </data>
+  <data name="AllUsers" xml:space="preserve">
+    <value>Tous les utilisateurs</value>
+  </data>
+  <data name="BacktoEshop" xml:space="preserve">
+    <value>Retour à la boutique</value>
+  </data>
+  <data name="Blacklist" xml:space="preserve">
+    <value>Liste Noire</value>
+  </data>
+  <data name="BlackListListUsers" xml:space="preserve">
+    <value>Utilisateurs de la liste noire</value>
+  </data>
+  <data name="Category" xml:space="preserve">
+    <value>Categorie</value>
+  </data>
+  <data name="Changes" xml:space="preserve">
+    <value>Les Modification</value>
+  </data>
+  <data name="Complaint" xml:space="preserve">
+    <value>La réclamation</value>
+  </data>
+  <data name="ComplaintID" xml:space="preserve">
+    <value>ID de réclamation</value>
+  </data>
+  <data name="Complaints" xml:space="preserve">
+    <value>Les Réclamations</value>
+  </data>
+  <data name="Conditions" xml:space="preserve">
+    <value>Conditions</value>
+  </data>
+  <data name="EShopHome" xml:space="preserve">
+    <value>Eshop-Acceuil</value>
+  </data>
+  <data name="FavouriteList" xml:space="preserve">
+    <value>Liste des favoris</value>
+  </data>
+  <data name="FavouriteListUsers" xml:space="preserve">
+    <value>Utilisateurs de la liste des favoris</value>
+  </data>
+  <data name="GoBackToEshop" xml:space="preserve">
+    <value>Revenir à E-Shop</value>
+  </data>
+  <data name="Loggedinas" xml:space="preserve">
+    <value>Connecté en tant que:</value>
+  </data>
+  <data name="Logs" xml:space="preserve">
+    <value>Historique</value>
+  </data>
+  <data name="MainDashBoard" xml:space="preserve">
+    <value>Dashboard Principale</value>
+  </data>
+  <data name="Nature" xml:space="preserve">
+    <value>Nature</value>
+  </data>
+  <data name="Owner" xml:space="preserve">
+    <value>Propriétaire</value>
+  </data>
+  <data name="PhoneNumber" xml:space="preserve">
+    <value>Numéro de téléphone</value>
+  </data>
+  <data name="Price" xml:space="preserve">
+    <value>Prix</value>
+  </data>
+  <data name="PrivacyPolicy" xml:space="preserve">
+    <value>Politique de confidentialité</value>
+  </data>
+  <data name="ProductCard" xml:space="preserve">
+    <value>Carte de la produit</value>
+  </data>
+  <data name="ProductID" xml:space="preserve">
+    <value>ID Produit</value>
+  </data>
+  <data name="ProductLogs" xml:space="preserve">
+    <value>Historique des Produits</value>
+  </data>
+  <data name="ProductName" xml:space="preserve">
+    <value>Nom Produit</value>
+  </data>
+  <data name="Remove" xml:space="preserve">
+    <value>Supprimer</value>
+  </data>
+  <data name="RemoveFromBlackList" xml:space="preserve">
+    <value>Supprimer de la liste noire</value>
+  </data>
+  <data name="RemoveFromFavouriteList" xml:space="preserve">
+    <value>Supprimer de la liste des favoris</value>
+  </data>
+  <data name="SearchFor" xml:space="preserve">
+    <value>Rechercher...</value>
+  </data>
+  <data name="SelectUser" xml:space="preserve">
+    <value>Sélectioner Utilisateur</value>
+  </data>
+  <data name="SentBy" xml:space="preserve">
+    <value>Envoyée par</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Paramètres</value>
+  </data>
+  <data name="Shortcuts" xml:space="preserve">
+    <value>Raccourcis</value>
+  </data>
+  <data name="Terms" xml:space="preserve">
+    <value>Termes</value>
+  </data>
+  <data name="UserDetails" xml:space="preserve">
+    <value>Détails des l'utilisateurs</value>
+  </data>
+  <data name="View Details" xml:space="preserve">
+    <value>Voir les détails</value>
+  </data>
+  <data name="ViewComplaints" xml:space="preserve">
+    <value>Voir les réclamations</value>
+  </data>
+  <data name="ViewProductDetails" xml:space="preserve">
+    <value>Voir les détails de Produit</value>
+  </data>
+</root>

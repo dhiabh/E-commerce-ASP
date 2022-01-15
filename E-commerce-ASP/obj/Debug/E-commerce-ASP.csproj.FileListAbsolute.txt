@@ -254,3 +254,8 @@ C:\Users\Elyes\OneDrive\Desktop\ASProjet\E-commerce-ASP\E-commerce-ASP\obj\Debug
 C:\Users\Elyes\OneDrive\Desktop\ASProjet\E-commerce-ASP\E-commerce-ASP\obj\Debug\E_commerce_ASP.Resources.Views.Product.Product.fr.resources
 C:\Users\Elyes\OneDrive\Desktop\ASProjet\E-commerce-ASP\E-commerce-ASP\obj\Debug\E_commerce_ASP.Resources.Views.Proprietaire.Proprieataire.resources
 C:\Users\Elyes\OneDrive\Desktop\ASProjet\E-commerce-ASP\E-commerce-ASP\obj\Debug\E_commerce_ASP.Resources.Views.Proprietaire.Proprieataire.fr.resources
+C:\Users\Elyes\OneDrive\Desktop\ASProjet\E-commerce-ASP\E-commerce-ASP\obj\Debug\E_commerce_ASP.Resources.Views.Admin.Admin.resources
+C:\Users\Elyes\OneDrive\Desktop\ASProjet\E-commerce-ASP\E-commerce-ASP\obj\Debug\E_commerce_ASP.Resources.Views.Admin.Admin.fr.resources
+C:\Users\Elyes\OneDrive\Desktop\ASProjet\E-commerce-ASP\E-commerce-ASP\obj\Debug\E_commerce_ASP.Resources.Views.Account.Account.resources
+C:\Users\Elyes\OneDrive\Desktop\ASProjet\E-commerce-ASP\E-commerce-ASP\obj\Debug\E_commerce_ASP.Resources.Views.Account.Account.fr.resources
+C:\Users\Elyes\OneDrive\Desktop\ASProjet\E-commerce-ASP\E-commerce-ASP\obj\Debug\E_commerce_ASP.Resources.Views.Home.Footer.resources

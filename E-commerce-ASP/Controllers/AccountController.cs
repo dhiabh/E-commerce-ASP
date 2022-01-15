@@ -244,7 +244,7 @@ namespace E_commerce_ASP.Controllers
                 realUser.PhoneNumber = model.PhoneNumber;
                 realUser.FirstName = model.FirstName;
                 realUser.LastName = model.LastName;
-                realUser.DateOfBirth = model.DateOfBirth;
+                
                 realUser.Address = model.Address;
                 realUser.FullName = model.FirstName + " " + model.LastName;
 

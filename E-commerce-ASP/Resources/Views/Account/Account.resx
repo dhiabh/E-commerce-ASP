@@ -130,7 +130,7 @@
     <value>Register</value>
   </data>
   <data name="RegisterAsANewUser" xml:space="preserve">
-    <value>Register as a new User</value>
+    <value>Don't have an account? Register</value>
   </data>
   <data name="UseeALocalAccount" xml:space="preserve">
     <value>Use a local account to log in</value>

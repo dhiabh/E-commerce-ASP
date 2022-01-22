@@ -130,7 +130,7 @@
     <value>S'inscrire</value>
   </data>
   <data name="RegisterAsANewUser" xml:space="preserve">
-    <value>S'inscrire en tant que nouvel utilisateur</value>
+    <value>Vous n'avez pas de compte? S'inscrire</value>
   </data>
   <data name="UseeALocalAccount" xml:space="preserve">
     <value>Utilisez un compte local pour vous connecter</value>

@@ -121,7 +121,7 @@
     <value>Categories Distribution</value>
   </data>
   <data name="CategoriesWhichOurSiteContains" xml:space="preserve">
-    <value>Categories Which our Site Contains :</value>
+    <value>Number of categories which our site contains :</value>
   </data>
   <data name="HereYouCanFindInfoAboutOurSite" xml:space="preserve">
     <value>Here you can find information about our Site</value>
@@ -130,16 +130,16 @@
     <value>Home</value>
   </data>
   <data name="NumberOfListedProducts" xml:space="preserve">
-    <value>Number of Listed Products :</value>
+    <value>Number of listed products :</value>
   </data>
   <data name="NumberOfParticularsOntheSite" xml:space="preserve">
-    <value>Number of Particualrs Registered on our Site :</value>
+    <value>Number of particualrs registered on our site :</value>
   </data>
   <data name="NumberOfRegisteredCompanies" xml:space="preserve">
-    <value>Number of Companies Registered on our Site :</value>
+    <value>Number of companies registered on our site :</value>
   </data>
   <data name="NumberOfRegisteredUsers" xml:space="preserve">
-    <value>Number of Registered Users :</value>
+    <value>Number of registered users :</value>
   </data>
   <data name="Statistics" xml:space="preserve">
     <value>Statistics</value>

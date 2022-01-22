@@ -97,7 +97,7 @@ namespace E_commerce_ASP.Resources.Views.Account {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Register as a new User.
+        ///   Looks up a localized string similar to Don&apos;t have an account? Register.
         /// </summary>
         public static string RegisterAsANewUser {
             get {

@@ -121,7 +121,7 @@
     <value>Distribution des catégories</value>
   </data>
   <data name="CategoriesWhichOurSiteContains" xml:space="preserve">
-    <value>Catégories que contient notre site :</value>
+    <value>Nombre de catégories que contient notre site :</value>
   </data>
   <data name="HereYouCanFindInfoAboutOurSite" xml:space="preserve">
     <value>Vous trouverez ici des informations sur notre site</value>
@@ -133,10 +133,10 @@
     <value>Nombre de produits listés :</value>
   </data>
   <data name="NumberOfParticularsOntheSite" xml:space="preserve">
-    <value>Nombre de Particuliers Inscrits sur notre Site :</value>
+    <value>Nombre de particuliers inscrits sur notre site :</value>
   </data>
   <data name="NumberOfRegisteredCompanies" xml:space="preserve">
-    <value>Nombre d'Entreprises Inscrites sur notre Site :</value>
+    <value>Nombre d'entreprises inscrites sur notre site :</value>
   </data>
   <data name="NumberOfRegisteredUsers" xml:space="preserve">
     <value>Nombre d'utilisateurs enregistrés :</value>

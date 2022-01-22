@@ -49,83 +49,83 @@ namespace E_commerce_ASP.Models
 
     public class LoginViewModel
     {
-        [Required]
+        [Required(ErrorMessageResourceType = typeof(E_commerce_ASP.Resources.Models.AccountViewModels), ErrorMessageResourceName = "EmailRequired")]
         [Display(Name = "Email")]
         [EmailAddress]
         public string Email { get; set; }
 
-        [Required]
+        [Required(ErrorMessageResourceType = typeof(E_commerce_ASP.Resources.Models.AccountViewModels), ErrorMessageResourceName = "PasswordRequired")]
         [DataType(DataType.Password)]
-        [Display(Name = "Password")]
+        [Display(Name = "Password", ResourceType = typeof(E_commerce_ASP.Resources.Models.AccountViewModels))]
         public string Password { get; set; }
 
-        [Display(Name = "Remember me?")]
+        [Display(Name = "RememberMe", ResourceType = typeof(E_commerce_ASP.Resources.Models.AccountViewModels))]
         public bool RememberMe { get; set; }
     }
 
     public class RegisterViewModel
     {
-        [Required]
+        [Required(ErrorMessageResourceType = typeof(E_commerce_ASP.Resources.Models.AccountViewModels), ErrorMessageResourceName = "EmailRequired")]
         [EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }
 
-        [Required]
+        [Required(ErrorMessageResourceType = typeof(E_commerce_ASP.Resources.Models.AccountViewModels), ErrorMessageResourceName = "PasswordRequired")]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
         [DataType(DataType.Password)]
-        [Display(Name = "Password")]
+        [Display(Name = "Password", ResourceType = typeof(E_commerce_ASP.Resources.Models.AccountViewModels))]
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "Confirm password")]
+        [Display(Name = "ConfirmPassword", ResourceType = typeof(E_commerce_ASP.Resources.Models.AccountViewModels))]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
 
-        [Required]
-        [Display(Name ="Registration type")]
+        [Required(ErrorMessageResourceType = typeof(E_commerce_ASP.Resources.Models.AccountViewModels), ErrorMessageResourceName = "RegistrationTypeRequired")]
+        [Display(Name = "RegistrationType", ResourceType = typeof(E_commerce_ASP.Resources.Models.AccountViewModels))]
         public string Nature { get; set; }
         
     }
 
     public class ParticularViewModel
     {
-        [Required]
-        [Display(Name = "First name")]
+        [Required(ErrorMessageResourceType = typeof(E_commerce_ASP.Resources.Models.AccountViewModels), ErrorMessageResourceName = "FirstNameRequired")]
+        [Display(Name = "FirstName", ResourceType = typeof(E_commerce_ASP.Resources.Models.AccountViewModels))]
         public string FirstName { get; set; }
 
-        [Required]
-        [Display(Name = "Last name")]
+        [Required(ErrorMessageResourceType = typeof(E_commerce_ASP.Resources.Models.AccountViewModels), ErrorMessageResourceName = "LastNameRequired")]
+        [Display(Name = "LastName", ResourceType = typeof(E_commerce_ASP.Resources.Models.AccountViewModels))]
         public string LastName { get; set; }
-                
-        [Required]
-        [Display(Name = "Phone number")]
+
+        [Required(ErrorMessageResourceType = typeof(E_commerce_ASP.Resources.Models.AccountViewModels), ErrorMessageResourceName = "PhoneNumberRequired")]
+        [Display(Name = "PhoneNumber", ResourceType = typeof(E_commerce_ASP.Resources.Models.AccountViewModels))]
         public string PhoneNumber { get; set; }
 
-        [Required]
-        [Display(Name = "Address")]
+        [Required(ErrorMessageResourceType = typeof(E_commerce_ASP.Resources.Models.AccountViewModels), ErrorMessageResourceName = "AddressRequired")]
+        [Display(Name = "Address", ResourceType = typeof(E_commerce_ASP.Resources.Models.AccountViewModels))]
         public string Address { get; set; }
     }
 
     public class CompanyViewModel
     {
-        [Required]
-        [Display(Name = "Company name")]
+        [Required(ErrorMessageResourceType = typeof(E_commerce_ASP.Resources.Models.AccountViewModels), ErrorMessageResourceName = "CompanyNameRequired")]
+        [Display(Name = "CompanyName", ResourceType = typeof(E_commerce_ASP.Resources.Models.AccountViewModels))]
         public string CompanyName { get; set; }
 
-        [Required]
-        [Display(Name = "Web site")]
+        [Required(ErrorMessageResourceType = typeof(E_commerce_ASP.Resources.Models.AccountViewModels), ErrorMessageResourceName = "WebSiteRequired")]
+        [Display(Name = "WebSite", ResourceType = typeof(E_commerce_ASP.Resources.Models.AccountViewModels))]
         public string WebSite { get; set; }
 
-        [Required]
-        [Display(Name = "Patent number")]
+        [Required(ErrorMessageResourceType = typeof(E_commerce_ASP.Resources.Models.AccountViewModels), ErrorMessageResourceName = "PatentNumberRequired")]
+        [Display(Name = "PatentNumber", ResourceType = typeof(E_commerce_ASP.Resources.Models.AccountViewModels))]
         public string NumPatente { get; set; }
 
-        [Required]
-        [Display(Name = "Phone number")]
+        [Required(ErrorMessageResourceType = typeof(E_commerce_ASP.Resources.Models.AccountViewModels), ErrorMessageResourceName = "PhoneNumberRequired")]
+        [Display(Name = "PhoneNumber", ResourceType = typeof(E_commerce_ASP.Resources.Models.AccountViewModels))]
         public string PhoneNumber { get; set; }
 
-        [Required]
-        [Display(Name = "Address")]
+        [Required(ErrorMessageResourceType = typeof(E_commerce_ASP.Resources.Models.AccountViewModels), ErrorMessageResourceName = "AddressRequired")]
+        [Display(Name = "Address", ResourceType = typeof(E_commerce_ASP.Resources.Models.AccountViewModels))]
         public string Address { get; set; }
     }
 

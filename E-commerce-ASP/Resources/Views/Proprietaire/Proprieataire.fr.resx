@@ -118,22 +118,22 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AddProduct" xml:space="preserve">
-    <value>Ajouter Produit</value>
+    <value>Ajouter produit</value>
   </data>
   <data name="Address" xml:space="preserve">
     <value>Adresse</value>
   </data>
   <data name="Category" xml:space="preserve">
-    <value>Categorie</value>
+    <value>Catégorie</value>
   </data>
   <data name="CheckProductInfo" xml:space="preserve">
     <value>Consuler les informations du produit</value>
   </data>
   <data name="ChoosePicture" xml:space="preserve">
-    <value>Choisis une photo</value>
+    <value>Choisissez une photo</value>
   </data>
   <data name="CompanyName" xml:space="preserve">
-    <value>Nom de Société</value>
+    <value>Nom de la société</value>
   </data>
   <data name="Complains" xml:space="preserve">
     <value>Réclmation</value>
@@ -157,13 +157,13 @@
     <value>Historique</value>
   </data>
   <data name="LogsOfYourProducts" xml:space="preserve">
-    <value>Historique de tous les Produits</value>
+    <value>Historique de tous les produits</value>
   </data>
   <data name="Modificiation" xml:space="preserve">
     <value>Modification</value>
   </data>
   <data name="MyProducts" xml:space="preserve">
-    <value>Mes Produits</value>
+    <value>Mes produits</value>
   </data>
   <data name="Owner" xml:space="preserve">
     <value>Propriétaire</value>
@@ -181,10 +181,10 @@
     <value>Id Produit</value>
   </data>
   <data name="ProductLogs" xml:space="preserve">
-    <value>Historique de Produit</value>
+    <value>Historique du produit</value>
   </data>
   <data name="ProductName" xml:space="preserve">
-    <value>Nom de Produit</value>
+    <value>Nom du produit</value>
   </data>
   <data name="SendComplaintMessage" xml:space="preserve">
     <value>Envoyer un message de réclamation</value>
@@ -196,12 +196,12 @@
     <value>Spécifiez les détails de votre produit</value>
   </data>
   <data name="UpdateNow" xml:space="preserve">
-    <value>Mettez à jour</value>
+    <value>Mettre à jour</value>
   </data>
   <data name="Website" xml:space="preserve">
-    <value>Site Internet</value>
+    <value>Site web</value>
   </data>
   <data name="WriteUsYourProblemHerePlease" xml:space="preserve">
-    <value>Écrivez-nous votre problème ici</value>
+    <value>Mentionnez votre problème ici</value>
   </data>
 </root>

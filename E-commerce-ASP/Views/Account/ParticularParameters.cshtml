@@ -28,15 +28,15 @@
                             
                             @Html.ValidationSummary("", new { @class = "text-danger" })
                             <div class="form-group">
-                                @Html.LabelFor(m => m.FirstName, new { @class = "col-md-2 control-label" })
-                                <div class="col-md-10">
+                                @Html.LabelFor(m => m.FirstName, new { @class = "col-md-6 control-label" })
+                                <div class="col-md-9">
                                     @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                @Html.LabelFor(m => m.LastName, new { @class = "col-md-2 control-label" })
-                                <div class="col-md-10">
+                                @Html.LabelFor(m => m.LastName, new { @class = "col-md-6 control-label" })
+                                <div class="col-md-9">
                                     @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
                                 </div>
                             </div>
@@ -44,15 +44,15 @@
 
 
                             <div class="form-group">
-                                @Html.LabelFor(m => m.PhoneNumber, new { @class = "col-md-3 control-label" })
-                                <div class="col-md-10">
+                                @Html.LabelFor(m => m.PhoneNumber, new { @class = "col-md-6 control-label" })
+                                <div class="col-md-9">
                                     @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control" })
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                @Html.LabelFor(m => m.Address, new { @class = "col-md-2 control-label" })
-                                <div class="col-md-10">
+                                @Html.LabelFor(m => m.Address, new { @class = "col-md-6 control-label" })
+                                <div class="col-md-9">
                                     @Html.TextBoxFor(m => m.Address, new { @class = "form-control" })
                                 </div>
                             </div>
@@ -60,7 +60,7 @@
 
                             <div class="form-group">
                                 <div class="col-md-offset-2 col-md-10">
-                                    <input type="submit" class="btn btn-default" value="@E_commerce_ASP.Resources.Views.Account.Account.Register" />
+                                    <button type="submit" class="btn btn-dark">@E_commerce_ASP.Resources.Views.Account.Account.Register</button>
                                 </div>
                             </div>
                         }

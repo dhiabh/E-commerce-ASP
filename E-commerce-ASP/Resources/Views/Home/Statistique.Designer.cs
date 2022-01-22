@@ -70,7 +70,7 @@ namespace E_commerce_ASP.Resources.Views.Home {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Categories Which our Site Contains :.
+        ///   Looks up a localized string similar to Number of categories which our site contains :.
         /// </summary>
         public static string CategoriesWhichOurSiteContains {
             get {
@@ -97,7 +97,7 @@ namespace E_commerce_ASP.Resources.Views.Home {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Number of Listed Products :.
+        ///   Looks up a localized string similar to Number of listed products :.
         /// </summary>
         public static string NumberOfListedProducts {
             get {
@@ -106,7 +106,7 @@ namespace E_commerce_ASP.Resources.Views.Home {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Number of Particualrs Registered on our Site :.
+        ///   Looks up a localized string similar to Number of particualrs registered on our site :.
         /// </summary>
         public static string NumberOfParticularsOntheSite {
             get {
@@ -115,7 +115,7 @@ namespace E_commerce_ASP.Resources.Views.Home {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Number of Companies Registered on our Site :.
+        ///   Looks up a localized string similar to Number of companies registered on our site :.
         /// </summary>
         public static string NumberOfRegisteredCompanies {
             get {
@@ -124,7 +124,7 @@ namespace E_commerce_ASP.Resources.Views.Home {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Number of Registered Users :.
+        ///   Looks up a localized string similar to Number of registered users :.
         /// </summary>
         public static string NumberOfRegisteredUsers {
             get {

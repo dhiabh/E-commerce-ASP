@@ -61,7 +61,7 @@ namespace E_commerce_ASP.Resources.Views.Proprietaire {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Add Product.
+        ///   Looks up a localized string similar to Add product.
         /// </summary>
         public static string AddProduct {
             get {
@@ -88,7 +88,7 @@ namespace E_commerce_ASP.Resources.Views.Proprietaire {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Check Product Info.
+        ///   Looks up a localized string similar to Check product infos.
         /// </summary>
         public static string CheckProductInfo {
             get {
@@ -97,7 +97,7 @@ namespace E_commerce_ASP.Resources.Views.Proprietaire {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Choose a Picture.
+        ///   Looks up a localized string similar to Choose a picture.
         /// </summary>
         public static string ChoosePicture {
             get {
@@ -106,7 +106,7 @@ namespace E_commerce_ASP.Resources.Views.Proprietaire {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Company Name.
+        ///   Looks up a localized string similar to Company name.
         /// </summary>
         public static string CompanyName {
             get {
@@ -142,7 +142,7 @@ namespace E_commerce_ASP.Resources.Views.Proprietaire {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Full Name.
+        ///   Looks up a localized string similar to Full name.
         /// </summary>
         public static string FullName {
             get {
@@ -151,7 +151,7 @@ namespace E_commerce_ASP.Resources.Views.Proprietaire {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Get in touch Width us.
+        ///   Looks up a localized string similar to Get in touch with us.
         /// </summary>
         public static string GetInTouchWithus {
             get {
@@ -178,7 +178,7 @@ namespace E_commerce_ASP.Resources.Views.Proprietaire {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Logs Of All Your Products.
+        ///   Looks up a localized string similar to Logs of all your products.
         /// </summary>
         public static string LogsOfYourProducts {
             get {
@@ -196,7 +196,7 @@ namespace E_commerce_ASP.Resources.Views.Proprietaire {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to My Products.
+        ///   Looks up a localized string similar to My products.
         /// </summary>
         public static string MyProducts {
             get {
@@ -214,7 +214,7 @@ namespace E_commerce_ASP.Resources.Views.Proprietaire {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Patent Number.
+        ///   Looks up a localized string similar to Patent number.
         /// </summary>
         public static string PatentNumber {
             get {
@@ -223,7 +223,7 @@ namespace E_commerce_ASP.Resources.Views.Proprietaire {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Phone Number.
+        ///   Looks up a localized string similar to Phone number.
         /// </summary>
         public static string PhoneNumber {
             get {
@@ -259,7 +259,7 @@ namespace E_commerce_ASP.Resources.Views.Proprietaire {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Product Name.
+        ///   Looks up a localized string similar to Product name.
         /// </summary>
         public static string ProductName {
             get {
@@ -268,7 +268,7 @@ namespace E_commerce_ASP.Resources.Views.Proprietaire {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Send Complaint Message.
+        ///   Looks up a localized string similar to Send complaint message.
         /// </summary>
         public static string SendComplaintMessage {
             get {
@@ -286,7 +286,7 @@ namespace E_commerce_ASP.Resources.Views.Proprietaire {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Specify Your Product Details.
+        ///   Looks up a localized string similar to Specify your product details.
         /// </summary>
         public static string SpecifyYourProductDetails {
             get {
@@ -295,7 +295,7 @@ namespace E_commerce_ASP.Resources.Views.Proprietaire {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Update Now.
+        ///   Looks up a localized string similar to Update now.
         /// </summary>
         public static string UpdateNow {
             get {
@@ -313,7 +313,7 @@ namespace E_commerce_ASP.Resources.Views.Proprietaire {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Write us your Problem Here please.
+        ///   Looks up a localized string similar to Mention your problem here please.
         /// </summary>
         public static string WriteUsYourProblemHerePlease {
             get {

@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AddProduct" xml:space="preserve">
-    <value>Add Product</value>
+    <value>Add product</value>
   </data>
   <data name="Address" xml:space="preserve">
     <value>Address</value>
@@ -127,13 +127,13 @@
     <value>Category</value>
   </data>
   <data name="CheckProductInfo" xml:space="preserve">
-    <value>Check Product Info</value>
+    <value>Check product infos</value>
   </data>
   <data name="ChoosePicture" xml:space="preserve">
-    <value>Choose a Picture</value>
+    <value>Choose a picture</value>
   </data>
   <data name="CompanyName" xml:space="preserve">
-    <value>Company Name</value>
+    <value>Company name</value>
   </data>
   <data name="Complains" xml:space="preserve">
     <value>Complains</value>
@@ -145,10 +145,10 @@
     <value>Email</value>
   </data>
   <data name="FullName" xml:space="preserve">
-    <value>Full Name</value>
+    <value>Full name</value>
   </data>
   <data name="GetInTouchWithus" xml:space="preserve">
-    <value>Get in touch Width us</value>
+    <value>Get in touch with us</value>
   </data>
   <data name="Home" xml:space="preserve">
     <value>Home</value>
@@ -157,22 +157,22 @@
     <value>Logs</value>
   </data>
   <data name="LogsOfYourProducts" xml:space="preserve">
-    <value>Logs Of All Your Products</value>
+    <value>Logs of all your products</value>
   </data>
   <data name="Modificiation" xml:space="preserve">
     <value>Modification</value>
   </data>
   <data name="MyProducts" xml:space="preserve">
-    <value>My Products</value>
+    <value>My products</value>
   </data>
   <data name="Owner" xml:space="preserve">
     <value>Owner</value>
   </data>
   <data name="PatentNumber" xml:space="preserve">
-    <value>Patent Number</value>
+    <value>Patent number</value>
   </data>
   <data name="PhoneNumber" xml:space="preserve">
-    <value>Phone Number</value>
+    <value>Phone number</value>
   </data>
   <data name="Price" xml:space="preserve">
     <value>Price</value>
@@ -184,24 +184,24 @@
     <value>Product Logs</value>
   </data>
   <data name="ProductName" xml:space="preserve">
-    <value>Product Name</value>
+    <value>Product name</value>
   </data>
   <data name="SendComplaintMessage" xml:space="preserve">
-    <value>Send Complaint Message</value>
+    <value>Send complaint message</value>
   </data>
   <data name="Settings" xml:space="preserve">
     <value>Settings</value>
   </data>
   <data name="SpecifyYourProductDetails" xml:space="preserve">
-    <value>Specify Your Product Details</value>
+    <value>Specify your product details</value>
   </data>
   <data name="UpdateNow" xml:space="preserve">
-    <value>Update Now</value>
+    <value>Update now</value>
   </data>
   <data name="Website" xml:space="preserve">
     <value>Website</value>
   </data>
   <data name="WriteUsYourProblemHerePlease" xml:space="preserve">
-    <value>Write us your Problem Here please</value>
+    <value>Mention your problem here please</value>
   </data>
 </root>

@@ -42,6 +42,9 @@ namespace E_commerce_ASP.Controllers
             {
                 return HttpNotFound();
             }
+
+            ViewBag.historiques = db.Historiques.Where(x => x.UserId == Id).ToList();
+
             return View(user);
         }
 

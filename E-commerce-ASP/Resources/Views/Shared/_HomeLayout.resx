@@ -121,13 +121,13 @@
     <value>About Us</value>
   </data>
   <data name="AddProducts" xml:space="preserve">
-    <value>Add Products</value>
+    <value>Add Product</value>
   </data>
   <data name="AdminDashboard" xml:space="preserve">
     <value>Admin Dashboard</value>
   </data>
   <data name="AllCategory" xml:space="preserve">
-    <value>All Category</value>
+    <value>All Categories</value>
   </data>
   <data name="Categories" xml:space="preserve">
     <value>CATEGORIES</value>
@@ -175,6 +175,6 @@
     <value>Statistics</value>
   </data>
   <data name="WatchDetails" xml:space="preserve">
-    <value>Watch Product Details</value>
+    <value>Check product details</value>
   </data>
 </root>

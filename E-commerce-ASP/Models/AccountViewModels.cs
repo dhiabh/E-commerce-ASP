@@ -96,12 +96,7 @@ namespace E_commerce_ASP.Models
         [Required]
         [Display(Name = "Last name")]
         public string LastName { get; set; }
-
-        [Required]
-        [Display(Name = "Date of birth")]
-        [DisplayFormat(DataFormatString = "{0:dd--MM-yyyy}")]
-        public DateTime DateOfBirth { get; set; }
-
+                
         [Required]
         [Display(Name = "Phone number")]
         public string PhoneNumber { get; set; }

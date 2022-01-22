@@ -12,8 +12,8 @@ namespace E_commerce_ASP.Models
 
         public static List<Languages> AvailableLanguages = new List<Languages>
                 {
-            new Languages {LanFullName="[English]", LangCultureName="en"},
-            new Languages {LanFullName="[Francais]", LangCultureName="fr"},
+            new Languages {LanFullName="English", LangCultureName="en"},
+            new Languages {LanFullName="Français", LangCultureName="fr"},
             };
         
         //voir si la langue demandée est autorisée

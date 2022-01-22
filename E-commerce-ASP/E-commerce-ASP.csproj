@@ -238,6 +238,18 @@
     <Compile Include="Migrations\202201131915030_Added_DateTime.Designer.cs">
       <DependentUpon>202201131915030_Added_DateTime.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202201221002185_remove date field.cs" />
+    <Compile Include="Migrations\202201221002185_remove date field.Designer.cs">
+      <DependentUpon>202201221002185_remove date field.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202201221223177_product internationalization.cs" />
+    <Compile Include="Migrations\202201221223177_product internationalization.Designer.cs">
+      <DependentUpon>202201221223177_product internationalization.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202201221303045_product remove required image.cs" />
+    <Compile Include="Migrations\202201221303045_product remove required image.Designer.cs">
+      <DependentUpon>202201221303045_product remove required image.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Category.cs" />
@@ -250,6 +262,11 @@
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\Models\Product.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Product.resx</DependentUpon>
+    </Compile>
     <Compile Include="Resources\Views\Account\Account.fr.Designer.cs">
       <DependentUpon>Account.fr.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -528,7 +545,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Resources\Models\" />
     <Folder Include="Resources\Views\Manage\" />
     <Folder Include="Views\Base\" />
   </ItemGroup>
@@ -590,6 +606,20 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202201131915030_Added_DateTime.resx">
       <DependentUpon>202201131915030_Added_DateTime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201221002185_remove date field.resx">
+      <DependentUpon>202201221002185_remove date field.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201221223177_product internationalization.resx">
+      <DependentUpon>202201221223177_product internationalization.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201221303045_product remove required image.resx">
+      <DependentUpon>202201221303045_product remove required image.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Models\Product.fr.resx" />
+    <EmbeddedResource Include="Resources\Models\Product.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Product.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Views\Account\Account.fr.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

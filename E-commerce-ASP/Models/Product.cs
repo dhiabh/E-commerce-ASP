@@ -13,17 +13,26 @@ namespace E_commerce_ASP.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
-        [Required]
+        [Required(ErrorMessageResourceType = typeof(E_commerce_ASP.Resources.Models.Product), ErrorMessageResourceName ="ProductNameRequired")]
+        [Display(Name = "ProductName", ResourceType = typeof(E_commerce_ASP.Resources.Models.Product))]
         public string Name { get; set; }
 
-        [Required]
+        [Required(ErrorMessageResourceType = typeof(E_commerce_ASP.Resources.Models.Product), ErrorMessageResourceName = "ProductPriceRequired")]
+        [Display(Name = "ProductPrice", ResourceType = typeof(E_commerce_ASP.Resources.Models.Product))]
         public decimal Price { get; set; }
+
+        //[Required(ErrorMessageResourceType = typeof(E_commerce_ASP.Resources.Models.Product), ErrorMessageResourceName = "ProductImageRequired")]
+        [Display(Name = "ChoosePicture", ResourceType = typeof(E_commerce_ASP.Resources.Models.Product))]
         public string Image { get; set; }
+
+        [Required(ErrorMessageResourceType = typeof(E_commerce_ASP.Resources.Models.Product), ErrorMessageResourceName = "ProductDescRequired")]
+        [Display(Name = "ProductDesc", ResourceType = typeof(E_commerce_ASP.Resources.Models.Product))]
         public string Description { get; set; }
         public bool IsInFavList { get; set; }
         public bool IsInBlackList { get; set; }
 
-        [Required]
+        [Required(ErrorMessageResourceType = typeof(E_commerce_ASP.Resources.Models.Product), ErrorMessageResourceName = "ProductCategRequired")]
+        [Display(Name = "ProductCateg", ResourceType = typeof(E_commerce_ASP.Resources.Models.Product))]
         [ForeignKey("Category")]
         public int CategoryId { get; set; }
         public Category Category { get; set; }

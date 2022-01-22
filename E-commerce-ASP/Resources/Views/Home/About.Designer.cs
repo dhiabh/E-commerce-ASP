@@ -79,7 +79,7 @@ namespace E_commerce_ASP.Resources.Views.Home {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Here you can find information about our Site.
+        ///   Looks up a localized string similar to Here you can find information about our site.
         /// </summary>
         public static string HereYouCanFindInfoAboutOurSite {
             get {

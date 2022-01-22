@@ -70,7 +70,7 @@ namespace E_commerce_ASP.Resources.Views.Home {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Add Products.
+        ///   Looks up a localized string similar to Add Product.
         /// </summary>
         public static string AddProducts {
             get {
@@ -88,7 +88,7 @@ namespace E_commerce_ASP.Resources.Views.Home {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to All Category.
+        ///   Looks up a localized string similar to All Categories.
         /// </summary>
         public static string AllCategory {
             get {
@@ -124,7 +124,7 @@ namespace E_commerce_ASP.Resources.Views.Home {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Salut.
+        ///   Looks up a localized string similar to Hello.
         /// </summary>
         public static string Hello {
             get {
@@ -241,7 +241,7 @@ namespace E_commerce_ASP.Resources.Views.Home {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Watch Product Details.
+        ///   Looks up a localized string similar to Check product details.
         /// </summary>
         public static string WatchDetails {
             get {

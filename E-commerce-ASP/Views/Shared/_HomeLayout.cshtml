@@ -96,11 +96,12 @@
                             <div class="top-search"><a href="#0"><i class="ti-search"></i></a></div>
                             <!-- Search Form -->
                             <div class="search-top">
-                                <form class="search-form">
+                                @using (Html.BeginForm("Search", "Home", FormMethod.Get, new { @class = "search-form" }))
+                                {
                                     <input placeholder="@E_commerce_ASP.Resources.Views.Shared._HomeLayout.SearchHere" name="search" id="search2" autocomplete="off" />
                                     <div id="result2" class="tag-results"></div>
                                     <button value="search" type="submit"><i class="ti-search"></i></button>
-                                </form>
+                                }
                             </div>
                             <!--/ End Search Form -->
                         </div>
@@ -117,11 +118,13 @@
                                         <option value="~/Category/Index/@item.Id">@item.Name</option>
                                     }
                                 </select>
-                                <form>
+                                @using (Html.BeginForm("Search", "Home", FormMethod.Get))
+                                {
                                     <input placeholder="@E_commerce_ASP.Resources.Views.Shared._HomeLayout.SearchHere" name="search" id="search" autocomplete="off" />
                                     <div id="result" class="tag-results"></div>
-                                    <button class="btnn"><i class="ti-search"></i></button>
-                                </form>
+                                    <button type="submit" class="btnn"><i class="ti-search"></i></button>
+                                }
+
                             </div>
                         </div>
                     </div>
@@ -261,8 +264,10 @@
                                                 <li>
                                                     <a href="#">@E_commerce_ASP.Resources.Views.Shared._HomeLayout.Language<i class="ti-angle-down"></i></a>
                                                     <ul class="dropdown">
-                                                        <li><a href="blog-single-sidebar.html">@Html.ActionLink("English", "Index", "Home")</a></li>
-                                                        <li><a href="blog-single-sidebar.html">@Html.ActionLink("French", "Index", "Home")</a></li>
+                                                        @foreach (var i in E_commerce_ASP.Models.GestionLanguages.AvailableLanguages)
+                                                        {
+                                                        <li>@Html.ActionLink(i.LanFullName, "ChangeLanguage", "Home", new { lang = i.LangCultureName }, null)</li>
+                                                        }                                                        
                                                     </ul>
                                                 </li>
 

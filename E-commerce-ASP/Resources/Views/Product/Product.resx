@@ -124,16 +124,13 @@
     <value>Category</value>
   </data>
   <data name="CheckOwnerInfo" xml:space="preserve">
-    <value>Check Owner Information</value>
-  </data>
-  <data name="ChoosePicture" xml:space="preserve">
-    <value>Choose a Picture</value>
+    <value>Check owner Infos</value>
   </data>
   <data name="DeleteProduct" xml:space="preserve">
-    <value>Delete Product</value>
+    <value>Delete product</value>
   </data>
   <data name="EditProduct" xml:space="preserve">
-    <value>Edit Product</value>
+    <value>Edit product</value>
   </data>
   <data name="Owner" xml:space="preserve">
     <value>Owner</value>

@@ -100,11 +100,14 @@ namespace E_commerce_ASP.Controllers
             {
                 Historique historique = new Historique();
 
-                string pic = Path.GetFileName(upload.FileName);
-                string path = Path.Combine(Server.MapPath("~/Uploads"), pic);
-                upload.SaveAs(path);
-                product.Image = upload.FileName;
-
+                if(upload != null)
+                {
+                    string pic = Path.GetFileName(upload.FileName);
+                    string path = Path.Combine(Server.MapPath("~/Uploads"), pic);
+                    upload.SaveAs(path);
+                    product.Image = upload.FileName;
+                }
+                
                 var user = db.Users.Where(u => u.Id.Equals(id)).First();
                 product.UserId = user.RefId;
                 historique.UserId = user.RefId;

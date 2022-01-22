@@ -9,13 +9,13 @@ namespace E_commerce_ASP.Controllers
 {
     public class BaseController : Controller
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
+        /*private ApplicationDbContext db = new ApplicationDbContext();
 
         protected override void OnActionExecuted(ActionExecutedContext filterContext)
         {
             base.OnActionExecuted(filterContext);
 
-        }
+        }*/
 
         protected override IAsyncResult BeginExecuteCore(AsyncCallback callback, object state)
         {

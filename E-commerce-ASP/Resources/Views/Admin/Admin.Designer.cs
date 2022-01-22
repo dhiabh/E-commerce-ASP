@@ -106,7 +106,7 @@ namespace E_commerce_ASP.Resources.Views.Admin {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Back to E-shop.
+        ///   Looks up a localized string similar to Back to Eshop.
         /// </summary>
         public static string BacktoEshop {
             get {
@@ -151,7 +151,7 @@ namespace E_commerce_ASP.Resources.Views.Admin {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The Complaint.
+        ///   Looks up a localized string similar to Complaint.
         /// </summary>
         public static string Complaint {
             get {
@@ -205,7 +205,7 @@ namespace E_commerce_ASP.Resources.Views.Admin {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Favourite List Users.
+        ///   Looks up a localized string similar to Favourites List Users.
         /// </summary>
         public static string FavouriteListUsers {
             get {

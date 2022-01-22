@@ -4,10 +4,11 @@
     Layout = "~/Views/Shared/_HomeLayout.cshtml";
 }
 
-
-@Styles.Render("~/Content/css")
 @Scripts.Render("~/bundles/modernizr")
 @Scripts.Render("~/bundles/jquery")
+@Styles.Render("~/Content/styles/styles.css")
+
+
 
 
 <!-- Start Contact -->
@@ -25,44 +26,43 @@
                         {
                             @Html.AntiForgeryToken()
                             @Html.ValidationSummary("", new { @class = "text-danger" })
-                            <div class="form-group">
+                            <div class="form-group d-flex">
                                 @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
-                                <div class="col-md-10">
+                                <div class="col-md-5">
                                     @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
                                 </div>
                             </div>
 
-                            <div class="form-check">
-                                @Html.LabelFor(m => m.Nature, new { @class = "col-md-2 control-label" })
-                                <div class="col-md-10">
+                            <div class="form-group d-flex mt-4">
+                                @Html.LabelFor(m => m.Nature, new { @class = "col-md-3 control-label" })
+                                <div class="col-md-6">
                                     <div>
                                         @Html.RadioButtonFor(model => model.Nature, "Particular", new { @class = "form-check-input" })
-                                        @Html.Label("Particular", new { @class = "form-check-label" })
+                                        @Html.Label("Particular", new { @class = "form-check-label pl-2" })
                                     </div>
                                     <div>
                                         @Html.RadioButtonFor(model => model.Nature, "Company", new { @class = "form-check-input" })
-                                        @Html.Label("Company", new { @class = "form-check-label" })
+                                        @Html.Label("Company", new { @class = "form-check-label pl-2" })
                                     </div>
                                 </div>
                             </div>
-                           <div class="form-group"></div>
 
-                            <div class="form-group">
+                            <div class="form-group d-flex">
                                 @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
-                                <div class="col-md-10">
+                                <div class="col-md-5">
                                     @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
                                 </div>
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group d-flex">
                                 @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
-                                <div class="col-md-10">
+                                <div class="col-md-5">
                                     @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-md-offset-2 col-md-10">
-                                    <input type="submit" class="btn btn-default" value="@E_commerce_ASP.Resources.Views.Account.Account.Register" />
+                                    <button type="submit" class="btn btn-dark">@E_commerce_ASP.Resources.Views.Account.Account.Register</button>
                                 </div>
                             </div>
                         }

@@ -121,7 +121,7 @@
     <value>Ajoutez vos paramètres</value>
   </data>
   <data name="CreateANewAccount" xml:space="preserve">
-    <value>Créer un nouveau compte.</value>
+    <value>Créer un nouveau compte</value>
   </data>
   <data name="Login" xml:space="preserve">
     <value>Connexion</value>
@@ -133,6 +133,6 @@
     <value>S'inscrire en tant que nouvel utilisateur</value>
   </data>
   <data name="UseeALocalAccount" xml:space="preserve">
-    <value>Utilisez un compte local pour vous connecter.</value>
+    <value>Utilisez un compte local pour vous connecter</value>
   </data>
 </root>

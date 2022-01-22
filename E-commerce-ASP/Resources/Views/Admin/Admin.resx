@@ -133,7 +133,7 @@
     <value>All Users</value>
   </data>
   <data name="BacktoEshop" xml:space="preserve">
-    <value>Back to E-shop</value>
+    <value>Back to Eshop</value>
   </data>
   <data name="Blacklist" xml:space="preserve">
     <value>Black List</value>
@@ -148,7 +148,7 @@
     <value>Changes</value>
   </data>
   <data name="Complaint" xml:space="preserve">
-    <value>The Complaint</value>
+    <value>Complaint</value>
   </data>
   <data name="ComplaintID" xml:space="preserve">
     <value>Complaint ID</value>
@@ -166,7 +166,7 @@
     <value>Favourites List</value>
   </data>
   <data name="FavouriteListUsers" xml:space="preserve">
-    <value>Favourite List Users</value>
+    <value>Favourites List Users</value>
   </data>
   <data name="GoBackToEshop" xml:space="preserve">
     <value>Go Back To Eshop</value>

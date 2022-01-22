@@ -25,10 +25,7 @@ namespace E_commerce_ASP.Models
         [Display(Name = "Full name")]
         public string FullName { get; set; }
 
-        [Display(Name = "Date of birth")]
-        [DisplayFormat(DataFormatString = "{0:dd--MM-yyyy}")]
-        public DateTime DateOfBirth { get; set; }
-
+        
         [Display(Name = "Phone Number")]
         public string PhoneNumber { get; set; }
         

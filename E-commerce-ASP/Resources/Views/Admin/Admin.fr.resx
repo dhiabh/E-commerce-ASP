@@ -133,7 +133,7 @@
     <value>Tous les utilisateurs</value>
   </data>
   <data name="BacktoEshop" xml:space="preserve">
-    <value>Retour à la boutique</value>
+    <value>Retour à Eshop</value>
   </data>
   <data name="Blacklist" xml:space="preserve">
     <value>Liste Noire</value>
@@ -142,19 +142,19 @@
     <value>Utilisateurs de la liste noire</value>
   </data>
   <data name="Category" xml:space="preserve">
-    <value>Categorie</value>
+    <value>Catégorie</value>
   </data>
   <data name="Changes" xml:space="preserve">
-    <value>Les Modification</value>
+    <value>Modifications</value>
   </data>
   <data name="Complaint" xml:space="preserve">
-    <value>La réclamation</value>
+    <value>Réclamation</value>
   </data>
   <data name="ComplaintID" xml:space="preserve">
-    <value>ID de réclamation</value>
+    <value>ID de la réclamation</value>
   </data>
   <data name="Complaints" xml:space="preserve">
-    <value>Les Réclamations</value>
+    <value>Les réclamations</value>
   </data>
   <data name="Conditions" xml:space="preserve">
     <value>Conditions</value>
@@ -169,7 +169,7 @@
     <value>Utilisateurs de la liste des favoris</value>
   </data>
   <data name="GoBackToEshop" xml:space="preserve">
-    <value>Revenir à E-Shop</value>
+    <value>Revenir à Eshop</value>
   </data>
   <data name="Loggedinas" xml:space="preserve">
     <value>Connecté en tant que:</value>
@@ -178,7 +178,7 @@
     <value>Historique</value>
   </data>
   <data name="MainDashBoard" xml:space="preserve">
-    <value>Dashboard Principale</value>
+    <value>Dashboard principale</value>
   </data>
   <data name="Nature" xml:space="preserve">
     <value>Nature</value>
@@ -196,7 +196,7 @@
     <value>Politique de confidentialité</value>
   </data>
   <data name="ProductCard" xml:space="preserve">
-    <value>Carte de la produit</value>
+    <value>Carte du produit</value>
   </data>
   <data name="ProductID" xml:space="preserve">
     <value>ID Produit</value>
@@ -220,7 +220,7 @@
     <value>Rechercher...</value>
   </data>
   <data name="SelectUser" xml:space="preserve">
-    <value>Sélectioner Utilisateur</value>
+    <value>Sélectionner utilisateur</value>
   </data>
   <data name="SentBy" xml:space="preserve">
     <value>Envoyée par</value>
@@ -235,7 +235,7 @@
     <value>Termes</value>
   </data>
   <data name="UserDetails" xml:space="preserve">
-    <value>Détails des l'utilisateurs</value>
+    <value>Détails de l'utilisateur</value>
   </data>
   <data name="View Details" xml:space="preserve">
     <value>Voir les détails</value>
@@ -244,6 +244,6 @@
     <value>Voir les réclamations</value>
   </data>
   <data name="ViewProductDetails" xml:space="preserve">
-    <value>Voir les détails de Produit</value>
+    <value>Voir les détails du produit</value>
   </data>
 </root>

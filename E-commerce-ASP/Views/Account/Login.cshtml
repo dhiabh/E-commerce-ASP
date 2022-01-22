@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_HomeLayout.cshtml";
 }
 
-@Styles.Render("~/Content/css")
+@Styles.Render("~/Content/styles/styles.css")
 @Scripts.Render("~/bundles/modernizr")
 @Scripts.Render("~/bundles/jquery")
 
@@ -24,43 +24,43 @@
                         @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
                         {
                             @Html.AntiForgeryToken()
-                          
+
                             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                            <div class="form-group">
+                            <div class="form-group d-flex">
                                 @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
-                                <div class="col-md-10">
+                                <div class="col-md-5">
                                     @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
                                     @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group d-flex">
                                 @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
-                                <div class="col-md-10">
+                                <div class="col-md-5">
                                     @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
                                     @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
                                 </div>
                             </div>
                             <div class="form-group">
-                                <div class="col-md-offset-2 col-md-10">
+                                <div class="col-md-offset-2 col-md-8 ml-3">
                                     <div class="checkbox">
-                                        @Html.CheckBoxFor(m => m.RememberMe)
-                                        @Html.LabelFor(m => m.RememberMe)
+                                        @Html.CheckBoxFor(m => m.RememberMe, new {@class= "form-check-input" })
+                                        @Html.LabelFor(m => m.RememberMe, new { @class = "form-check-label pl-2" } )
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-md-offset-2 col-md-10">
-                                    <input type="submit" value="@E_commerce_ASP.Resources.Views.Account.Account.Login" class="btn btn-default" />
+                                    <button type="submit" class="btn btn-dark">@E_commerce_ASP.Resources.Views.Account.Account.Login</button>
                                 </div>
                             </div>
                             <p>
                                 @Html.ActionLink(@E_commerce_ASP.Resources.Views.Account.Account.RegisterAsANewUser, "Register")
                             </p>
                             @* Enable this once you have account confirmation enabled for password reset functionality
-                            <p>
-                                @Html.ActionLink("Forgot your password?", "ForgotPassword")
-                            </p>*@
-                         }
+                                <p>
+                                    @Html.ActionLink("Forgot your password?", "ForgotPassword")
+                                </p>*@
+                        }
 
 
                     </div>

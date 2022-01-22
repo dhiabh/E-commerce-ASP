@@ -121,25 +121,25 @@
     <value>À propos</value>
   </data>
   <data name="AddProducts" xml:space="preserve">
-    <value>Ajouter Produit</value>
+    <value>Ajouter produit</value>
   </data>
   <data name="AdminDashboard" xml:space="preserve">
-    <value>Dashboard Administrateur</value>
+    <value>Dashboard Admin</value>
   </data>
   <data name="AllCategory" xml:space="preserve">
-    <value>Les Catégories</value>
+    <value>Catégories</value>
   </data>
   <data name="Categories" xml:space="preserve">
     <value>CATEGORIES</value>
   </data>
   <data name="Category" xml:space="preserve">
-    <value>Categorie</value>
+    <value>Catégorie</value>
   </data>
   <data name="Complaints" xml:space="preserve">
-    <value>Réclamation</value>
+    <value>Réclamations</value>
   </data>
   <data name="Hello" xml:space="preserve">
-    <value>Salut</value>
+    <value>Bonjour</value>
   </data>
   <data name="Home" xml:space="preserve">
     <value>Acceuil</value>
@@ -154,10 +154,10 @@
     <value>Déconnexion</value>
   </data>
   <data name="MyAccount" xml:space="preserve">
-    <value>Mon Compte</value>
+    <value>Mon compte</value>
   </data>
   <data name="MyProducts" xml:space="preserve">
-    <value>Mes Produits</value>
+    <value>Mes produits</value>
   </data>
   <data name="Price" xml:space="preserve">
     <value>Prix</value>
@@ -175,7 +175,7 @@
     <value>Chercher ici ...</value>
   </data>
   <data name="Statistics" xml:space="preserve">
-    <value>Statistique</value>
+    <value>Statistiques</value>
   </data>
   <data name="WatchDetails" xml:space="preserve">
     <value>Voir les détails du produit</value>

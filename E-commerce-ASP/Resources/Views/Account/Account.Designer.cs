@@ -70,7 +70,7 @@ namespace E_commerce_ASP.Resources.Views.Account {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Create a new account..
+        ///   Looks up a localized string similar to Create a new account.
         /// </summary>
         public static string CreateANewAccount {
             get {
@@ -106,7 +106,7 @@ namespace E_commerce_ASP.Resources.Views.Account {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Use a local account to log in..
+        ///   Looks up a localized string similar to Use a local account to log in.
         /// </summary>
         public static string UseeALocalAccount {
             get {

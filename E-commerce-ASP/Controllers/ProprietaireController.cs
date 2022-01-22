@@ -81,11 +81,14 @@ namespace E_commerce_ASP.Controllers
                 
                 ViewBag.CategoryList = new SelectList(db.Categories, "Id", "Name");
 
-                string pic = Path.GetFileName(upload.FileName);
-                string path = Path.Combine(Server.MapPath("~/Uploads"), pic);
-                upload.SaveAs(path);
-                product.Image = upload.FileName;
-
+                if (upload != null)
+                {
+                    string pic = Path.GetFileName(upload.FileName);
+                    string path = Path.Combine(Server.MapPath("~/Uploads"), pic);
+                    upload.SaveAs(path);
+                    product.Image = upload.FileName;
+                }
+                                
                 var user = db.Users.Where(u => u.Id.Equals(id)).First();
                 product.UserId = user.RefId;
                 historique.UserId = user.RefId;
@@ -211,7 +214,7 @@ namespace E_commerce_ASP.Controllers
         public ActionResult Historique()
         {
             string id = User.Identity.GetUserId();
-            int  Realid=0;
+            int  Realid = 0;
             if (id != null)
             {
                 var user = db.Users.Where(u => u.Id.Equals(id)).First();
@@ -221,7 +224,7 @@ namespace E_commerce_ASP.Controllers
                 Realid = realUser.RealId;
             }
 
-            return View(db.Historiques.Where(x=>x.UserId==Realid).ToList());
+            return View(db.Historiques.Where(x => x.UserId == Realid).ToList());
         }
 
         [HttpGet]

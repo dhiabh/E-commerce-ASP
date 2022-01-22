@@ -97,13 +97,14 @@
 						<div class="search-top">
 							<div class="top-search"><a href="#0"><i class="ti-search"></i></a></div>
 							<!-- Search Form -->
-							<div class="search-top">
-								<form class="search-form">
-									<input placeholder="@E_commerce_ASP.Resources.Views.Home.Index.SearchHere" name="search" id="search2" autocomplete="off" />
-									<div id="result2" class="tag-results"></div>
-									<button value="search" type="submit"><i class="ti-search"></i></button>
-								</form>
-							</div>
+                            <div class="search-top">
+                                @using (Html.BeginForm("Search", "Home", FormMethod.Get, new { @class = "search-form" }))
+                                {
+                                    <input placeholder="@E_commerce_ASP.Resources.Views.Shared._HomeLayout.SearchHere" name="search" id="search2" autocomplete="off" />
+                                    <div id="result2" class="tag-results"></div>
+                                    <button value="search" type="submit"><i class="ti-search"></i></button>
+                                }
+                            </div>
 							<!--/ End Search Form -->
 						</div>
 						<!--/ End Search Form -->
@@ -111,22 +112,23 @@
 					</div>
 					<div class="col-lg-6 col-md-4 col-12">
 						<div class="search-bar-top">
-							<div class="search-bar">
-								<select onchange="location = this.value;">
-									<option value="/" selected="selected">@E_commerce_ASP.Resources.Views.Home.Index.AllCategory</option>
-									@foreach (var item in category)
-									{
-										<option value="~/Category/Index/@item.Id">@item.Name</option>
-									}
+                            <div class="search-bar">
+                                <select onchange="location = this.value;">
+                                    <option value="/" selected="selected">@E_commerce_ASP.Resources.Views.Home.Index.AllCategory</option>
+                                    @foreach (var item in category)
+                                    {
+                                        <option value="~/Category/Index/@item.Id">@item.Name</option>
+                                    }
 
 
-								</select>
-								<form>
-									<input placeholder="@E_commerce_ASP.Resources.Views.Home.Index.SearchHere" name="search" id="search" autocomplete="off" />
-									 <div id="result" class="tag-results"></div> 
-									<button class="btnn"><i class="ti-search"></i></button>
-								</form>
-							</div>
+                                </select>
+                                @using (Html.BeginForm("Search", "Home", FormMethod.Get))
+                                {
+                                    <input placeholder="@E_commerce_ASP.Resources.Views.Shared._HomeLayout.SearchHere" name="search" id="search" autocomplete="off" />
+                                    <div id="result" class="tag-results"></div>
+                                    <button type="submit" class="btnn"><i class="ti-search"></i></button>
+                                }
+                            </div>
 						</div>
 					</div>
 					@if (Request.IsAuthenticated)
@@ -258,12 +260,12 @@
 												<li>@Html.ActionLink(@E_commerce_ASP.Resources.Views.Home.Index.AboutUs, "About", "Home")</li>
 												<li>
 													<a href="#">@E_commerce_ASP.Resources.Views.Home.Index.Language<i class="ti-angle-down"></i></a>
-													<ul class="dropdown">
-														<li><a href="blog-single-sidebar.html">@Html.ActionLink("English", "ChangeLanguage", "Home", new { lang = "en" }, null)</a></li>
-														
-													   
-														<li><a href="blog-single-sidebar.html">@Html.ActionLink("French", "ChangeLanguage", "Home", new { lang = "fr" }, null)</a></li>
-													</ul>
+                                                    <ul class="dropdown">
+                                                        @foreach (var i in E_commerce_ASP.Models.GestionLanguages.AvailableLanguages)
+                                                        {
+                                                            <li>@Html.ActionLink(i.LanFullName, "ChangeLanguage", "Home", new { lang = i.LangCultureName }, null)</li>
+                                                        }                                                        
+                                                    </ul>
 												</li>
 											</ul>
 										</div>

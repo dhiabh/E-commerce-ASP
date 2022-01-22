@@ -79,7 +79,7 @@ namespace E_commerce_ASP.Resources.Views.Product {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Check Owner Information.
+        ///   Looks up a localized string similar to Check owner Infos.
         /// </summary>
         public static string CheckOwnerInfo {
             get {
@@ -88,16 +88,7 @@ namespace E_commerce_ASP.Resources.Views.Product {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Choose a Picture.
-        /// </summary>
-        public static string ChoosePicture {
-            get {
-                return ResourceManager.GetString("ChoosePicture", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Delete Product.
+        ///   Looks up a localized string similar to Delete product.
         /// </summary>
         public static string DeleteProduct {
             get {
@@ -106,7 +97,7 @@ namespace E_commerce_ASP.Resources.Views.Product {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Edit Product.
+        ///   Looks up a localized string similar to Edit product.
         /// </summary>
         public static string EditProduct {
             get {

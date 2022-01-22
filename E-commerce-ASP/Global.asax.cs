@@ -20,6 +20,7 @@ namespace E_commerce_ASP
             BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
 
+
         
     }
 }

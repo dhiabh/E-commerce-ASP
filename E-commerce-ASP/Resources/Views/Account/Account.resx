@@ -121,7 +121,7 @@
     <value>Add your parameters</value>
   </data>
   <data name="CreateANewAccount" xml:space="preserve">
-    <value>Create a new account.</value>
+    <value>Create a new account</value>
   </data>
   <data name="Login" xml:space="preserve">
     <value>Log in</value>
@@ -133,6 +133,6 @@
     <value>Register as a new User</value>
   </data>
   <data name="UseeALocalAccount" xml:space="preserve">
-    <value>Use a local account to log in.</value>
+    <value>Use a local account to log in</value>
   </data>
 </root>

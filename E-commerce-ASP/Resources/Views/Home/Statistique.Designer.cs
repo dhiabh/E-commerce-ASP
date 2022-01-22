@@ -61,6 +61,15 @@ namespace E_commerce_ASP.Resources.Views.Home {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Categories Distribution.
+        /// </summary>
+        public static string CategoriesDistribution {
+            get {
+                return ResourceManager.GetString("CategoriesDistribution", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Categories Which our Site Contains :.
         /// </summary>
         public static string CategoriesWhichOurSiteContains {

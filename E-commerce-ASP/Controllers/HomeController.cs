@@ -130,27 +130,46 @@ namespace E_commerce_ASP.Controllers
 
 
 
-
             return View();
         }
 
 
-        /*
         public ActionResult Chart()
         {
 
-            var userslist = new List<String>();
-            //string[] x = ;
-            //int[] y = { 5, 3 };
+            List<string> categories = new List<string>();
 
-            new System.Web.Helpers.Chart(width: 800, height: 200, theme: ChartTheme.Green)
-                .AddTitle("Nombre des Prouids par Utilisateur")
+            var categoriesQuery = from category in db.Categories
+                                  where category.Products.Count != 0
+                                  select category;
+
+
+            foreach (Category category in categoriesQuery)
+            {               
+                 categories.Add(category.Name);               
+            }
+
+            List<int> nombre = new List<int>();
+
+            foreach (var category in categories)
+            {
+                var nombreQuery = from product in db.Products
+                                  where product.Category.Name.Equals(category)
+                                  select product;
+                nombre.Add(nombreQuery.Count());
+            }
+
+
+
+            new System.Web.Helpers.Chart(width: 800, height: 400)
+                .AddTitle(E_commerce_ASP.Resources.Views.Home.Statistique.CategoriesDistribution)
                 .AddSeries(
-                    chartType: "Column",
-                    xValue: x,
-                    yValues: y
+                chartType: "Pie",
+                xValue: categories,
+                yValues: nombre
                 ).Write("png");
+
             return null;
-        }*/
+        }
     }
 }

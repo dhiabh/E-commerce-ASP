@@ -317,6 +317,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Index.resx</DependentUpon>
     </Compile>
+    <Compile Include="Resources\Views\Home\Search.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Search.resx</DependentUpon>
+    </Compile>
     <Compile Include="Resources\Views\Home\Statistique.fr.Designer.cs">
       <DependentUpon>Statistique.fr.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -520,7 +525,6 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_NewLayout.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
-    <Content Include="Views\Admin\Tables.cshtml" />
     <Content Include="Views\Account\ParticularParameters.cshtml" />
     <Content Include="Views\Account\CompanyParameters.cshtml" />
     <Content Include="Views\Admin\DashBoard.cshtml" />
@@ -655,6 +659,7 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>About.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Views\Home\Footer.fr.resx" />
     <EmbeddedResource Include="Resources\Views\Home\Footer.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Footer.Designer.cs</LastGenOutput>
@@ -666,6 +671,11 @@
     <EmbeddedResource Include="Resources\Views\Home\Index.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Index.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Views\Home\Search.fr.resx" />
+    <EmbeddedResource Include="Resources\Views\Home\Search.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Search.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Views\Home\Statistique.fr.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

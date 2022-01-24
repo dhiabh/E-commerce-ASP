@@ -2,6 +2,20 @@
     Layout = null;
 }
 
+@using Microsoft.AspNet.Identity
+
+
+@{
+
+    E_commerce_ASP.Models.ApplicationDbContext db1 = new E_commerce_ASP.Models.ApplicationDbContext();
+
+    string id = User.Identity.GetUserId();
+    var user = db1.Users.Where(u => u.Id.Equals(id)).First();
+
+    var realUser = db1.RealUsers.Where(u => u.RealId == user.RefId).First();
+
+}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,15 +43,24 @@
             </div>
         </form>
         <!-- Navbar-->
+        @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+        {
+        @Html.AntiForgeryToken()
         <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                    
-                    <li><a class="dropdown-item" href="#!">@Html.ActionLink(@E_commerce_ASP.Resources.Views.Admin.Admin.EShopHome, "Index", "Home")</a></li>
+
+                    <li>@Html.ActionLink(@E_commerce_ASP.Resources.Views.Shared._HomeLayout.MyAccount, "Index", "Proprietaire", new { Id = realUser.RealId }, new { @class = "dropdown-item" })</li>
+                    <li><hr class="dropdown-divider" /></li>
+                    <li><a class="dropdown-item" href="javascript:document.getElementById('logoutForm').submit()">@E_commerce_ASP.Resources.Views.Home.Index.LogOff</a></li>
+
+
                 </ul>
             </li>
         </ul>
+        }
     </nav>
     <div id="layoutSidenav">
         <!-- SIDE BAR START-->
@@ -45,32 +68,53 @@
             <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                 <div class="sb-sidenav-menu">
                     <div class="nav">
-                        <div class="sb-sidenav-menu-heading">@E_commerce_ASP.Resources.Views.Admin.Admin.Settings</div>
+                        <div class="sb-sidenav-menu-heading">@E_commerce_ASP.Resources.Views.Admin.Admin.Views</div>
                         <a class="nav-link" href="~/Admin/DashBoard">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             @E_commerce_ASP.Resources.Views.Admin.Admin.MainDashBoard
                         </a>
+                        <a class="nav-link" href="~/Admin/DashBoard">
+                            <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
+                            @E_commerce_ASP.Resources.Views.Admin.Admin.UserDetails
+                        </a>
                         <a class="nav-link" href="~/Admin/Historique">
-                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            <div class="sb-nav-link-icon"><i class="fas fa-history"></i></div>
                             @E_commerce_ASP.Resources.Views.Admin.Admin.ProductLogs
                         </a>
                         <a class="nav-link" href="~/Admin/ListeProbleme">
-                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            <div class="sb-nav-link-icon"><i class="fas fa-exclamation-circle"></i></div>
                             @E_commerce_ASP.Resources.Views.Admin.Admin.Complaints
                         </a>
                         <a class="nav-link" href="~/Admin/ListeFavoris">
-                            <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                            <div class="sb-nav-link-icon"><i class="fas fa-heart"></i></div>
                             @E_commerce_ASP.Resources.Views.Admin.Admin.FavouriteList
                         </a>
                         <a class="nav-link" href="~/Admin/ListeNoire">
-                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            <div class="sb-nav-link-icon"><i class="fas fa-skull-crossbones"></i></div>
                             @E_commerce_ASP.Resources.Views.Admin.Admin.Blacklist
+                        </a>
+                        <div class="sb-sidenav-menu-heading">@E_commerce_ASP.Resources.Views.Admin.Admin.Settings</div>
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                            <div class="sb-nav-link-icon"><i class="fas fa-language"></i></div>
+                            @E_commerce_ASP.Resources.Views.Shared._HomeLayout.Language                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                @foreach (var i in E_commerce_ASP.Models.GestionLanguages.AvailableLanguages)
+                                {
+                                    @Html.ActionLink(i.LanFullName, "ChangeLanguage", "Home", new { lang = i.LangCultureName }, new { @class = "nav-link" })
+                                }
+                            </nav>
+                        </div>
+                        <a class="nav-link" href="~/Proprietaire/Index/@realUser.RealId">
+                            <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                            @E_commerce_ASP.Resources.Views.Shared._HomeLayout.MyAccount
                         </a>
                     </div>
                 </div>
                 <div class="sb-sidenav-footer">
                     <div class="small">@E_commerce_ASP.Resources.Views.Admin.Admin.Loggedinas</div>
-                    Administrator
+                    @E_commerce_ASP.Resources.Views.Admin.Admin.Administrator
                 </div>
             </nav>
         </div>

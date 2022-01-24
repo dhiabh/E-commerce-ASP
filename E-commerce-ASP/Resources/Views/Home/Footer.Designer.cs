@@ -59,5 +59,140 @@ namespace E_commerce_ASP.Resources.Views.Home {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to About Us.
+        /// </summary>
+        public static string about {
+            get {
+                return ResourceManager.GetString("about", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Contact Us.
+        /// </summary>
+        public static string contact {
+            get {
+                return ResourceManager.GetString("contact", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fez.
+        /// </summary>
+        public static string fes {
+            get {
+                return ResourceManager.GetString("fes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Help.
+        /// </summary>
+        public static string help {
+            get {
+                return ResourceManager.GetString("help", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Morocco.
+        /// </summary>
+        public static string maroc {
+            get {
+                return ResourceManager.GetString("maroc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Money-back.
+        /// </summary>
+        public static string money {
+            get {
+                return ResourceManager.GetString("money", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Payment Methods.
+        /// </summary>
+        public static string payments {
+            get {
+                return ResourceManager.GetString("payments", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Privacy Policy.
+        /// </summary>
+        public static string privacy {
+            get {
+                return ResourceManager.GetString("privacy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Got Question? Call us 24/7.
+        /// </summary>
+        public static string question {
+            get {
+                return ResourceManager.GetString("question", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Returns.
+        /// </summary>
+        public static string returns {
+            get {
+                return ResourceManager.GetString("returns", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Customer Service.
+        /// </summary>
+        public static string services {
+            get {
+                return ResourceManager.GetString("services", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Shipping.
+        /// </summary>
+        public static string shipping {
+            get {
+                return ResourceManager.GetString("shipping", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Here, we make your shopping experience easier!.
+        /// </summary>
+        public static string shop {
+            get {
+                return ResourceManager.GetString("shop", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Terms &amp; Conditions.
+        /// </summary>
+        public static string terms {
+            get {
+                return ResourceManager.GetString("terms", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Get In Touch.
+        /// </summary>
+        public static string touch {
+            get {
+                return ResourceManager.GetString("touch", resourceCulture);
+            }
+        }
     }
 }

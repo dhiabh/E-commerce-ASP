@@ -134,15 +134,15 @@
                         {
                             if (@ViewBag.user.FirstName != null)
                             {
-                            <div class="col-lg-2 col-md-3 col-6 m-auto">
-                                @E_commerce_ASP.Resources.Views.Shared._HomeLayout.Hello @ViewBag.user.FirstName @ViewBag.user.LastName !
-                            </div>
-                                        }
-                                        else
-                                        {
-                            <div class="col-lg-2 col-md-3 col-6 m-auto">
-                                @E_commerce_ASP.Resources.Views.Shared._HomeLayout.Hello @ViewBag.user.Email !
-                            </div>
+                                <div class="col-lg-2 col-md-3 col-6 m-auto">
+                                    @E_commerce_ASP.Resources.Views.Shared._HomeLayout.Hello @ViewBag.user.FirstName @ViewBag.user.LastName !
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="col-lg-2 col-md-3 col-6 m-auto">
+                                    @E_commerce_ASP.Resources.Views.Shared._HomeLayout.Hello @ViewBag.user.Email !
+                                </div>
                             }
 
                         }
@@ -150,15 +150,15 @@
                         {
                             if (@ViewBag.user.CompanyName != null)
                             {
-                            <div class="col-lg-2 col-md-3 col-6 m-auto">
-                                @E_commerce_ASP.Resources.Views.Shared._HomeLayout.Hello @ViewBag.user.CompanyName!
-                            </div>
-                                        }
-                                        else
-                                        {
-                            <div class="col-lg-2 col-md-3 col-6 m-auto">
-                                @E_commerce_ASP.Resources.Views.Shared._HomeLayout.Hello @ViewBag.user.Email !
-                            </div>
+                                <div class="col-lg-2 col-md-3 col-6 m-auto">
+                                    @E_commerce_ASP.Resources.Views.Shared._HomeLayout.Hello @ViewBag.user.CompanyName!
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="col-lg-2 col-md-3 col-6 m-auto">
+                                    @E_commerce_ASP.Resources.Views.Shared._HomeLayout.Hello @ViewBag.user.Email !
+                                </div>
                             }
 
                         }
@@ -185,19 +185,19 @@
 
                                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                                     <li class="dropdown-item">
-                                                        @if (User.IsInRole("Admin"))
-                                                        {
-                                                            @Html.ActionLink(@E_commerce_ASP.Resources.Views.Shared._HomeLayout.MyAccount, "Index", "Admin", routeValues: null, htmlAttributes: new { title = "Manage" })
-                                                        }
-                                                        else
-                                                        {
-                                                            @Html.ActionLink(@E_commerce_ASP.Resources.Views.Shared._HomeLayout.MyAccount, "Index", "Proprietaire", new { Id = realUser.RealId }, new { title = "Manage" })
-                                                        }
+                                                        @* @if (User.IsInRole("Admin"))
+                                            {
+                                                @Html.ActionLink(@E_commerce_ASP.Resources.Views.Shared._HomeLayout.MyAccount, "Index", "Admin", routeValues: null, htmlAttributes: new { title = "Manage" })
+                                            }
+                                            else
+                                            {*@
+                                                        @Html.ActionLink(@E_commerce_ASP.Resources.Views.Shared._HomeLayout.MyAccount, "Index", "Proprietaire", new { Id = realUser.RealId }, new { title = "Manage" })
+                                                        @*}*@
                                                     </li>
                                                     <li>
                                                         <hr class="dropdown-divider">
                                                     </li>
-                                                    <li class="dropdown-item"><a href="javascript:document.getElementById('logoutForm').submit()">@E_commerce_ASP.Resources.Views.Home.Index.LogOff</a></li>
+                                                    <li><a class="dropdown-item" href="javascript:document.getElementById('logoutForm').submit()">@E_commerce_ASP.Resources.Views.Home.Index.LogOff</a></li>
                                                 </ul>
                                             }
                                         }
@@ -299,8 +299,8 @@
                             <div class="logo">
                                 <a href="/"><img src="~/Content/images/logo2.png" alt="#"></a>
                             </div>
-                            <p class="text">Our ASP.Net E-Commerce Site</p>
-                            <p class="call">Got Question? Call us 24/7<span><a href="tel:123456789">+0123 456 789</a></span></p>
+                            <p class="text">@E_commerce_ASP.Resources.Views.Home.Footer.shop</p>
+                            <p class="call">@E_commerce_ASP.Resources.Views.Home.Footer.question<span><a href="tel:123456789">+0123 456 789</a></span></p>
                         </div>
                         <!-- End Single Widget -->
                     </div>
@@ -309,11 +309,11 @@
                         <div class="single-footer links">
                             <h4>Information</h4>
                             <ul>
-                                <li><a href="#">About Us</a></li>
+                                <li><a href="#">@E_commerce_ASP.Resources.Views.Home.Footer.about</a></li>
                                 <li><a href="#">Faqs</a></li>
-                                <li><a href="#">Terms & Conditions</a></li>
-                                <li><a href="#">Contact Us</a></li>
-                                <li><a href="#">Help</a></li>
+                                <li><a href="#">@E_commerce_ASP.Resources.Views.Home.Footer.terms</a></li>
+                                <li><a href="#">@E_commerce_ASP.Resources.Views.Home.Footer.contact</a></li>
+                                <li><a href="#">@E_commerce_ASP.Resources.Views.Home.Footer.help</a></li>
                             </ul>
                         </div>
                         <!-- End Single Widget -->
@@ -321,13 +321,13 @@
                     <div class="col-lg-2 col-md-6 col-12">
                         <!-- Single Widget -->
                         <div class="single-footer links">
-                            <h4>Customer Service</h4>
+                            <h4>@E_commerce_ASP.Resources.Views.Home.Footer.services</h4>
                             <ul>
-                                <li><a href="#">Payment Methods</a></li>
-                                <li><a href="#">Money-back</a></li>
-                                <li><a href="#">Returns</a></li>
-                                <li><a href="#">Shipping</a></li>
-                                <li><a href="#">Privacy Policy</a></li>
+                                <li><a href="#">@E_commerce_ASP.Resources.Views.Home.Footer.payments</a></li>
+                                <li><a href="#">@E_commerce_ASP.Resources.Views.Home.Footer.money</a></li>
+                                <li><a href="#">@E_commerce_ASP.Resources.Views.Home.Footer.returns</a></li>
+                                <li><a href="#">@E_commerce_ASP.Resources.Views.Home.Footer.shipping</a></li>
+                                <li><a href="#">@E_commerce_ASP.Resources.Views.Home.Footer.privacy</a></li>
                             </ul>
                         </div>
                         <!-- End Single Widget -->
@@ -335,21 +335,21 @@
                     <div class="col-lg-3 col-md-6 col-12">
                         <!-- Single Widget -->
                         <div class="single-footer social">
-                            <h4>Get In Touch</h4>
+                            <h4>@E_commerce_ASP.Resources.Views.Home.Footer.touch</h4>
                             <!-- Single Widget -->
                             <div class="contact">
                                 <ul>
-                                    <li>Fes</li>
-                                    <li>Morocco</li>
+                                    <li>@E_commerce_ASP.Resources.Views.Home.Footer.fes</li>
+                                    <li>@E_commerce_ASP.Resources.Views.Home.Footer.maroc</li>
 
                                 </ul>
                             </div>
                             <!-- End Single Widget -->
                             <ul>
-                                <li><a href="#"><i class="ti-facebook"></i></a></li>
-                                <li><a href="#"><i class="ti-twitter"></i></a></li>
-                                <li><a href="#"><i class="ti-flickr"></i></a></li>
-                                <li><a href="#"><i class="ti-instagram"></i></a></li>
+                                <li><a href="https://www.facebook.com/" target="_blank"><i class="ti-facebook"></i></a></li>
+                                <li><a href="https://twitter.com/" target="_blank"><i class="ti-twitter"></i></a></li>
+                                <li><a href="https://www.flickr.com/" target="_blank"><i class="ti-flickr"></i></a></li>
+                                <li><a href="https://www.instagram.com/" target="_blank"><i class="ti-instagram"></i></a></li>
                             </ul>
                         </div>
                         <!-- End Single Widget -->

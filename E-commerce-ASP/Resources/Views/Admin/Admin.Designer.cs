@@ -97,6 +97,15 @@ namespace E_commerce_ASP.Resources.Views.Admin {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Administrator.
+        /// </summary>
+        public static string Administrator {
+            get {
+                return ResourceManager.GetString("Administrator", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to All Users.
         /// </summary>
         public static string AllUsers {
@@ -241,7 +250,7 @@ namespace E_commerce_ASP.Resources.Views.Admin {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Main DashBoard.
+        ///   Looks up a localized string similar to Admin DashBoard.
         /// </summary>
         public static string MainDashBoard {
             get {
@@ -412,7 +421,7 @@ namespace E_commerce_ASP.Resources.Views.Admin {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to User Details.
+        ///   Looks up a localized string similar to Users Details.
         /// </summary>
         public static string UserDetails {
             get {
@@ -444,6 +453,15 @@ namespace E_commerce_ASP.Resources.Views.Admin {
         public static string ViewProductDetails {
             get {
                 return ResourceManager.GetString("ViewProductDetails", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Views.
+        /// </summary>
+        public static string Views {
+            get {
+                return ResourceManager.GetString("Views", resourceCulture);
             }
         }
     }

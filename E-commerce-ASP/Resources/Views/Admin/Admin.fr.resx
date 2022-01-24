@@ -129,6 +129,9 @@
   <data name="AddToFavouriteList" xml:space="preserve">
     <value>Ajouter à la liste des favoris</value>
   </data>
+  <data name="Administrator" xml:space="preserve">
+    <value>Administrateur</value>
+  </data>
   <data name="AllUsers" xml:space="preserve">
     <value>Tous les utilisateurs</value>
   </data>
@@ -154,7 +157,7 @@
     <value>ID de la réclamation</value>
   </data>
   <data name="Complaints" xml:space="preserve">
-    <value>Les réclamations</value>
+    <value>Réclamations</value>
   </data>
   <data name="Conditions" xml:space="preserve">
     <value>Conditions</value>
@@ -178,7 +181,7 @@
     <value>Historique</value>
   </data>
   <data name="MainDashBoard" xml:space="preserve">
-    <value>Dashboard principale</value>
+    <value>Dashboard Admin</value>
   </data>
   <data name="Nature" xml:space="preserve">
     <value>Nature</value>
@@ -235,7 +238,7 @@
     <value>Termes</value>
   </data>
   <data name="UserDetails" xml:space="preserve">
-    <value>Détails de l'utilisateur</value>
+    <value>Détails des utilisateurs</value>
   </data>
   <data name="View Details" xml:space="preserve">
     <value>Voir les détails</value>
@@ -245,5 +248,8 @@
   </data>
   <data name="ViewProductDetails" xml:space="preserve">
     <value>Voir les détails du produit</value>
+  </data>
+  <data name="Views" xml:space="preserve">
+    <value>Vues</value>
   </data>
 </root>

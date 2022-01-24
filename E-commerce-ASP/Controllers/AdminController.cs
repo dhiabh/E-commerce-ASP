@@ -31,9 +31,7 @@ namespace E_commerce_ASP.Controllers
         }
 
         public ActionResult DashBoard()
-        {
-            
-
+        {          
             return View(db.RealUsers.ToList());
         }
 

@@ -290,3 +290,6 @@ C:\Users\lenovo\Desktop\Info2\S1\ASP\Exam_project\E-commerce-ASP\E-commerce-ASP\
 C:\Users\lenovo\Desktop\Info2\S1\ASP\Exam_project\E-commerce-ASP\E-commerce-ASP\obj\Debug\E_commerce_ASP.Migrations.productremoverequiredimage.resources
 C:\Users\lenovo\Desktop\Info2\S1\ASP\Exam_project\E-commerce-ASP\E-commerce-ASP\obj\Debug\E_commerce_ASP.Resources.Models.AccountViewModels.resources
 C:\Users\lenovo\Desktop\Info2\S1\ASP\Exam_project\E-commerce-ASP\E-commerce-ASP\obj\Debug\E_commerce_ASP.Resources.Models.AccountViewModels.fr.resources
+C:\Users\lenovo\Desktop\Info2\S1\ASP\Exam_project\E-commerce-ASP\E-commerce-ASP\obj\Debug\E_commerce_ASP.Resources.Views.Home.Footer.fr.resources
+C:\Users\lenovo\Desktop\Info2\S1\ASP\Exam_project\E-commerce-ASP\E-commerce-ASP\obj\Debug\E_commerce_ASP.Resources.Views.Home.Search.resources
+C:\Users\lenovo\Desktop\Info2\S1\ASP\Exam_project\E-commerce-ASP\E-commerce-ASP\obj\Debug\E_commerce_ASP.Resources.Views.Home.Search.fr.resources

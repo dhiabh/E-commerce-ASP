@@ -52,9 +52,11 @@ namespace E_commerce_ASP.Controllers
 
         public ActionResult ListeNoire()
         {
-            ViewBag.UsersList = new SelectList(db.RealUsers.Where(x => !x.IsInBlackList).ToList(), "RealId", "Email");
-            ViewBag.usersBlackList = new SelectList(db.RealUsers.Where(x => x.IsInBlackList).ToList(), "RealId", "Email");
+            // to be fixed: admin reference in UsersList
 
+            ViewBag.UsersList = new SelectList(db.RealUsers.Where(x => !x.IsInBlackList && !x.FirstName.Equals("Administrateur")).ToList(), "RealId", "Email");
+            ViewBag.usersBlackList = new SelectList(db.RealUsers.Where(x => x.IsInBlackList).ToList(), "RealId", "Email");
+                        
             return View();
         }
 
@@ -63,7 +65,9 @@ namespace E_commerce_ASP.Controllers
        
         public ActionResult ListeFavoris()
         {
-            ViewBag.RealId = new SelectList(db.RealUsers.Where(x => !x.IsInFavList).ToList(), "RealId", "Email");
+            // to be fixed: admin reference in UsersList
+
+            ViewBag.RealId = new SelectList(db.RealUsers.Where(x => !x.IsInFavList && !x.FirstName.Equals("Administrateur")).ToList(), "RealId", "Email");
             ViewBag.usersFavList = new SelectList(db.RealUsers.Where(x => x.IsInFavList).ToList(), "RealId", "Email");
 
             return View();

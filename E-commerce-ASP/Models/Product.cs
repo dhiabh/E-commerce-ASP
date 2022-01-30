@@ -28,9 +28,7 @@ namespace E_commerce_ASP.Models
         [Required(ErrorMessageResourceType = typeof(E_commerce_ASP.Resources.Models.Product), ErrorMessageResourceName = "ProductDescRequired")]
         [Display(Name = "ProductDesc", ResourceType = typeof(E_commerce_ASP.Resources.Models.Product))]
         public string Description { get; set; }
-        public bool IsInFavList { get; set; }
-        public bool IsInBlackList { get; set; }
-
+       
         [Required(ErrorMessageResourceType = typeof(E_commerce_ASP.Resources.Models.Product), ErrorMessageResourceName = "ProductCategRequired")]
         [Display(Name = "ProductCateg", ResourceType = typeof(E_commerce_ASP.Resources.Models.Product))]
         [ForeignKey("Category")]
@@ -40,11 +38,6 @@ namespace E_commerce_ASP.Models
         [ForeignKey("User")]
         public int UserId { get; set; }
         public User User { get; set; }
-
-        public Product()
-        {
-            IsInFavList = false;
-            IsInBlackList = false;
-        }
+                
     }
 }

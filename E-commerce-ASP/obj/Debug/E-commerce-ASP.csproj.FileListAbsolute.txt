@@ -293,3 +293,4 @@ C:\Users\lenovo\Desktop\Info2\S1\ASP\Exam_project\E-commerce-ASP\E-commerce-ASP\
 C:\Users\lenovo\Desktop\Info2\S1\ASP\Exam_project\E-commerce-ASP\E-commerce-ASP\obj\Debug\E_commerce_ASP.Resources.Views.Home.Footer.fr.resources
 C:\Users\lenovo\Desktop\Info2\S1\ASP\Exam_project\E-commerce-ASP\E-commerce-ASP\obj\Debug\E_commerce_ASP.Resources.Views.Home.Search.resources
 C:\Users\lenovo\Desktop\Info2\S1\ASP\Exam_project\E-commerce-ASP\E-commerce-ASP\obj\Debug\E_commerce_ASP.Resources.Views.Home.Search.fr.resources
+C:\Users\lenovo\Desktop\Info2\S1\ASP\Exam_project\E-commerce-ASP\E-commerce-ASP\obj\Debug\E_commerce_ASP.Migrations.remove_lists_fields_from_product_model.resources

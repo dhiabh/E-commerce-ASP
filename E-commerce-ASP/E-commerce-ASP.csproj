@@ -250,6 +250,10 @@
     <Compile Include="Migrations\202201221303045_product remove required image.Designer.cs">
       <DependentUpon>202201221303045_product remove required image.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202201302346554_remove_lists_fields_from_product_model.cs" />
+    <Compile Include="Migrations\202201302346554_remove_lists_fields_from_product_model.Designer.cs">
+      <DependentUpon>202201302346554_remove_lists_fields_from_product_model.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Category.cs" />
@@ -624,6 +628,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202201221303045_product remove required image.resx">
       <DependentUpon>202201221303045_product remove required image.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201302346554_remove_lists_fields_from_product_model.resx">
+      <DependentUpon>202201302346554_remove_lists_fields_from_product_model.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Models\AccountViewModels.fr.resx" />
     <EmbeddedResource Include="Resources\Models\AccountViewModels.resx">
